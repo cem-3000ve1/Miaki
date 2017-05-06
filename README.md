@@ -19,6 +19,7 @@ Debug Settings
 Downgrading                 
 Testkit Activation (yay!)               
 Executing Unsigned Code.                   
+Quick Sign Up                           
 
 Also PSN Spoofing breaks on REX FW. since Henkaku r4 
 
