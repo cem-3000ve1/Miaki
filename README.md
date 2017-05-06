@@ -25,3 +25,7 @@ Also PSN Spoofing breaks on REX FW. since Henkaku r4
 
 Made in LPP
 Makes use of VitaRW by Major_Tom,
+
+
+BUT HOW DO I REMOVE IT?
+By reinstalling your firmware. dont worry, you wont loose any files on your memory card or anything. its just like a system update only your updating from 3.60 to 3.60 there are a bunch of ways to do this but the easiest way is to use the Firwmare-Reinstall app https://github.com/SilicaAndPina/Firmware-Reinstall/releases
