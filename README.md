@@ -1,6 +1,8 @@
 # CEX-2-REX
 Installs REX (Retail-Debug) Firmware on a regular CEX Vita
 
+MASSIVE UPDATE: THANKS TO CELESTEBLUE - PSN SPOOFING NOW WORKS ON REX!! THANK YOU CELESTE!
+
 REX Is like Testkit FW But a few things dont work properly
 What does work:                                          
 Debug Utility                                      
@@ -22,7 +24,6 @@ Testkit Activation (yay!)
 Executing Unsigned Code.                   
 Quick Sign Up                           
 
-Also PSN Spoofing breaks on REX FW. since Henkaku r4 
 
 Made in LPP
 Makes use of VitaRW by Major_Tom,
