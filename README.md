@@ -14,9 +14,9 @@ PS Store doesnt show up. (can still be added to app.db or launched with psns:)
 Both Title Stores.                     
 CMA "Copy Savedata Only"                          
 Show Mode Key Combo (L + R + LEFT on DPAD + START)                           
+Checker 
 
-What doesnt work:                        
-Checker                   
+What doesnt work:                                          
 MiniSettingsForQA            
 Debug Settings            
 Downgrading                 
@@ -27,6 +27,8 @@ Quick Sign Up
 
 Made in LPP
 Makes use of VitaRW by Major_Tom,
+Thx to CelesteBlue for VitaRW_for_lua.bin
+Also thx to voxel9 for checker app!
 
 
 BUT HOW DO I REMOVE IT?
