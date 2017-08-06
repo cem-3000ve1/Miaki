@@ -3,8 +3,9 @@ Installs REX (Retail-Debug) Firmware on a regular CEX Vita
 
 MASSIVE UPDATE: THANKS TO CELESTEBLUE - PSN SPOOFING NOW WORKS ON REX!! THANK YOU CELESTE!
 
-REX Is like Testkit FW But a few things dont work properly
-What does work:                                          
+REX Is TESTKIT firmware on RETAIL.
+Almost everything works..       
+What does work:                                    
 Debug Utility                                      
 Trophy App "Unlock All"                               
 Package Installer                         
