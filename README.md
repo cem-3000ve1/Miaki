@@ -14,11 +14,11 @@ PS Store doesnt show up. (can still be added to app.db or launched with psns:)
 Both Title Stores.                     
 CMA "Copy Savedata Only"                          
 Show Mode Key Combo (L + R + LEFT on DPAD + START)                           
-Checker 
-MiniSettingsForQA            
-Debug Settings 
-Quick Sign Up
-Executing Unsigned Code.      
+Checker       
+MiniSettingsForQA                        
+Debug Settings            
+Quick Sign Up            
+Executing Unsigned Code.           
 
 What doesnt work:                                          
 Downgrading                 
