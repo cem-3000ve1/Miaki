@@ -2,10 +2,11 @@
 Installs REX (Retail-Debug) Firmware on a regular CEX Vita
 
 MASSIVE UPDATE: THANKS TO CELESTEBLUE - PSN SPOOFING NOW WORKS ON REX!! THANK YOU CELESTE!
-
+MASSIVE UPDATE2: THX TO Voxel9 AND kgleba DEBUG SETTINGS IS NOW WORKKING
+                   
 REX Is TESTKIT firmware on RETAIL.
-Almost everything works..       
-What does work:                                    
+                                 
+What works:           
 Debug Utility                                      
 Trophy App "Unlock All"                               
 Package Installer                         
@@ -32,4 +33,4 @@ Made in LPP
 Makes use of VitaRW by Major_Tom,
 Thx to CelesteBlue for VitaRW_for_lua.bin
 Thx to: notzecoxao for the Testkit Spoofer kDump.skprx
-Thx to Voxel9 and @kgleba for Checker and Debug Settings unlock.
+Thx to Voxel9 and kgleba for Checker and Debug Settings unlock.
