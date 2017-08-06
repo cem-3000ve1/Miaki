@@ -15,7 +15,7 @@ Browser app has no "Playstation.com"
 PS Store doesnt show up. (can still be added to app.db or launched with psns:)                              
 Both Title Stores.                     
 CMA "Copy Savedata Only"                          
-Show Mode Key Combo (L + R + LEFT on DPAD + START)                           
+Show Mode Key Combo (L + R + RIGHT on DPAD + START)                           
 Checker       
 MiniSettingsForQA                        
 Debug Settings            
