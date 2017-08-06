@@ -2,7 +2,7 @@
 Installs REX (Retail-Debug) Firmware on a regular CEX Vita
 
 MASSIVE UPDATE: THANKS TO CELESTEBLUE - PSN SPOOFING NOW WORKS ON REX!! THANK YOU CELESTE!
-MASSIVE UPDATE2: THX TO Voxel9 AND kgleba DEBUG SETTINGS IS NOW WORKKING
+MASSIVE UPDATE2: THX TO Voxel9 AND skgleba DEBUG SETTINGS IS NOW WORKKING
                    
 REX Is TESTKIT firmware on RETAIL.
                                  
