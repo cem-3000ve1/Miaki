@@ -2,7 +2,7 @@
 Installs REX (Retail-Debug) Firmware on a regular CEX Vita
 
 MASSIVE UPDATE: THANKS TO CELESTEBLUE - PSN SPOOFING NOW WORKS ON REX!! THANK YOU CELESTE!
-MASSIVE UPDATE2: THX TO Voxel9 AND skgleba DEBUG SETTINGS IS NOW WORKKING
+MASSIVE UPDATE2: THX TO Voxel9 AND zecoxao DEBUG SETTINGS IS NOW WORKKING
                   
 Changes where made to kDump.skprx so it does not log or dump any files                          
                
@@ -35,4 +35,4 @@ Made in LPP
 Makes use of VitaRW by Major_Tom,
 Thx to CelesteBlue for VitaRW_for_lua.bin
 Thx to: notzecoxao for the Testkit Spoofer kDump.skprx
-Thx to Voxel9 and kgleba for Checker and Debug Settings unlock.
+Thx to Voxel9 for Checker and Debug Settings unlock.
