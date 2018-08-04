@@ -1,3 +1,19 @@
+# RELEASES:
+Its VERY important that you download the correct binary for your console.. if you dont you will probably have a semibrick after install
+
+# For PSTV's ON 3.60: 
+use: https://bitbucket.org/SilicaAndPina/cex-2-rex/downloads/CexToRex360PSTV.vpk
+
+# For PSVITA's ON 3.60:
+use: https://bitbucket.org/SilicaAndPina/cex-2-rex/downloads/CexToRex360VITA.vpk
+
+# For PSTV's ON 3.60: 
+use: https://bitbucket.org/SilicaAndPina/cex-2-rex/downloads/CexToRex365PSTV.vpk
+
+# For PSVITA's ON 3.60:
+use: https://bitbucket.org/SilicaAndPina/cex-2-rex/downloads/CexToRex365VITA.vpk
+
+# Readme
 
 Cex To Rex aims to convert a retail console into a Testkit (DEX) console,
 
