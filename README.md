@@ -22,3 +22,5 @@ Testkit Activation (do we really want this?)
 Downgrading..  
   
 Made in LPP Makes use of VitaRW by Major_Tom, Thx to CelesteBlue for VitaRW_for_lua.bin Thx to: notzecoxao for the Testkit Spoofer kDump.skprx Thx to Voxel9 for Checker and Debug Settings unlock. Thx to: skgleba for dumping 3.65 DEX Firmware.
+
+
