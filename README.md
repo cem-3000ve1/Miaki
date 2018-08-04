@@ -9,10 +9,10 @@ use: https://bitbucket.org/SilicaAndPina/cex-2-rex/downloads/CexToRex360PSTV.vpk
 # For PSVITA's ON 3.60:
 use: https://bitbucket.org/SilicaAndPina/cex-2-rex/downloads/CexToRex360VITA.vpk
 
-# For PSTV's ON 3.60: 
+# For PSTV's ON 3.65: 
 use: https://bitbucket.org/SilicaAndPina/cex-2-rex/downloads/CexToRex365PSTV.vpk
 
-# For PSVITA's ON 3.60:
+# For PSVITA's ON 3.65:
 use: https://bitbucket.org/SilicaAndPina/cex-2-rex/downloads/CexToRex365VITA.vpk
 
 # Readme
