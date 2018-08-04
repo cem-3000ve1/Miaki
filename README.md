@@ -1,6 +1,8 @@
 # RELEASES:
 Its VERY important that you download the correct binary for your console.. if you dont you will probably have a semibrick after install
 
+!!3.61, 3.63, 3.67, and 3.68 are NOT supported! ONLY 3.60 and 3.65!!
+
 # For PSTV's ON 3.60: 
 use: https://bitbucket.org/SilicaAndPina/cex-2-rex/downloads/CexToRex360PSTV.vpk
 
@@ -19,7 +21,7 @@ Cex To Rex aims to convert a retail console into a Testkit (DEX) console,
 
 Currently working Testkit features:   
 Debug Utility  
-Trophy App "Unlock All"  
+Trophy App "Unlock All" (Doesnt sync, for trophy hacks that sync. check out TropHAX)    
 Package Installer  
 Set Auto-Time Off to Never or 60 seconds  
 Browser app has no "Playstation.com"  
