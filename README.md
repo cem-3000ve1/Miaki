@@ -19,8 +19,8 @@ https://bitbucket.org/SilicaAndPina/cex-2-rex/src/master/Interlectural%20Propert
 Installer VPK: https://bitbucket.org/SilicaAndPina/cex-2-rex/downloads/CEX2REX-2.0.vpk
 DEX Firmware Updates: https://darthsternie.net/ps-vita-firmwares/
 
-# Building
-To build from source, you need the (Open Src PSV SDK)[https://vitasdk.org/] 
-then use ``sh build.sh`` to build the VPK.
-If you want to change the "Interlectural Property Notices", 
-You need the (PlayStation Mobile SDK)[http://deu01.psp2.update.playstation.net/psm_resource/general/all/PSM_SDK_2.00.00.exe] installed and run ``make_appinfo.bat``
+# Building      
+To build from source, you need VitaSdk - https://vitasdk.org/       
+then use ``sh build.sh`` to build the VPK.     
+If you want to change the "Interlectural Property Notices",      
+You need the PlayStation Mobile SDK @ http://deu01.psp2.update.playstation.net/psm_resource/general/all/PSM_SDK_2.00.00.exe] installed and run ``make_appinfo.bat``    
