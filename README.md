@@ -1,7 +1,7 @@
 # CEX2REX 2.0
 How to use:
-1) Download the Testkit/DEX PUP file for your firmware and put it @ ux0:/DEX.PUP
-2) Run the app and press X to install
+1) Download the Testkit/DEX PUP file for your firmware and put it @ ux0:/DEX.PUP   
+2) Run the app and press X to install    
 
 # Credits
 
@@ -12,3 +12,5 @@ TheFlow0 - SPKG Decryptor (modoru)
 "FAPS TEAM" / dots_tb - CUTTING EDGE NID TECHNOLOGY!!! NOT YET IN VITASDK/MASTER
 zecoaxco - spoof_testkit / memdump
 
+For license information: 
+https://bitbucket.org/SilicaAndPina/cex-2-rex/src/master/Interlectural%20Property%20Notices.txt
