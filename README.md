@@ -23,4 +23,5 @@ DEX Firmware Updates: https://darthsternie.net/ps-vita-firmwares/
 To build from source, you need VitaSdk - https://vitasdk.org/       
 then use ``sh build.sh`` to build the VPK.     
 If you want to change the "Interlectural Property Notices",      
-You need the PlayStation Mobile SDK @ http://deu01.psp2.update.playstation.net/psm_resource/general/all/PSM_SDK_2.00.00.exe] installed and run ``make_appinfo.bat``    
+You need the PlayStation Mobile SDK - http://ares.dl.playstation.net/psm_resource/general/all/PSM_SDK_2.00.00.exe 
+installed then run ``make_appinfo.bat`` to rebuild the app.info file           
