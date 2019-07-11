@@ -1,0 +1,1 @@
+void* ksceKernelSysrootAlloc(int size);

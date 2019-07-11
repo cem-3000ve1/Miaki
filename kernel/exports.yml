@@ -1,0 +1,16 @@
+Cex2Rex_Kern:
+  attributes: 0
+  version:
+    major: 1
+    minor: 0
+  main:
+    start: module_start
+    stop: module_stop
+  modules:
+    kC2R:
+      syscall: true
+      functions:
+        - kdd
+        - kDecryptSpkgFile
+        - kgetTotalLeft
+        - kscePowerSetCallbackEnabledForUser

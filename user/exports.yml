@@ -1,0 +1,16 @@
+Cex2Rex_User:
+  attributes: 0
+  version:
+    major: 1
+    minor: 0
+  main:
+    start: module_start
+    stop: module_stop
+  modules:
+    uC2R:
+      syscall: false
+      functions:
+        - dd
+        - DecryptSpkgFile
+        - getTotalLeft
+        - scePowerSetCallbackEnabled
