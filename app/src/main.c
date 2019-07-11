@@ -322,7 +322,7 @@ void restore()
 {
 	psvDebugScreenClear();
 	if(getFileSize("ur0:/vs0-orig.img") < 0){
-		psvDebugScreenPrintf("ur0:/vs0-orig.img MISSING, cannot restore\nIf you must go back, reinstall your firmware w official updater");
+		psvDebugScreenPrintf("ur0:/vs0-orig.img MISSING, cannot restore\nIf you must go back,\nEeinstall your firmware w official updater");
 		sceKernelDelayThread(10000000);
 		sceKernelExitProcess(0);
 	}
