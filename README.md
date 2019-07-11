@@ -1,5 +1,5 @@
 # CEX2REX 2.0
-How to use:
+How to use:     
 1) Download the Testkit/DEX PUP file for your firmware and put it @ ux0:/DEX.PUP   
 2) Run the app and press X to install    
 
