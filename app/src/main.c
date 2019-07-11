@@ -129,7 +129,9 @@ void config()
 		psvDebugScreenPrintf("Writing testkit.skprx");
 		CopyFile("app0:/testkit.skprx","ur0:tai/testkit.skprx");
 		
-		int pstv = vshSblAimgrIsGenuineDolce();
+		//int pstv = vshSblAimgrIsGenuineDolce(); - my PSTV was not genuine :'( I need to buy a product key for it.. 
+		//In the meantime, sceKernelIsPSVitaTV() it is!
+		int pstv = sceKernelIsPSVitaTV();
 		if(pstv)
 		{
 			CopyFile("app0:/pstvConfig.txt","ur0:tai/boot_config.txt");
@@ -459,12 +461,25 @@ void copyappinfo() // Setup Epic "interlectural property notices" thing
 	}
 }
 
+
 int main() {
 		copyappinfo();
 		psvDebugScreenInit();
         psvDebugScreenClear(0);
-		int size = getFileSize("ux0:/DEX.PUP");
-		if(size <= 0)
+			
+		int pup_type = 0;
+		int fd = sceIoOpen("ux0:/DEX.PUP", SCE_O_RDONLY, 0777);
+		if(fd > 0)
+		{
+			sceIoLseek(fd,0x3c,SCE_SEEK_SET);
+			sceIoRead(fd,&pup_type, sizeof(int));
+			sceIoClose(fd);
+			if(pup_type != 0x4)
+			{
+				psvDebugScreenPrintf("ux0:/DEX.PUP is NOT a TESTKIT UPDATE! (pup_type 0x%x expected 0x4)",pup_type);
+			}
+		}
+		else
 		{
 			char version[16];
 			SceKernelFwInfo data;
@@ -475,6 +490,7 @@ int main() {
 			psvDebugScreenPrintf("ux0:/DEX.PUP NOT FOUND!\nPlease download the DEX %s firmware update file (.PUP)\nAnd place it in ux0:/DEX.PUP",version);
 			while(1){};
 		}
+		
 		
 		if(isRex() == 0)
 		{
