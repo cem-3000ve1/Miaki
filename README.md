@@ -2,7 +2,8 @@
 How to use:           
 1) Download the Testkit/DEX PUP file for your firmware and put it @ ux0:/DEX.PUP         
 2) Run the app and press X to install          
-      
+- its recommended to have reF00D (https://github.com/dots-tb/reF00D) installed, as f00d refuses to decrypt some testkit applications
+
 # Credits      
       
 Silica - All Graphics, Most Code      
