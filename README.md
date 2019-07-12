@@ -41,7 +41,7 @@ Can be used to install fPKG from the psvita offical SDK, or to install DRMFree P
 Same as on 3.18.      
       
 # Settings      
-A new "Debug Settings" entry is added..\      
+A new "Debug Settings" entry is added..      
 Some notable features include user management and being able to skip game update checks.      
 also fake your consoles region :D      
 but heres a full list of changes if your interested ^-^      
