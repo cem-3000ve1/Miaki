@@ -180,7 +180,7 @@ void lock()
 					SCE_SHELL_UTIL_LOCK_TYPE_MC_REMOVED |
 					SCE_SHELL_UTIL_LOCK_TYPE_MUSIC_PLAYER |
 					SCE_SHELL_UTIL_LOCK_TYPE_PS_BTN_2);
-	scePowerSetCallbackEnabled(0); // Magical NID engineered by FAPS TEAM ;)
+	scePowerSetCallbackState(0); // Magical NID engineered by FAPS TEAM ;)
 }
 
 void extract()

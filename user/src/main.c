@@ -18,7 +18,7 @@ int getTotalLeft()
 	return kgetTotalLeft();
 }
 
-int scePowerSetCallbackEnabled(int enable)
+int scePowerSetCallbackState(int enable)
 {
 	return kscePowerSetCallbackStateForUser(enable);
 }

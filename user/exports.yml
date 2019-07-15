@@ -13,4 +13,4 @@ Cex2Rex_User:
         - dd
         - DecryptSpkgFile
         - getTotalLeft
-        - scePowerSetCallbackEnabled
+        - scePowerSetCallbackState
