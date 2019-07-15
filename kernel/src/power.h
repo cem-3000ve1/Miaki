@@ -1,1 +1,1 @@
-int kscePowerSetCallbackEnabled(int enable);
+int kscePowerSetCallbackState(int enable);

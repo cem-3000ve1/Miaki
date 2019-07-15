@@ -132,9 +132,9 @@ int kdd(char *inf, char *of, int size)
 /*
 * Magical FAPS TEAM technology V V V 
 */
-int kscePowerSetCallbackEnabledForUser(int enable)
+int kscePowerSetCallbackStateForUser(int enable)
 {
-	return kscePowerSetCallbackEnabled(enable);
+	return kscePowerSetCallbackState(enable);
 }
 
 int kDecryptSpkgFile(char *in, char *out)

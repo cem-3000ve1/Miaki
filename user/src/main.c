@@ -20,7 +20,7 @@ int getTotalLeft()
 
 int scePowerSetCallbackEnabled(int enable)
 {
-	return kscePowerSetCallbackEnabledForUser(enable);
+	return kscePowerSetCallbackStateForUser(enable);
 }
 
 void _start() __attribute__ ((weak, alias("module_start")));

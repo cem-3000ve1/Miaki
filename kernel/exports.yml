@@ -13,4 +13,4 @@ Cex2Rex_Kern:
         - kdd
         - kDecryptSpkgFile
         - kgetTotalLeft
-        - kscePowerSetCallbackEnabledForUser
+        - kscePowerSetCallbackStateForUser
