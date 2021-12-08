@@ -17,7 +17,7 @@ For license information:
 https://bitbucket.org/SilicaAndPina/cex-2-rex/src/master/Interlectural%20Property%20Notices.txt      
       
 # Downloads:      
-Installer VPK: https://bitbucket.org/SilicaAndPina/cex-2-rex/downloads/CEX2REX-2.0.vpk            
+Installer VPK: https://bitbucket.org/SilicaAndPina/cex-2-rex/downloads/CEX2REX-2.0.1.vpk            
 DEX Firmware Updates: https://darthsternie.net/ps-vita-firmwares/              
       
 # Building            
