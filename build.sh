@@ -6,7 +6,11 @@ cd kernel/
 cmake .
 make install
 
-cd ../spoofer/
+cd ../spoofer_vita/
+make clean
+make
+
+cd ../spoofer_pstv/
 make clean
 make
 
@@ -20,7 +24,8 @@ make install
 
 cd ../app/
 mv ../kmspico/kmspico.skprx kmspico.skprx
-mv ../spoofer/kDump.skprx testkit.skprx
+mv ../spoofer_vita/kDump.skprx testkit_vita.skprx
+mv ../spoofer_pstv/kDump.skprx testkit_pstv.skprx
 mv ../kernel/kernel.skprx kernel.skprx
 mv ../user/user.suprx user.suprx
 cmake .

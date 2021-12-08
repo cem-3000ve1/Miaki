@@ -3,6 +3,9 @@
 *	https://github.com/Princess-of-Sleeping/PSV-PUP-Extractor
 */
 
+#ifndef __PUP_H__
+#define __PUP_H__
+
 #include <psp2/kernel/processmgr.h>
 
 #include <psp2/io/dirent.h>
@@ -81,9 +84,9 @@ typedef struct {
 	SceUInt32	unknown_0x3C;
 } __attribute__((packed)) ScePlayStartionUpdatePackageHeader3;
 
-char pup_type_buf[0x20];
-char pup_dec_dir[0x100];
-char temp_buff[0x2000];
+static char pup_type_buf[0x20];
+static char pup_dec_dir[0x100];
+static char temp_buff[0x2000];
 
 
 int get_key(int type);
@@ -100,3 +103,5 @@ void sceGetPlayStartionUpdatePackageFileEntryId(void *buff, int entry_id);
 int sceGetPlayStartionUpdatePackageInfo(ScePlayStartionUpdatePackageHeader1 *header);
 
 int scePlayStartionUpdatePackageExtractStage1(char *ext_pup_path);
+
+#endif

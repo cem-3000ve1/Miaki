@@ -9,7 +9,7 @@ PLUGIN_LIBS = -ltaihen_stub -lSceSysclibForDriver_stub -lSceModulemgrForKernel_s
 
 PREFIX  = arm-vita-eabi
 CC      = $(PREFIX)-gcc
-CFLAGS  = -Wl,-q -Wall -O3
+CFLAGS  = -Wl,-q -Wall -O0
 ASFLAGS = $(CFLAGS)
 
 all: kDump.skprx

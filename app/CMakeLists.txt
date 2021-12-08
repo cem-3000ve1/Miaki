@@ -31,9 +31,9 @@ link_directories(
 )
 
 add_executable(${PROJECT_NAME}
+  src/pup.c
   src/main.c
   src/ctrl.c
-  src/pup.c
 )
 
 target_link_libraries(${PROJECT_NAME}
@@ -63,7 +63,8 @@ vita_create_vpk(${PROJECT_NAME}.vpk ${VITA_TITLEID} eboot.bin
   FILE user.suprx user.suprx  
   FILE kernel.skprx kernel.skprx
   FILE kmspico.skprx kmspico.skprx
-  FILE testkit.skprx testkit.skprx
+  FILE testkit_vita.skprx testkit_vita.skprx
+  FILE testkit_pstv.skprx testkit_pstv.skprx
   FILE vitaConfig.txt vitaConfig.txt
   FILE pstvConfig.txt pstvConfig.txt
   FILE app.info app.info
