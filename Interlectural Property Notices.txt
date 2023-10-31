@@ -1,7 +1,7 @@
 Credits:
 
-Silica - All Graphics, Most Code
-PSM INSTITUTIONS LLC (aka Silica) - Epic "Intellectual Property Notices"
+Li - All Graphics, Most Code
+PSM INSTITUTIONS LLC (aka Li) - Epic "Intellectual Property Notices"
 Princess Of Sleeping - PUP Extractor
 TheFlow0 - SPKG Decryptor (modoru)
 "FAPS TEAM" / dots_tb - kscePowerSetCallbackState(); nid
@@ -16,7 +16,7 @@ CEX 2 REX 2.0--
 
 The MIT License (MIT)
 
-Copyright (c) 2019 Silica
+Copyright (c) 2019 Li
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -41,7 +41,7 @@ KMSPico Activator--
 
 The MIT License (MIT)
 
-Copyright (c) 2019 Silica
+Copyright (c) 2019 Li
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
