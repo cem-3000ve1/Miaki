@@ -4,7 +4,7 @@
 #include <vitasdk.h>
 #include <taihen.h>
 
-#include <cex2rex_user.h>
+#include "cex2rex_user.h"
 
 #include "ctrl.h"
 #include "debugScreen.h"
@@ -109,8 +109,6 @@ configMenuStart:
 	
 	psvDebugScreenPrintf("X: Full Install (spoofer + activator + testkit vsh)\n");
 	psvDebugScreenPrintf("O: Warning Message Install (spoofer + testkit vsh)\n");
-	psvDebugScreenPrintf("[]: Enso-less Install (testkit vsh)\n");
-	psvDebugScreenPrintf("/\\: Switch machine type (VITA <-> PSTV)\n");
 	
 	sceKernelDelayThread(100000);
 
@@ -121,12 +119,6 @@ configMenuStart:
 				break;
 			case SCE_CTRL_CIRCLE:
 				spoofer = 1;
-				break;
-			case SCE_CTRL_TRIANGLE:
-				pstv = !pstv;
-				goto configMenuStart;
-				break;
-			case SCE_CTRL_SQUARE:
 				break;
 			default:
 				sceKernelExitProcess(0);
@@ -490,10 +482,6 @@ int main() {
 			sceIoLseek(fd,0x3c,SCE_SEEK_SET);
 			sceIoRead(fd,&pup_type, sizeof(int));
 			sceIoClose(fd);
-			if(pup_type != 0x4)
-			{
-				psvDebugScreenPrintf("ux0:/DEX.PUP is NOT a TESTKIT UPDATE! (pup_type 0x%x expected 0x4)",pup_type);
-			}
 		}
 		else
 		{

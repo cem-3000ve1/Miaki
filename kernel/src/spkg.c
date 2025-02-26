@@ -115,7 +115,6 @@ int decrypt_spkg(void *buf, int size) {
     }
   }
 
-  ksceKernelCpuDcacheAndL2WritebackRange(buf, ALIGN(size, 0x40));
 
   return 0;
 }

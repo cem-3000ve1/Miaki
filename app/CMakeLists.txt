@@ -8,12 +8,12 @@ if(NOT DEFINED CMAKE_TOOLCHAIN_FILE)
   endif()
 endif()
 
-project(CEX2REX)
+project(MIAKI)
 
 include("${VITASDK}/share/vita.cmake" REQUIRED)
 
-set(VITA_APP_NAME "CEX 2 REX 2.0")
-set(VITA_TITLEID  "CEX2REX20")
+set(VITA_APP_NAME "★Miaki")
+set(VITA_TITLEID  "MIAKI00")
 
 set(VITA_VERSION  "02.00")
 

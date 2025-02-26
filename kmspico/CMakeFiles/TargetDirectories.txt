@@ -1,0 +1,12 @@
+/c/Users/Lazy/cex-2-rex/kmspico/CMakeFiles/kmspico.dir
+/c/Users/Lazy/cex-2-rex/kmspico/CMakeFiles/kmspico-velf.dir
+/c/Users/Lazy/cex-2-rex/kmspico/CMakeFiles/kmspico.skprx-self.dir
+/c/Users/Lazy/cex-2-rex/kmspico/CMakeFiles/stubs.dir
+/c/Users/Lazy/cex-2-rex/kmspico/CMakeFiles/libkmspico_stub.a.dir
+/c/Users/Lazy/cex-2-rex/kmspico/CMakeFiles/libkmspico_stub_weak.a.dir
+/c/Users/Lazy/cex-2-rex/kmspico/CMakeFiles/edit_cache.dir
+/c/Users/Lazy/cex-2-rex/kmspico/CMakeFiles/rebuild_cache.dir
+/c/Users/Lazy/cex-2-rex/kmspico/CMakeFiles/list_install_components.dir
+/c/Users/Lazy/cex-2-rex/kmspico/CMakeFiles/install.dir
+/c/Users/Lazy/cex-2-rex/kmspico/CMakeFiles/install/local.dir
+/c/Users/Lazy/cex-2-rex/kmspico/CMakeFiles/install/strip.dir

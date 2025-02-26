@@ -1,0 +1,3 @@
+/usr/local/vitasdk/arm-vita-eabi/lib/libCex2Rex_User_stub.a
+/usr/local/vitasdk/arm-vita-eabi/lib/libCex2Rex_User_stub_weak.a
+/usr/local/vitasdk/arm-vita-eabi/include/cex2rex_user.h

@@ -1,0 +1,12 @@
+/c/Users/Lazy/cex-2-rex/user/CMakeFiles/cex2rex_user.dir
+/c/Users/Lazy/cex-2-rex/user/CMakeFiles/cex2rex_user-velf.dir
+/c/Users/Lazy/cex-2-rex/user/CMakeFiles/user.suprx-self.dir
+/c/Users/Lazy/cex-2-rex/user/CMakeFiles/stubs.dir
+/c/Users/Lazy/cex-2-rex/user/CMakeFiles/libCex2Rex_User_stub.a.dir
+/c/Users/Lazy/cex-2-rex/user/CMakeFiles/libCex2Rex_User_stub_weak.a.dir
+/c/Users/Lazy/cex-2-rex/user/CMakeFiles/edit_cache.dir
+/c/Users/Lazy/cex-2-rex/user/CMakeFiles/rebuild_cache.dir
+/c/Users/Lazy/cex-2-rex/user/CMakeFiles/list_install_components.dir
+/c/Users/Lazy/cex-2-rex/user/CMakeFiles/install.dir
+/c/Users/Lazy/cex-2-rex/user/CMakeFiles/install/local.dir
+/c/Users/Lazy/cex-2-rex/user/CMakeFiles/install/strip.dir
