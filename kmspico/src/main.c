@@ -6,6 +6,7 @@
 static int hook = -1;
 static tai_hook_ref_t ref_hook;
 
+int ksceSblPostSsMgrSetCpRtc(unsigned int timestamp);
 int ksceSblPostSsMgrGetExpireDate_patched(int *arg1, int arg2)
 {
 	return 1;
@@ -17,7 +18,7 @@ int module_start(SceSize args, void *argp) {
 										&ref_hook, 
 										"SceSblPostSsMgr",
 										0x2254E1B2,
-										0x4FF2682F, 
+										0x942010A0,
 										ksceSblPostSsMgrGetExpireDate_patched);
 	return SCE_KERNEL_START_SUCCESS;
 }

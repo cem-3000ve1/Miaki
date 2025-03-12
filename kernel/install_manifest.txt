@@ -1,3 +1,0 @@
-/usr/local/vitasdk/arm-vita-eabi/lib/libCex2Rex_Kern_stub.a
-/usr/local/vitasdk/arm-vita-eabi/lib/libCex2Rex_Kern_stub_weak.a
-/usr/local/vitasdk/arm-vita-eabi/include/cex2rex_kern.h

@@ -1,1 +1,0 @@
-/usr/local/vitasdk/bin/arm-vita-eabi-gcc  -Wl,-q -Wl,-q -Wall -O3 -nostdlib -Wl,-z,nocopyreloc CMakeFiles/cex2rex_user.dir/src/main.c.obj -o cex2rex_user  -lSceLibKernel_stub -lSceIofilemgr_stub -lCex2Rex_Kern_stub -lSceLibc_stub

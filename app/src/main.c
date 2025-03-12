@@ -102,7 +102,8 @@ configMenuStart:
 	psvDebugScreenPrintf("Installation Type\n\n");
 	psvDebugScreenPrintf("Please confirm: ");
 	if(pstv)
-		psvDebugScreenPrintf("(PlayStation Vita TV)\n");
+		psvDebugScreenPrintf("PSTV is not supported...\n");
+		sceKernelExitProcess(0);
 	else
 		psvDebugScreenPrintf("(PlayStation Vita Handheld)\n");
 	psvDebugScreenPrintf("If you use the wrong config you have to reinstall firmware!\n\n");
@@ -420,7 +421,7 @@ void flash()
 	
 	cleanup();
 	psvDebugScreenClear();
-	psvDebugScreenPrintf("Flash complete~ Your console is now a \"testkit\"");
+	psvDebugScreenPrintf("Flash complete~ Your console is now a \"DevKit\"");
 	sceKernelDelayThread(10000000);
 	scePowerRequestColdReset();
 }
@@ -498,7 +499,7 @@ int main() {
 		
 		if(isRex() == 0)
 		{
-			psvDebugScreenPrintf("CEX-2-REX 2.0 - Currently CEX\n");
+			psvDebugScreenPrintf("Miaki v2 - Currently CEX\n");
 			psvDebugScreenPrintf("X: Install TestKit Firmware\n");
 			
 			sceKernelDelayThread(100000);
@@ -515,9 +516,13 @@ int main() {
 		}
 		else
 		{
-			psvDebugScreenPrintf("CEX-2-REX 2.0 - Currently REX\n");
-			psvDebugScreenPrintf("X: Uninstall TestKit Firmware\n");
+			int edition = 0;
+			int boot = 0;
+			psvDebugScreenPrintf("Miaki v2 - Currently REX\n\n");
+			psvDebugScreenPrintf("X: Uninstall DevKit Firmware\n");
 			psvDebugScreenPrintf("O: Change Installation Type\n");
+			psvDebugScreenPrintf("[]: Change Edition\n");
+			psvDebugScreenPrintf("/\\ : Boot Parameters\n");
 			
 			sceKernelDelayThread(100000);
 			while(1)
@@ -530,9 +535,63 @@ int main() {
 							config();
 							scePowerRequestColdReset();
 							break;
+						case SCE_CTRL_SQUARE:
+							edition = 1;
+							break;
 						default:
 							break;
 						}
+			}
+
+			if (edition) 
+			{
+				int pro = 0;
+				int dev = 0;
+				int test = 0;
+			configMenuStart
+				psvDebugScreenClear(0);
+				psvDebugScreenPtrinf("PSvita CID:\n\n");
+				psvDebugScreenPrintf("X: PSvita DevKit\n");
+				psvDebugScreenPrintf("O: PSvita TestKit\n");
+				psvDebugScreenPrintf("[]: PSvita Prototype\n");
+
+				sceKernelDelayThread(100000);
+				switch(get_key(0)) {
+					case SCE_CTRL_CROSS:
+						dev = 1;
+						break;
+					case SCE_CTRL_CIRCLE:
+						test = 1;
+						break;
+					case SCE_CTRL_SQUARE:
+						pro = 1;
+						break;
+					default:
+						sceKernelExitProcess(0);
+						break;
+				}
+				
+				if (dev)
+				{
+					psvDebugScreenPrintf("Switching to DevKit...");
+					CopyFile("app0:/dev_vita.skprx", "ur0:tai/testkit.skprx");
+					scePowerRequestColdReset();
+				}
+
+				if (test)
+				{
+					psvDebugScreenPrintf("Switching to TestKit...");
+					CopyFile("app0:/testkit_vita.skprx", "ur0:tai/testkit.skprx");
+					scePowerRequestColdReset();
+				}
+
+				if (pro)
+				{
+					psvDebugScreenPrintf("Switching to Prototype...");
+					CopyFile("app0:/pro_vita.skprx", "ur0:tai/testkit.skprx");
+					scePowerRequestColdReset();
+				}
+
 			}
 		}
 		

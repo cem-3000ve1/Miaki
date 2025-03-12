@@ -1,2 +1,0 @@
-/usr/local/vitasdk/arm-vita-eabi/lib/libkmspico_stub.a
-/usr/local/vitasdk/arm-vita-eabi/lib/libkmspico_stub_weak.a
