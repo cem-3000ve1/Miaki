@@ -18,7 +18,6 @@ cd ../spoofer_vita_test/
 make clean
 make
 
-
 cd ../spoofer_pstv/
 make clean
 make
