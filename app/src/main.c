@@ -543,6 +543,43 @@ int main() {
 						}
 			}
 
+			if (boot)
+			{
+				int release = 0;
+				int devmode = 0;
+				configMenuStart
+				psvDebugScreenClear(0);
+				psvDebugScreenPtrinf("Boot Parameters:\n\n");
+				psvDebugScreenPrintf("X: Enable DevMode\n");
+				psvDebugScreenPrintf("O: Disable DevMode\n");
+				sceKernelDelayThread(100000);
+				switch(get_key(0)) {
+					case SCE_CTRL_CROSS:
+						devmode = 1;
+						break;
+					case SCE_CTRL_CIRCLE:
+						release = 1;
+						break;
+					default:
+						sceKernelExitProcess(0);
+						break;
+				}
+
+				if (devmode)
+				{
+					psvDebugScreenPrintf("Enable DevMode...\n");
+					CopyFile("app0:/devmode.skprx", "ur0:tai/devmode.skprx");
+					scePowerRequestColdReset();
+				}
+
+				if (release)
+				{
+					psvDebugScreenPrintf("Disable DevMode...\n");
+					sceIoRemove("ur0:tai/devmode.skprx");
+					scePowerRequestColdReset();
+				}
+			}
+
 			if (edition) 
 			{
 				int pro = 0;
