@@ -102,11 +102,13 @@ configMenuStart:
 	psvDebugScreenPrintf("Installation Type\n\n");
 	psvDebugScreenPrintf("Please confirm: ");
 	if(pstv)
+	{
 		psvDebugScreenPrintf("PSTV is not supported...\n");
 		sceKernelExitProcess(0);
-	else
+	} else {
 		psvDebugScreenPrintf("(PlayStation Vita Handheld)\n");
 	psvDebugScreenPrintf("If you use the wrong config you have to reinstall firmware!\n\n");
+	}
 	
 	psvDebugScreenPrintf("X: Full Install (spoofer + activator + testkit vsh)\n");
 	psvDebugScreenPrintf("O: Warning Message Install (spoofer + testkit vsh)\n");
@@ -547,8 +549,8 @@ int main() {
 			{
 				int release = 0;
 				int devmode = 0;
-				configMenuStart
-				psvDebugScreenClear(0);
+			configMenuStart:
+				psvDebugScreenClear();
 				psvDebugScreenPtrinf("Boot Parameters:\n\n");
 				psvDebugScreenPrintf("X: Enable DevMode\n");
 				psvDebugScreenPrintf("O: Disable DevMode\n");
@@ -585,7 +587,6 @@ int main() {
 				int pro = 0;
 				int dev = 0;
 				int test = 0;
-			configMenuStart
 				psvDebugScreenClear(0);
 				psvDebugScreenPtrinf("PSvita CID:\n\n");
 				psvDebugScreenPrintf("X: PSvita DevKit\n");
