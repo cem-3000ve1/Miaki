@@ -34,23 +34,6 @@ Miaki is a CEX2REX mod that allows you to install the DevKit firmware on a retai
 5. Once finished, the console will restart.
 6. **Congratulations! Your PS Vita is now running DevKit firmware!**
 
-## Optional: Enable DevMode & Remove Backup Battery Message
-1. Download the following plugins:
-   - `red_msg_del.suprx`
-   - `DevModeActivator.skprx`
-2. Place them in `ur0:tai/`.
-3. Open **VitaShell** and navigate to `ur0:tai/config.txt`.
-4. Add the following lines:
-   - Under **`*KERNEL`**, add:
-     ```
-     ur0:tai/DevModeActivator.skprx
-     ```
-   - Under **`*main`**, add:
-     ```
-     ur0:tai/red_msg_del.suprx
-     ```
-5. Restart your PS Vita.
-
 ## Special Thanks
 - **Li** - Creator of CEX2REX and for his support.
 - **Powerm1nt** - For assisting with development.
