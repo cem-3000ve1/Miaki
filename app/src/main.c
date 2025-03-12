@@ -110,8 +110,8 @@ configMenuStart:
 	psvDebugScreenPrintf("If you use the wrong config you have to reinstall firmware!\n\n");
 	}
 	
-	psvDebugScreenPrintf("X: Full Install (spoofer + activator + testkit vsh)\n");
-	psvDebugScreenPrintf("O: Warning Message Install (spoofer + testkit vsh)\n");
+	psvDebugScreenPrintf("X: Activated DevKit\n");
+	psvDebugScreenPrintf("O: Expired DevKit\n");
 	
 	sceKernelDelayThread(100000);
 
@@ -527,9 +527,7 @@ int main() {
 			psvDebugScreenPrintf("/\\ : Boot Parameters\n");
 			
 			sceKernelDelayThread(100000);
-			while(1)
-			{
-				switch(get_key(0)) {
+			switch(get_key(0)) {
 						case SCE_CTRL_CROSS:
 							uninstall();
 							break;
@@ -540,10 +538,15 @@ int main() {
 						case SCE_CTRL_SQUARE:
 							edition = 1;
 							break;
+						case SCE_CTRL_TRIANGLE:
+							boot = 1;
+							break;
 						default:
 							break;
 						}
-			}
+			
+				
+			
 
 			if (boot)
 			{
@@ -551,7 +554,7 @@ int main() {
 				int devmode = 0;
 			configMenuStart:
 				psvDebugScreenClear();
-				psvDebugScreenPtrinf("Boot Parameters:\n\n");
+				psvDebugScreenPrintf("Boot Parameters:\n\n");
 				psvDebugScreenPrintf("X: Enable DevMode\n");
 				psvDebugScreenPrintf("O: Disable DevMode\n");
 				sceKernelDelayThread(100000);
@@ -587,8 +590,9 @@ int main() {
 				int pro = 0;
 				int dev = 0;
 				int test = 0;
+				sceKernelDelayThread(100000);
 				psvDebugScreenClear(0);
-				psvDebugScreenPtrinf("PSvita CID:\n\n");
+				psvDebugScreenPrintf("PSvita CID:\n\n");
 				psvDebugScreenPrintf("X: PSvita DevKit\n");
 				psvDebugScreenPrintf("O: PSvita TestKit\n");
 				psvDebugScreenPrintf("[]: PSvita Prototype\n");
