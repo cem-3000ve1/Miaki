@@ -8,7 +8,7 @@ if(NOT DEFINED CMAKE_TOOLCHAIN_FILE)
   endif()
 endif()
 
-project(cex2rex_kern)
+project(miaki_kern)
 include("${VITASDK}/share/vita.cmake" REQUIRED)
 
 set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wl,-q -Wall -O3 -nostdlib")
@@ -46,6 +46,6 @@ install(DIRECTORY ${CMAKE_BINARY_DIR}/stubs/
   FILES_MATCHING PATTERN "*.a"
 )
 
-install(FILES src/cex2rex_kern.h
+install(FILES src/miaki_kern.h
   DESTINATION include
 )
