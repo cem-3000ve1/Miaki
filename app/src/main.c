@@ -501,7 +501,7 @@ int main() {
 		
 		if(isRex() == 0)
 		{
-			psvDebugScreenPrintf("Miaki v2 - Currently CEX\n");
+			psvDebugScreenPrintf("Miaki v2.1 - Currently CEX\n");
 			psvDebugScreenPrintf("X: Install TestKit Firmware\n");
 			
 			sceKernelDelayThread(100000);
@@ -520,9 +520,10 @@ int main() {
 		{
 			int edition = 0;
 			int boot = 0;
-			psvDebugScreenPrintf("Miaki v2 - Currently REX\n\n");
+			int activation = 0;
+			psvDebugScreenPrintf("Miaki v2.1 - Currently REX\n\n");
 			psvDebugScreenPrintf("X: Uninstall DevKit Firmware\n");
-			psvDebugScreenPrintf("O: Change Installation Type\n");
+			psvDebugScreenPrintf("O: Change Activation\n");
 			psvDebugScreenPrintf("[]: Change Edition\n");
 			psvDebugScreenPrintf("/\\ : Boot Parameters\n");
 			
@@ -532,8 +533,7 @@ int main() {
 							uninstall();
 							break;
 						case SCE_CTRL_CIRCLE:
-							config();
-							scePowerRequestColdReset();
+							activation = 0;
 							break;
 						case SCE_CTRL_SQUARE:
 							edition = 1;
@@ -544,6 +544,42 @@ int main() {
 						default:
 							break;
 						}
+			if (activation)
+			{
+				int activated = 0;
+				int expired = 0;
+				psvDebugScreenClear();
+				psvDebugScreenPrintf("Miaki activation spoofer:\n\n");
+				psvDebugScreenPrintf("X: Activated\n");
+				psvDebugScreenPrintf("O: Expired\n");
+				sceKernelDelayThread(100000);
+				switch(get_key(0)) {
+						case SCE_CTRL_CROSS:
+							activated = 1;
+							break;
+						case SCE_CTRL_CIRCLE:
+							expired = 1; 
+							break;
+						default:
+							break;
+						}
+				if (activated)
+				{
+					psvDebugScreenClear();
+					psvDebugScreenPrintf("Activated!");
+					CopyFile("app0:/kmspico.skprx", "ur0:tai/kmspico.skprx");
+					scePowerRequestColdReset();
+				}
+
+				if (expired)
+				{
+					psvDebugScreenClear();
+					psvDebugScreenPrintf("Expired!");
+					sceIoRemove("ur0:tai/kmspico.skprx");
+					scePowerRequestColdReset();
+				}
+					
+			}
 			
 				
 			

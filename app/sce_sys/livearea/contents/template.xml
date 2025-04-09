@@ -1,157 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <livearea style="psmobile" format-ver="01.00" content-rev="1">
-	<livearea-background>
-		<image>bg.png</image>
-	</livearea-background>
-	
-<frame id="frame4">
-    <liveitem>
-        <lang>ja</lang>
-        <target>psm_manual:ux0:psm/CEXR20202</target>
-        <text align="center" text-align="center" word-wrap="off" ellipsis="on">
-            <str size="18" color="#63FDFF" shadow="on">| 知的財産の表記 |</str>
-        </text>
-    </liveitem>
-    <liveitem>
-        <lang>en</lang>
-        <target>psm_manual:ux0:psm/CEXR20202</target>
-        <text align="center" text-align="center" word-wrap="off" ellipsis="on">
-            <str size="18" color="#63FDFF" shadow="on">| Intellectual Property Notices |</str>
-        </text>
-    </liveitem>
-    <liveitem>
-        <lang>fr</lang>
-        <target>psm_manual:ux0:psm/CEXR20202</target>
-        <text align="center" text-align="center" word-wrap="off" ellipsis="on">
-            <str size="18" color="#63FDFF" shadow="on">| Avis de propriété intellectuelle |</str>
-        </text>
-    </liveitem>
-    <liveitem>
-        <lang>es</lang>
-        <target>psm_manual:ux0:psm/CEXR20202</target>
-        <text align="center" text-align="center" word-wrap="off" ellipsis="on">
-            <str size="18" color="#63FDFF" shadow="on">| Avisos sobre propiedad intelectual |</str>
-        </text>
-    </liveitem>
-    <liveitem>
-        <lang>de</lang>
-        <target>psm_manual:ux0:psm/CEXR20202</target>
-        <text align="center" text-align="center" word-wrap="off" ellipsis="on">
-            <str size="18" color="#63FDFF" shadow="on">| Geistiges Eigentum |</str>
-        </text>
-    </liveitem>
-    <liveitem>
-        <lang>it</lang>
-        <target>psm_manual:ux0:psm/CEXR20202</target>
-        <text align="center" text-align="center" word-wrap="off" ellipsis="on">
-            <str size="18" color="#63FDFF" shadow="on">| Avvisi sulla proprietà intellettuale |</str>
-        </text>
-    </liveitem>
-    <liveitem>
-        <lang>nl</lang>
-        <target>psm_manual:ux0:psm/CEXR20202</target>
-        <text align="center" text-align="center" word-wrap="off" ellipsis="on">
-            <str size="18" color="#63FDFF" shadow="on">| Intellectuele eigendomsmeldingen |</str>
-        </text>
-    </liveitem>
-    <liveitem>
-        <lang>pt</lang>
-        <target>psm_manual:ux0:psm/CEXR20202</target>
-        <text align="center" text-align="center" word-wrap="off" ellipsis="on">
-            <str size="18" color="#63FDFF" shadow="on">| Avisos de propriedade intelectual |</str>
-        </text>
-    </liveitem>
-    <liveitem>
-        <lang>ru</lang>
-        <target>psm_manual:ux0:psm/CEXR20202</target>
-        <text align="center" text-align="center" word-wrap="off" ellipsis="on">
-            <str size="18" color="#63FDFF" shadow="on">| Уведомления об интеллектуальной собственности |</str>
-        </text>
-    </liveitem>
-    <liveitem>
-        <lang>ko</lang>
-        <target>psm_manual:ux0:psm/CEXR20202</target>
-        <text align="center" text-align="center" word-wrap="off" ellipsis="on">
-            <str size="18" color="#63FDFF" shadow="on">| 지적 재산권 표기 |</str>
-        </text>
-    </liveitem>
-    <liveitem>
-        <lang>ch</lang>
-        <target>psm_manual:ux0:psm/CEXR20202</target>
-        <text align="center" text-align="center" word-wrap="off" ellipsis="on">
-            <str size="18" color="#63FDFF" shadow="on">| 知識產權資訊 |</str>
-        </text>
-    </liveitem>
-    <liveitem>
-        <lang>zh</lang>
-        <target>psm_manual:ux0:psm/CEXR20202</target>
-        <text align="center" text-align="center" word-wrap="off" ellipsis="on">
-            <str size="18" color="#63FDFF" shadow="on">| 知识产权信息 |</str>
-        </text>
-    </liveitem>
-    <liveitem>
-        <lang>fi</lang>
-        <target>psm_manual:ux0:psm/CEXR20202</target>
-        <text align="center" text-align="center" word-wrap="off" ellipsis="on">
-            <str size="18" color="#63FDFF" shadow="on">| Immateriaalioikeudelliset huomautukset |</str>
-        </text>
-    </liveitem>
-    <liveitem>
-        <lang>sv</lang>
-        <target>psm_manual:ux0:psm/CEXR20202</target>
-        <text align="center" text-align="center" word-wrap="off" ellipsis="on">
-            <str size="18" color="#63FDFF" shadow="on">| Meddelande om upphovsrätt |</str>
-        </text>
-    </liveitem>
-    <liveitem>
-        <lang>da</lang>
-        <target>psm_manual:ux0:psm/CEXR20202</target>
-        <text align="center" text-align="center" word-wrap="off" ellipsis="on">
-            <str size="18" color="#63FDFF" shadow="on">| Meddelelser om immateriel ejendomsret |</str>
-        </text>
-    </liveitem>
-    <liveitem>
-        <lang>no</lang>
-        <target>psm_manual:ux0:psm/CEXR20202</target>
-        <text align="center" text-align="center" word-wrap="off" ellipsis="on">
-            <str size="18" color="#63FDFF" shadow="on">| Opphavsrettvarsel |</str>
-        </text>
-    </liveitem>
-    <liveitem>
-        <lang>pl</lang>
-        <target>psm_manual:ux0:psm/CEXR20202</target>
-        <text align="center" text-align="center" word-wrap="off" ellipsis="on">
-            <str size="18" color="#63FDFF" shadow="on">| Informacje dotyczące własności intelektualnej |</str>
-        </text>
-    </liveitem>
-    <liveitem>
-        <lang>pt-br</lang>
-        <target>psm_manual:ux0:psm/CEXR20202</target>
-        <text align="center" text-align="center" word-wrap="off" ellipsis="on">
-            <str size="18" color="#63FDFF" shadow="on">| Avisos de propriedade intelectual |</str>
-        </text>
-    </liveitem>
-    <liveitem>
-        <lang>en-gb</lang>
-        <target>psm_manual:ux0:psm/CEXR20202</target>
-        <text align="center" text-align="center" word-wrap="off" ellipsis="on">
-            <str size="18" color="#63FDFF" shadow="on">| Intellectual Property Notices |</str>
-        </text>
-    </liveitem>
-    <liveitem>
-        <lang>tr</lang>
-        <target>psm_manual:ux0:psm/CEXR20202</target>
-        <text align="center" text-align="center" word-wrap="off" ellipsis="on">
-            <str size="18" color="#63FDFF" shadow="on">| Fikri Mülkiyet Bildirimleri |</str>
-        </text>
-    </liveitem>
-    <liveitem default="on">
-        <target>psm_manual:ux0:psm/CEXR20202</target>
-        <text align="center" text-align="center" word-wrap="off" ellipsis="on">
-            <str size="18" color="#63FDFF" shadow="on">| Intellectual Property Notices |</str>
-        </text>
-    </liveitem>
-</frame>
+    <livearea-background>
+        <image>bg.png</image>
+    </livearea-background>
+    
+        <frame id="frame2">
+        <liveitem>
+            <text valign="bottom" align="left" text-align="left" text-valign="bottom" line-space="3" ellipsis="on">
+                <str color="#ffffff" size="40" bold="on" shadow="on">★Miaki</str>
+            </text>
+        </liveitem>
+    </frame>
+    
+    <frame id="frame3">
+        <liveitem>
+            <text valign="top" align="left" text-align="left" text-valign="top" line-space="2" ellipsis="on">
+                <str size="22" shadow="on">by ImLazy_</str>
+            </text>
+        </liveitem>
+    </frame>
+        
+    <frame id="frame4">
+        <liveitem>
+            <text align="left" text-align="left" word-wrap="off" ellipsis="on">
+                <str size="18" color="#ffffff" shadow="on">v2.1-public</str>
+            </text>
+        </liveitem>
+    </frame>
+
 
 </livearea>
