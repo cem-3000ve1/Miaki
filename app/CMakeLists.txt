@@ -13,7 +13,7 @@ project(MIAKI)
 include("${VITASDK}/share/vita.cmake" REQUIRED)
 
 set(VITA_APP_NAME "★Miaki")
-set(VITA_TITLEID  "CEX2REX20")
+set(VITA_TITLEID  "MIAKIDEX0")
 
 set(VITA_VERSION  "02.00")
 
