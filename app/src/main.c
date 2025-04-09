@@ -533,7 +533,7 @@ int main() {
 							uninstall();
 							break;
 						case SCE_CTRL_CIRCLE:
-							activation = 0;
+							activation = 1;
 							break;
 						case SCE_CTRL_SQUARE:
 							edition = 1;
@@ -563,6 +563,7 @@ int main() {
 						default:
 							break;
 						}
+						
 				if (activated)
 				{
 					psvDebugScreenClear();
