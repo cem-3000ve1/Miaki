@@ -518,11 +518,12 @@ int main() {
 		}
 		else
 		{
+			int option = 0;
 			int edition = 0;
 			int boot = 0;
 			int activation = 0;
 			psvDebugScreenPrintf("Miaki v2.1 - Currently REX\n\n");
-			psvDebugScreenPrintf("X: Uninstall DevKit Firmware\n");
+			psvDebugScreenPrintf("X: Firmware installation\n");
 			psvDebugScreenPrintf("O: Change Activation\n");
 			psvDebugScreenPrintf("[]: Change Edition\n");
 			psvDebugScreenPrintf("/\\ : Boot Parameters\n");
@@ -530,7 +531,7 @@ int main() {
 			sceKernelDelayThread(100000);
 			switch(get_key(0)) {
 						case SCE_CTRL_CROSS:
-							uninstall();
+							option = 1;
 							break;
 						case SCE_CTRL_CIRCLE:
 							activation = 1;
@@ -544,6 +545,25 @@ int main() {
 						default:
 							break;
 						}
+			if (option)
+			{
+				psvDebugScreenClear();
+				psvDebugScreenPrintf("Firmware installation:\n\n");
+				psvDebugScreenPrintf("X: Install Devkit Firmware for PSvita testkit\n");
+				psvDebugScreenPrintf("O: Uninstall Devkit Firmware\n");
+				sceKernelDelayThread(100000);
+				switch(get_key(0)) {
+						case SCE_CTRL_CROSS:
+							install();
+							break;
+						case SCE_CTRL_CIRCLE:
+							uninstall();
+							break;
+						default:
+							break;
+						}
+			}
+			
 			if (activation)
 			{
 				int activated = 0;
