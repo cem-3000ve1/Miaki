@@ -501,7 +501,7 @@ int main() {
 		
 		if(isRex() == 0)
 		{
-			psvDebugScreenPrintf("Miaki v2.1 - Currently CEX\n");
+			psvDebugScreenPrintf("Miaki v2.1.1 - Currently CEX\n");
 			psvDebugScreenPrintf("X: Install TestKit Firmware\n");
 			
 			sceKernelDelayThread(100000);
@@ -522,7 +522,7 @@ int main() {
 			int edition = 0;
 			int boot = 0;
 			int activation = 0;
-			psvDebugScreenPrintf("Miaki v2.1 - Currently REX\n\n");
+			psvDebugScreenPrintf("Miaki v2.1.1 - Currently REX\n\n");
 			psvDebugScreenPrintf("X: Firmware installation\n");
 			psvDebugScreenPrintf("O: Change Activation\n");
 			psvDebugScreenPrintf("[]: Change Edition\n");
