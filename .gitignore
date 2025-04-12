@@ -14,7 +14,6 @@ CMakeCache*
 kmspico
 cex2rex_kern
 cex2rex_user
-app/CMakeLists.txt
 kernel/cex2rex_kern
 kernel/install_manifest.txt
 kernel/stubs.yml
