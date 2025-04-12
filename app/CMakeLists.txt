@@ -34,6 +34,10 @@ add_executable(${PROJECT_NAME}
   src/pup.c
   src/main.c
   src/ctrl.c
+  src/include/utils.c
+  src/include/menu/edition.c
+  src/include/menu/activation.c
+  src/include/menu/boot_parameters.c
 )
 
 target_link_libraries(${PROJECT_NAME}

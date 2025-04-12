@@ -192,6 +192,102 @@ src/ctrl.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MIAKI.dir/build.make CMakeFiles/MIAKI.dir/src/ctrl.c.s
 .PHONY : src/ctrl.c.s
 
+src/include/menu/activation.obj: src/include/menu/activation.c.obj
+.PHONY : src/include/menu/activation.obj
+
+# target to build an object file
+src/include/menu/activation.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MIAKI.dir/build.make CMakeFiles/MIAKI.dir/src/include/menu/activation.c.obj
+.PHONY : src/include/menu/activation.c.obj
+
+src/include/menu/activation.i: src/include/menu/activation.c.i
+.PHONY : src/include/menu/activation.i
+
+# target to preprocess a source file
+src/include/menu/activation.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MIAKI.dir/build.make CMakeFiles/MIAKI.dir/src/include/menu/activation.c.i
+.PHONY : src/include/menu/activation.c.i
+
+src/include/menu/activation.s: src/include/menu/activation.c.s
+.PHONY : src/include/menu/activation.s
+
+# target to generate assembly for a file
+src/include/menu/activation.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MIAKI.dir/build.make CMakeFiles/MIAKI.dir/src/include/menu/activation.c.s
+.PHONY : src/include/menu/activation.c.s
+
+src/include/menu/boot_parameters.obj: src/include/menu/boot_parameters.c.obj
+.PHONY : src/include/menu/boot_parameters.obj
+
+# target to build an object file
+src/include/menu/boot_parameters.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MIAKI.dir/build.make CMakeFiles/MIAKI.dir/src/include/menu/boot_parameters.c.obj
+.PHONY : src/include/menu/boot_parameters.c.obj
+
+src/include/menu/boot_parameters.i: src/include/menu/boot_parameters.c.i
+.PHONY : src/include/menu/boot_parameters.i
+
+# target to preprocess a source file
+src/include/menu/boot_parameters.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MIAKI.dir/build.make CMakeFiles/MIAKI.dir/src/include/menu/boot_parameters.c.i
+.PHONY : src/include/menu/boot_parameters.c.i
+
+src/include/menu/boot_parameters.s: src/include/menu/boot_parameters.c.s
+.PHONY : src/include/menu/boot_parameters.s
+
+# target to generate assembly for a file
+src/include/menu/boot_parameters.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MIAKI.dir/build.make CMakeFiles/MIAKI.dir/src/include/menu/boot_parameters.c.s
+.PHONY : src/include/menu/boot_parameters.c.s
+
+src/include/menu/edition.obj: src/include/menu/edition.c.obj
+.PHONY : src/include/menu/edition.obj
+
+# target to build an object file
+src/include/menu/edition.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MIAKI.dir/build.make CMakeFiles/MIAKI.dir/src/include/menu/edition.c.obj
+.PHONY : src/include/menu/edition.c.obj
+
+src/include/menu/edition.i: src/include/menu/edition.c.i
+.PHONY : src/include/menu/edition.i
+
+# target to preprocess a source file
+src/include/menu/edition.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MIAKI.dir/build.make CMakeFiles/MIAKI.dir/src/include/menu/edition.c.i
+.PHONY : src/include/menu/edition.c.i
+
+src/include/menu/edition.s: src/include/menu/edition.c.s
+.PHONY : src/include/menu/edition.s
+
+# target to generate assembly for a file
+src/include/menu/edition.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MIAKI.dir/build.make CMakeFiles/MIAKI.dir/src/include/menu/edition.c.s
+.PHONY : src/include/menu/edition.c.s
+
+src/include/utils.obj: src/include/utils.c.obj
+.PHONY : src/include/utils.obj
+
+# target to build an object file
+src/include/utils.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MIAKI.dir/build.make CMakeFiles/MIAKI.dir/src/include/utils.c.obj
+.PHONY : src/include/utils.c.obj
+
+src/include/utils.i: src/include/utils.c.i
+.PHONY : src/include/utils.i
+
+# target to preprocess a source file
+src/include/utils.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MIAKI.dir/build.make CMakeFiles/MIAKI.dir/src/include/utils.c.i
+.PHONY : src/include/utils.c.i
+
+src/include/utils.s: src/include/utils.c.s
+.PHONY : src/include/utils.s
+
+# target to generate assembly for a file
+src/include/utils.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MIAKI.dir/build.make CMakeFiles/MIAKI.dir/src/include/utils.c.s
+.PHONY : src/include/utils.c.s
+
 src/main.obj: src/main.c.obj
 .PHONY : src/main.obj
 
@@ -255,6 +351,18 @@ help:
 	@echo "... src/ctrl.obj"
 	@echo "... src/ctrl.i"
 	@echo "... src/ctrl.s"
+	@echo "... src/include/menu/activation.obj"
+	@echo "... src/include/menu/activation.i"
+	@echo "... src/include/menu/activation.s"
+	@echo "... src/include/menu/boot_parameters.obj"
+	@echo "... src/include/menu/boot_parameters.i"
+	@echo "... src/include/menu/boot_parameters.s"
+	@echo "... src/include/menu/edition.obj"
+	@echo "... src/include/menu/edition.i"
+	@echo "... src/include/menu/edition.s"
+	@echo "... src/include/utils.obj"
+	@echo "... src/include/utils.i"
+	@echo "... src/include/utils.s"
 	@echo "... src/main.obj"
 	@echo "... src/main.i"
 	@echo "... src/main.s"

@@ -9,59 +9,12 @@
 #include "ctrl.h"
 #include "debugScreen.h"
 #include "pup.h"
+#include "include/utils.h"
+#include "include/menu/edition.h"
+#include "include/menu/activation.h"
+#include "include/menu/boot_parameters.h"
 
 #define printf psvDebugScreenPrintf
- 
-int ret;
-int left = -1;
-
-int getFileSize(const char *file) {
-	SceUID fd = sceIoOpen(file, SCE_O_RDONLY, 0);
-	if (fd < 0)
-		return fd;
-	int fileSize = sceIoLseek(fd, 0, SCE_SEEK_END);
-	sceIoClose(fd);
-	return fileSize;
-}
-
-int WriteFile(char *file, void *buf, int size) {
-	SceUID fd = sceIoOpen(file, SCE_O_RDWR | SCE_O_CREAT, 0777);
-	if (fd < 0)
-		return fd;
-
-	int written = sceIoWrite(fd, buf, size);
-
-	sceIoClose(fd);
-	return written;
-}
-
-int ReadFile(char *file, void *buf, int size) {
-	SceUID fd = sceIoOpen(file, SCE_O_RDONLY, 0777);
-	if (fd < 0)
-		return fd;
-
-	int readed = sceIoRead(fd, buf, size);
-
-	sceIoClose(fd);
-	return readed;
-}
-
-int CopyFile(char *src, char *dst)
-{
-	int size = getFileSize(src);
-	char *data = malloc(size);
-	memset(data,0,size);
-	ret = ReadFile(src,data,size);
-	if(ret < 0){
-			psvDebugScreenPrintf("ReadFile() failed. ret = 0x%x\n", ret);
-			while(1){};
-	}
-	ret = WriteFile(dst,data,size);
-	if(ret < 0){
-			psvDebugScreenPrintf("WriteFile() failed. ret = 0x%x\n", ret);
-	}
-	return 0;
-}
 
 void load_modules()
 {
@@ -566,138 +519,18 @@ int main() {
 			
 			if (activation)
 			{
-				int activated = 0;
-				int expired = 0;
-				psvDebugScreenClear();
-				psvDebugScreenPrintf("Miaki activation spoofer:\n\n");
-				psvDebugScreenPrintf("X: Activated\n");
-				psvDebugScreenPrintf("O: Expired\n");
-				sceKernelDelayThread(100000);
-				switch(get_key(0)) {
-						case SCE_CTRL_CROSS:
-							activated = 1;
-							break;
-						case SCE_CTRL_CIRCLE:
-							expired = 1; 
-							break;
-						default:
-							break;
-						}
-						
-				if (activated)
-				{
-					psvDebugScreenClear();
-					psvDebugScreenPrintf("Activated!");
-					CopyFile("app0:/kmspico.skprx", "ur0:tai/kmspico.skprx");
-					scePowerRequestColdReset();
-				}
-
-				if (expired)
-				{
-					psvDebugScreenClear();
-					psvDebugScreenPrintf("Expired!");
-					sceIoRemove("ur0:tai/kmspico.skprx");
-					scePowerRequestColdReset();
-				}
-					
+				activator();
 			}
-			
-				
-			
 
 			if (boot)
 			{
-				int release = 0;
-				int devmode = 0;
-			configMenuStart:
-				psvDebugScreenClear();
-				psvDebugScreenPrintf("Boot Parameters:\n\n");
-				psvDebugScreenPrintf("X: Enable DevMode\n");
-				psvDebugScreenPrintf("O: Disable DevMode\n");
-				sceKernelDelayThread(100000);
-				switch(get_key(0)) {
-					case SCE_CTRL_CROSS:
-						devmode = 1;
-						break;
-					case SCE_CTRL_CIRCLE:
-						release = 1;
-						break;
-					default:
-						sceKernelExitProcess(0);
-						break;
-				}
-
-				if (devmode)
-				{
-					psvDebugScreenPrintf("Enable DevMode...\n");
-					CopyFile("app0:/devmode.skprx", "ur0:tai/devmode.skprx");
-					scePowerRequestColdReset();
-				}
-
-				if (release)
-				{
-					psvDebugScreenPrintf("Disable DevMode...\n");
-					sceIoRemove("ur0:tai/devmode.skprx");
-					scePowerRequestColdReset();
-				}
+				boot_parameters();
 			}
 
 			if (edition) 
 			{
-				int pro = 0;
-				int dev = 0;
-				int test = 0;
-				sceKernelDelayThread(100000);
-				psvDebugScreenClear(0);
-				psvDebugScreenPrintf("PSvita CID:\n\n");
-				psvDebugScreenPrintf("X: PSvita DevKit\n");
-				psvDebugScreenPrintf("O: PSvita TestKit\n");
-				psvDebugScreenPrintf("[]: PSvita Prototype\n");
-
-				sceKernelDelayThread(100000);
-				switch(get_key(0)) {
-					case SCE_CTRL_CROSS:
-						dev = 1;
-						break;
-					case SCE_CTRL_CIRCLE:
-						test = 1;
-						break;
-					case SCE_CTRL_SQUARE:
-						pro = 1;
-						break;
-					default:
-						sceKernelExitProcess(0);
-						break;
-				}
-				
-				if (dev)
-				{
-					psvDebugScreenPrintf("Switching to DevKit...");
-					CopyFile("app0:/dev_vita.skprx", "ur0:tai/testkit.skprx");
-					scePowerRequestColdReset();
-				}
-
-				if (test)
-				{
-					psvDebugScreenPrintf("Switching to TestKit...");
-					CopyFile("app0:/testkit_vita.skprx", "ur0:tai/testkit.skprx");
-					scePowerRequestColdReset();
-				}
-
-				if (pro)
-				{
-					psvDebugScreenPrintf("Switching to Prototype...");
-					CopyFile("app0:/pro_vita.skprx", "ur0:tai/testkit.skprx");
-					scePowerRequestColdReset();
-				}
-
+			  menu_edition();
 			}
 		}
-		
-        
-
-        
-
-        
     return 0;
 }

@@ -167,11 +167,13 @@ int psvDebugScreenPrintf(const char *format, ...) {
 }
 
 void psvDebugScreenSetFgColor(uint32_t rgb){
-	psvDebugScreenPrintf("\e[38;2;%lu;%lu;%lum", (rgb>>16)&0xFF, (rgb>>8)&0xFF, rgb&0xFF);
+	psvDebugScreenPrintf("\e[38;2;%u;%u;%um", (rgb>>16)&0xFF, (rgb>>8)&0xFF, rgb&0xFF);
 }
+
 void psvDebugScreenSetBgColor(uint32_t rgb){
-	psvDebugScreenPrintf("\e[48;2;%lu;%lu;%lum", (rgb>>16)&0xFF, (rgb>>8)&0xFF, rgb&0xFF);
+	psvDebugScreenPrintf("\e[48;2;%u;%u;%um", (rgb>>16)&0xFF, (rgb>>8)&0xFF, rgb&0xFF);
 }
+
 void psvDebugScreenClear(){
 	psvDebugScreenPrintf("                                                                                                                                                                                                                                                                                                                                                                         ");
 	psvDebugScreenPrintf("                                                                                                                                                                                                                                                                                                                                                                         ");
