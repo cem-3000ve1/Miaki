@@ -54,7 +54,7 @@ target_link_libraries(${PROJECT_NAME}
 	SceShellSvc_stub
 	ScePower_stub
 	SceRegistryMgr_stub
-	Cex2Rex_User_stub_weak
+	Miaki_User_stub_weak
 	taihen_stub
 )
 
