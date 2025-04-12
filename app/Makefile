@@ -192,6 +192,30 @@ src/ctrl.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MIAKI.dir/build.make CMakeFiles/MIAKI.dir/src/ctrl.c.s
 .PHONY : src/ctrl.c.s
 
+src/include/flasher.obj: src/include/flasher.c.obj
+.PHONY : src/include/flasher.obj
+
+# target to build an object file
+src/include/flasher.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MIAKI.dir/build.make CMakeFiles/MIAKI.dir/src/include/flasher.c.obj
+.PHONY : src/include/flasher.c.obj
+
+src/include/flasher.i: src/include/flasher.c.i
+.PHONY : src/include/flasher.i
+
+# target to preprocess a source file
+src/include/flasher.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MIAKI.dir/build.make CMakeFiles/MIAKI.dir/src/include/flasher.c.i
+.PHONY : src/include/flasher.c.i
+
+src/include/flasher.s: src/include/flasher.c.s
+.PHONY : src/include/flasher.s
+
+# target to generate assembly for a file
+src/include/flasher.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MIAKI.dir/build.make CMakeFiles/MIAKI.dir/src/include/flasher.c.s
+.PHONY : src/include/flasher.c.s
+
 src/include/menu/activation.obj: src/include/menu/activation.c.obj
 .PHONY : src/include/menu/activation.obj
 
@@ -263,6 +287,30 @@ src/include/menu/edition.s: src/include/menu/edition.c.s
 src/include/menu/edition.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MIAKI.dir/build.make CMakeFiles/MIAKI.dir/src/include/menu/edition.c.s
 .PHONY : src/include/menu/edition.c.s
+
+src/include/modules.obj: src/include/modules.c.obj
+.PHONY : src/include/modules.obj
+
+# target to build an object file
+src/include/modules.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MIAKI.dir/build.make CMakeFiles/MIAKI.dir/src/include/modules.c.obj
+.PHONY : src/include/modules.c.obj
+
+src/include/modules.i: src/include/modules.c.i
+.PHONY : src/include/modules.i
+
+# target to preprocess a source file
+src/include/modules.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MIAKI.dir/build.make CMakeFiles/MIAKI.dir/src/include/modules.c.i
+.PHONY : src/include/modules.c.i
+
+src/include/modules.s: src/include/modules.c.s
+.PHONY : src/include/modules.s
+
+# target to generate assembly for a file
+src/include/modules.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MIAKI.dir/build.make CMakeFiles/MIAKI.dir/src/include/modules.c.s
+.PHONY : src/include/modules.c.s
 
 src/include/utils.obj: src/include/utils.c.obj
 .PHONY : src/include/utils.obj
@@ -351,6 +399,9 @@ help:
 	@echo "... src/ctrl.obj"
 	@echo "... src/ctrl.i"
 	@echo "... src/ctrl.s"
+	@echo "... src/include/flasher.obj"
+	@echo "... src/include/flasher.i"
+	@echo "... src/include/flasher.s"
 	@echo "... src/include/menu/activation.obj"
 	@echo "... src/include/menu/activation.i"
 	@echo "... src/include/menu/activation.s"
@@ -360,6 +411,9 @@ help:
 	@echo "... src/include/menu/edition.obj"
 	@echo "... src/include/menu/edition.i"
 	@echo "... src/include/menu/edition.s"
+	@echo "... src/include/modules.obj"
+	@echo "... src/include/modules.i"
+	@echo "... src/include/modules.s"
 	@echo "... src/include/utils.obj"
 	@echo "... src/include/utils.i"
 	@echo "... src/include/utils.s"

@@ -38,6 +38,8 @@ add_executable(${PROJECT_NAME}
   src/include/menu/edition.c
   src/include/menu/activation.c
   src/include/menu/boot_parameters.c
+  src/include/modules.c
+  src/include/flasher.c
 )
 
 target_link_libraries(${PROJECT_NAME}
