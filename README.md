@@ -1,42 +1,93 @@
-# Miaki - Transform Your PS Vita Into a DevKit 
+# Miaki - Transform Your PS Vita Into a DevKit
 
 ## Disclaimer
-**If you encounter any issues (brick, etc.), I am not responsible! Proceed at your own risk!**
+
+**Use at your own risk!**  
+I am **not responsible** for any damage (brick, etc.) that may occur. Make sure you understand what you're doing before proceeding.
+
+---
 
 ## Introduction
-Miaki is a CEX2REX mod that allows you to install the DevKit firmware on a retail PS Vita. This guide provides an updated version of the original method along with an installation tutorial.
 
-### Known Issues
-- In **DevMode**, most debug settings do not work (System Update, Network, PSN, System, and Libgxm). These will cause your PS Vita to crash. However, everything functions normally in **Release Mode**.
-- **DevKit Activation does not work with DevKit CID**: The system will display the message "The backup battery has failed"—this is normal because retail PS Vita units do not have a GCP.
-- **Neighborhood does not work** due to the lack of a GCP.
-- To bypass the "backup battery has failed" message, use [Red-Msg-Delete](https://github.com/Princess-of-Sleeping/Red-Msg-Delete/releases) by Princess of Sleeping.
+**Miaki** is a CEX2REX mod that allows you to install the **DevKit firmware** on a **retail PS Vita**. This tool provides an updated version of the original CEX2REX method, now with **extra features** and a streamlined installation process.
+
+Miaki supports switching between **Console IDs** (Prototype, DevKit, TestKit), direct activation of **DevMode**, and includes a **12-year activation** using KMSpico.
+
+---
+
+## Requirements
+
+- PS Vita on firmware **3.60** or **3.65**
+- `reF00D` plugin installed (required for correct system behavior)
+- DevKit firmware matching your retail firmware version
+- Miaki app
+- (Optional) `red_msg_del.suprx` plugin to hide certain system warnings
+
+---
+
+## Known Issues
+
+- In **DevMode**, most **debug settings** such as *System Update, Network, PSN, System, and Libgxm* will crash the console.  
+  These settings are non-functional on retail hardware.  
+  Everything works fine in **Release Mode**.
+- **DevKit Activation** does not work with DevKit CID. You may see the message:  
+  `"The backup battery has failed"` — this is **normal**, as retail units lack a GCP.
+- **Neighborhood** (host-based tools) is **not supported** for the same reason.
+- To **remove** the `"backup battery has failed"` message, use **Red-Msg-Delete** by *Princess of Sleeping*.
+
+---
+
+## Features
+
+- Install **DevKit firmware** on retail PS Vita (3.60 / 3.65)
+- **Switch Console ID** on the fly: DevKit, TestKit, or Prototype
+- **Activate DevMode** directly from the Miaki app
+- **12-year activation** via KMSpico (included)
+- Simple UI: One-button install
+- Fully offline compatible (after downloading required files)
+
+---
 
 ## Installation Guide
+
 ### Step 1: Download the Required Files
-1. Download the **DevKit Firmware** corresponding to your PS Vita firmware:
-   - If you are on **3.60**, download firmware **3.600.011**.
-   - If you are on **3.65**, download firmware **3.650.011**.
-2. Download **Miaki** from Gitea:
-   - [Miaki Download](https://git.hitius.bar/LazyAdmin/Miaki)
+
+- Download the **DevKit firmware** matching your Vita firmware:
+  - For **3.60**, get `3.600.011`
+  - For **3.65**, get `3.650.011`
+- Download **Miaki** from [Gitea](#) (link to be added)
 
 ### Step 2: Prepare the Files
-1. Rename your downloaded DevKit update file to **DEX.PUP**.
-2. Place **DEX.PUP** in the root of **ux0:** (it should be at `ux0:DEX.PUP`).
 
-### Step 3: Install Miaki on your Vita
-1. Install **Miaki** on your PS Vita.
-2. Launch the app and press **Cross (X)**.
-3. When prompted, choose either:
+- Rename your downloaded DevKit update to `DEX.PUP`
+- Place `DEX.PUP` in the **root** of `ux0:` (i.e., `ux0:/DEX.PUP`)
+
+### Step 3: Install Miaki
+
+1. Install **Miaki.vpk** on your PS Vita.
+2. Launch the **Miaki** app.
+3. Press **Cross (X)** to continue.
+4. Choose one of the following:
    - **Full Install**
-   - **Warning Message Only** (DO NOT choose any other options!)
-4. Wait **25-30 minutes** for the flashing process to complete.
-5. Once finished, the console will restart.
-6. **Congratulations! Your PS Vita is now running DevKit firmware!**
+   - **Warning Message Only** *(DO NOT select any other options!)*
+5. Wait around **25–30 minutes** for the installation to complete.
+6. Your console will **automatically restart**.
+7. Done! You're now running **DevKit firmware** on your PS Vita.
+
+---
+
+## Additional Notes
+
+- Make sure **reF00D** is active via `ur0:tai/config.txt` or `ux0:tai/config.txt`.
+- Switching Console ID or DevMode can be done **anytime** by re-launching **Miaki**.
+- Keep Miaki installed in case you need to revert changes or reactivate features.
+
+---
 
 ## Special Thanks
-- **Li** - Creator of CEX2REX and for his support.
-- **Powerm1nt** - For assisting with development.
-- **skgleba** - For technical help.
-- **Princess Of Sleeping** - Creator of the `red_msg_del.suprx` plugin.
+
+- **Li** – Original CEX2REX creator and for sharing knowledge
+- **Powerm1nt** – Helped with core development
+- **skgleba** – Technical insights and guidance
+- **Princess Of Sleeping** – Creator of `red_msg_del.suprx`
 

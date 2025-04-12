@@ -25,6 +25,8 @@ kernel/stubs.yml
 kmspico/install_manifest.txt
 kmspico/kmspico
 kmspico/stubs.yml
+user/Makefile
+app/Makefile
 user/miaki_user
 user/install_manifest.txt
 user/stubs.yml
