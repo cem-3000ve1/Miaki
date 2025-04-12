@@ -10,4 +10,5 @@ int WriteFile(char *file, void *buf, int size);
 int ReadFile(char *file, void *buf, int size);
 int CopyFile(char *src, char *dst);
 
+
 #endif

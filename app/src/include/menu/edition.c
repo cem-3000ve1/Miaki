@@ -43,20 +43,23 @@ void menu_edition(void) {
     if (dev)
     {
         psvDebugScreenPrintf("Switching to DevKit...");
+        sceClibPrintf("Switching to DevKit...\n");
         CopyFile("app0:/dev_vita.skprx", "ur0:tai/testkit.skprx");
         scePowerRequestColdReset();
     }
 
     if (test)
     {
-        psvDebugScreenPrintf("Switching to TestKit...");
+        psvDebugScreenPrintf("Switching to TestKit...\n");
+        sceClibPrintf("Switching to Testkit\n");
         CopyFile("app0:/testkit_vita.skprx", "ur0:tai/testkit.skprx");
         scePowerRequestColdReset();
     }
 
     if (pro)
     {
-        psvDebugScreenPrintf("Switching to Prototype...");
+        psvDebugScreenPrintf("Switching to Prototype...\n");
+        sceClibPrintf("Switching to Prototype\n");
         CopyFile("app0:/pro_vita.skprx", "ur0:tai/testkit.skprx");
         scePowerRequestColdReset();
     }

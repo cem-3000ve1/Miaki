@@ -35,6 +35,7 @@ void boot_parameters(void) {
         if (devmode)
         {
             psvDebugScreenPrintf("Enable DevMode...\n");
+            sceClibPrintf("Enable DevMode...\n");
             CopyFile("app0:/devmode.skprx", "ur0:tai/devmode.skprx");
             scePowerRequestColdReset();
         }
@@ -42,6 +43,7 @@ void boot_parameters(void) {
         if (release)
         {
             psvDebugScreenPrintf("Disable DevMode...\n");
+            sceClibPrintf("Disable DevMode\n");
             sceIoRemove("ur0:tai/devmode.skprx");
             scePowerRequestColdReset();
         }

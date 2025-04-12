@@ -35,6 +35,7 @@ void activator(void) {
     {
         psvDebugScreenClear();
         psvDebugScreenPrintf("Activated!");
+        sceClibPrintf("Activated!\n");
         CopyFile("app0:/kmspico.skprx", "ur0:tai/kmspico.skprx");
         scePowerRequestColdReset();
     }
@@ -43,6 +44,7 @@ void activator(void) {
     {
         psvDebugScreenClear();
         psvDebugScreenPrintf("Expired!");
+        sceClibPrintf("Expired!\n");
         sceIoRemove("ur0:tai/kmspico.skprx");
         scePowerRequestColdReset();
     }

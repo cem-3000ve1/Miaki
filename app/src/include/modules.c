@@ -9,6 +9,9 @@
 #include "../ctrl.h"
 #include "../pup.h"
 #include "modules.h"
+#include <psp2/types.h>
+#include <psp2/kernel/processmgr.h>
+
 
 #define printf psvDebugScreenPrintf
 int coordX, coordY;

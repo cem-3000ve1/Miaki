@@ -13,6 +13,7 @@
  
 int ret;
 int left = -1;
+int sceClibDebugPrintf(const char *format, ...);
 
 int getFileSize(const char *file) {
 	SceUID fd = sceIoOpen(file, SCE_O_RDONLY, 0);

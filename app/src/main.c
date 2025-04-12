@@ -19,6 +19,8 @@
 #define printf psvDebugScreenPrintf
 char ver[] = "Miaki v2.1.2";
 
+
+
 int isRex()
 {
 	if(getFileSize("vs0:/app/NPXS10998/sce_sys/livearea/contents/bg0.png") > 0)
@@ -48,6 +50,10 @@ int main() {
 		copyappinfo();
 		psvDebugScreenInit();
         psvDebugScreenClear(0);
+        sceClibPrintf("\n");
+        sceClibPrintf("-----MIAKI LOG-----\n");
+        sceClibPrintf("Release: Public\n");
+        sceClibPrintf("Version: %s\n", ver);
 			
 		int pup_type = 0;
 		int fd = sceIoOpen("ux0:/DEX.PUP", SCE_O_RDONLY, 0777);
@@ -72,6 +78,7 @@ int main() {
 		
 		if(isRex() == 0)
 		{
+            sceClibPrintf("DevKit fw: Not installed\n");
 			psvDebugScreenPrintf("%s - Currently CEX\n", ver);
 			psvDebugScreenPrintf("X: Install DevKit Firmware\n");
 			
@@ -89,66 +96,51 @@ int main() {
 		}
 		else
 		{
-			int option = 0;
-			int edition = 0;
-			int boot = 0;
-			int activation = 0;
+            sceClibPrintf("Devkit fw: Installed\n");
+            if(getFileSize("ur0:tai/devmode.skprx") > 0)
+            {
+                sceClibPrintf("Release Mode: DevMode\n");
+            }
+            else
+            {
+                sceClibPrintf("Realese Mode: Release\n");
+            }
+
+            if(getFileSize("ur0:tai/kmspico.skprx") > 0)
+            {
+                sceClibPrintf("Activation status: Activated\n");
+            }
+            else
+            {
+                sceClibPrintf("Activation status: Expired\n");
+            }
+
 			psvDebugScreenPrintf("%s - Currently REX\n\n", ver);
-			psvDebugScreenPrintf("X: Firmware installation\n");
+			psvDebugScreenPrintf("X: Uninstall DevKit Firmware\n");
 			psvDebugScreenPrintf("O: Change Activation\n");
 			psvDebugScreenPrintf("[]: Change Edition\n");
 			psvDebugScreenPrintf("/\\ : Boot Parameters\n");
-			
 			sceKernelDelayThread(100000);
 			switch(get_key(0)) {
 						case SCE_CTRL_CROSS:
-							option = 1;
-							break;
-						case SCE_CTRL_CIRCLE:
-							activation = 1;
-							break;
-						case SCE_CTRL_SQUARE:
-							edition = 1;
-							break;
-						case SCE_CTRL_TRIANGLE:
-							boot = 1;
-							break;
-						default:
-							break;
-						}
-			if (option)
-			{
-				psvDebugScreenClear();
-				psvDebugScreenPrintf("Firmware installation:\n\n");
-				psvDebugScreenPrintf("X: Install Devkit Firmware for PSvita testkit\n");
-				psvDebugScreenPrintf("O: Uninstall Devkit Firmware\n");
-				sceKernelDelayThread(100000);
-				switch(get_key(0)) {
-						case SCE_CTRL_CROSS:
-							install();
-							break;
-						case SCE_CTRL_CIRCLE:
+                        sceClibPrintf("Starting uninstaller...\n");
 							uninstall();
 							break;
+						case SCE_CTRL_CIRCLE:
+                        sceClibPrintf("Activation menu\n");
+							activator();
+							break;
+						case SCE_CTRL_SQUARE:
+                        sceClibPrintf("Edition menu\n");
+							menu_edition();
+							break;
+						case SCE_CTRL_TRIANGLE:
+                        sceClibPrintf("Boot Parameters\n");
+							boot_parameters();
+							break;
 						default:
 							break;
 						}
-			}
-			
-			if (activation)
-			{
-				activator();
-			}
-
-			if (boot)
-			{
-				boot_parameters();
-			}
-
-			if (edition) 
-			{
-			  menu_edition();
-			}
 		}
     return 0;
 }
