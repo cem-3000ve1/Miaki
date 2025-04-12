@@ -1,0 +1,5 @@
+---
+modules:
+  devmode:
+    nid: 0xba9e74ae
+    libraries: {}
