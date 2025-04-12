@@ -21,7 +21,7 @@ add_executable(${PROJECT_NAME}
 target_link_libraries(${PROJECT_NAME}
   SceLibKernel_stub
   SceIofilemgr_stub
-  Cex2Rex_Kern_stub
+  Miaki_Kern_stub
   SceLibc_stub
 )
 
