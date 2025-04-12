@@ -1,4 +1,4 @@
-# Miaki - Transform Your PS Vita Into a DevKit
+# ★Miaki - Transform Your PS Vita Into a DevKit
 
 ## Disclaimer
 
