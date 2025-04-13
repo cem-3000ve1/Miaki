@@ -31,4 +31,8 @@ user/miaki_user
 user/install_manifest.txt
 user/stubs.yml
 app/MIAKI
+.idea/
+app/.kdev4/
+app/app.kdev4
+app/compile_commands.json
 app/eboot.bin

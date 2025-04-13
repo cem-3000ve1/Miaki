@@ -81,6 +81,7 @@ Miaki supports switching between **Console IDs** (Prototype, DevKit, TestKit), d
 - Make sure **reF00D** is active via `ur0:tai/config.txt` or `ux0:tai/config.txt`.
 - Switching Console ID or DevMode can be done **anytime** by re-launching **Miaki**.
 - Keep Miaki installed in case you need to revert changes or reactivate features.
+- With miaki you can install a Testkit firmware but you cannot uninstall it.
 
 ---
 
