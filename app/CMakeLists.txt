@@ -41,6 +41,7 @@ add_executable(${PROJECT_NAME}
   src/include/menu/boot_parameters.c
   src/include/modules.c
   src/include/flasher.c
+  src/include/flasher/config.c
 )
 
 target_link_libraries(${PROJECT_NAME}
