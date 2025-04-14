@@ -45,18 +45,28 @@ add_executable(${PROJECT_NAME}
 )
 
 target_link_libraries(${PROJECT_NAME}
-	c
-	SceLibKernel_stub
-	SceIofilemgr_stub
-	SceAppMgr_stub
-	SceCtrl_stub
-	SceDisplay_stub
-	SceVshBridge_stub
-	SceShellSvc_stub
-	ScePower_stub
-	SceRegistryMgr_stub
-	Miaki_User_stub_weak
-	taihen_stub
+  c
+  SceLibKernel_stub
+  SceIofilemgr_stub
+  SceAppMgr_stub
+  SceCtrl_stub
+  SceDisplay_stub
+  SceVshBridge_stub
+  SceShellSvc_stub
+  ScePower_stub
+  SceRegistryMgr_stub
+  Miaki_User_stub_weak
+  taihen_stub
+  vita2d
+  SceGxm_stub
+  SceSysmodule_stub
+  ScePgf_stub
+  SceCommonDialog_stub
+  SceTouch_stub
+  m
+	SceNpManager_stub
+	SceNpCommon_stub_weak
+	SceSblPostSsMgr_stub
 )
 
 vita_create_self(eboot.bin ${PROJECT_NAME} UNSAFE)
@@ -74,6 +84,7 @@ vita_create_vpk(${PROJECT_NAME}.vpk ${VITA_TITLEID} eboot.bin
   FILE testkit_vita.skprx testkit_vita.skprx
   FILE testkit_pstv.skprx testkit_pstv.skprx
   FILE devmode.skprx devmode.skprx
+  FILE reF00D.skprx reF00D.skprx
   FILE pro_vita.skprx pro_vita.skprx
   FILE dev_vita.skprx dev_vita.skprx
   FILE vitaConfig.txt vitaConfig.txt

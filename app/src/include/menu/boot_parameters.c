@@ -14,7 +14,9 @@
 
 void boot_parameters(void) {
 	int release = 0;
+	int delete = 0;
     int devmode = 0;
+	int back = 0;
         psvDebugScreenClear();
         psvDebugScreenPrintf("Boot Parameters:\n\n");
         psvDebugScreenPrintf("X: Enable DevMode\n");
@@ -31,7 +33,7 @@ void boot_parameters(void) {
                 sceKernelExitProcess(0);
                 break;
         }
-
+		
         if (devmode)
         {
             psvDebugScreenPrintf("Enable DevMode...\n");

@@ -6,7 +6,7 @@
 
 #include "../../miaki_user.h"
 
-#include "../ctrl.h"
+#include "../../ctrl.h"
 #include "../../pup.h"
 #include "../flasher.h"
 #include "../utils.h"
@@ -53,6 +53,7 @@ void config(void)
 
     psvDebugScreenClear();
     sceIoRemove("ur0:tai/testkit.skprx");
+    CopyFile("app0:/reF00D.skprx", "ur0:tai/reF00D.skprx");
     sceIoRemove("ur0:tai/kmspico.skprx");
 
     if(spoofer)

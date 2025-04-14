@@ -3,6 +3,9 @@
 #include <stdio.h>
 #include <vitasdk.h>
 #include <taihen.h>
+#include <psp2/appmgr.h> 
+#include <psp2/sharedfb.h> 
+#include <vita2d.h>
 
 #include "miaki_user.h"
 

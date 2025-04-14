@@ -4,6 +4,7 @@
 #include <vitasdk.h>
 extern int ret;
 extern int left;
+extern SceCtrlData pad;
 
 int getFileSize(const char *file);
 int WriteFile(char *file, void *buf, int size);
