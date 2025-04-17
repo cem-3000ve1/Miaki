@@ -121,7 +121,7 @@ int main() {
 			psvDebugScreenPrintf("%s - Currently REX\n\n", ver);
 			psvDebugScreenPrintf("X: Uninstall DevKit Firmware\n");
 			psvDebugScreenPrintf("O: Change Activation\n");
-			psvDebugScreenPrintf("[]: Change Edition\n");
+			psvDebugScreenPrintf("[]: Change ProductCode\n");
 			psvDebugScreenPrintf("/\\ : Boot Parameters\n");
 			sceKernelDelayThread(100000);
 			switch(get_key(0)) {

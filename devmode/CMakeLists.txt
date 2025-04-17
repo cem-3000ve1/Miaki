@@ -46,6 +46,6 @@ install(DIRECTORY ${CMAKE_BINARY_DIR}/${PROJECT_NAME}-stubs/
   FILES_MATCHING PATTERN "*.a"
 )
 
-install(FILES savestates.h
+install(FILES
   DESTINATION include
 )

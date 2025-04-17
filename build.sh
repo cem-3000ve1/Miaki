@@ -30,11 +30,21 @@ cd ../devmode/
 cmake .
 make install
 
+cd ../kmspico/src/yellowmsg
+cmake .
+make install
+
+cd ../kmspico/src/lowact
+cmake .
+make install
+
 cd ../kmspico/
 cmake .
 make install
 
 cd ../app/
+mv ../kmspico/lowact/src/lowact.skprx lowkmspico.skprx
+mv ../kmspico/yellowmsg/src/yellowmsg.skprx ykmspico.skprx
 mv ../kmspico/kmspico.skprx kmspico.skprx
 mv ../spoofer_vita_dev/kDump.skprx dev_vita.skprx
 mv ../spoofer_vita_pro/kDump.skprx pro_vita.skprx

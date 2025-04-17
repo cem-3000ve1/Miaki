@@ -19,10 +19,10 @@ void menu_edition(void) {
     int test = 0;
     sceKernelDelayThread(100000);
     psvDebugScreenClear(0);
-    psvDebugScreenPrintf("PSvita CID:\n\n");
-    psvDebugScreenPrintf("X: PSvita DevKit\n");
-    psvDebugScreenPrintf("O: PSvita TestKit\n");
-    psvDebugScreenPrintf("[]: PSvita Prototype\n");
+    psvDebugScreenPrintf("Product Code Spoof:\n\n");
+    psvDebugScreenPrintf("X: Switch TOOL spoof\n");
+    psvDebugScreenPrintf("O: Switch DEX spoof\n");
+    psvDebugScreenPrintf("[]: Switch PRO spoof\n");
 
     sceKernelDelayThread(100000);
     switch(get_key(0)) {
@@ -42,24 +42,21 @@ void menu_edition(void) {
 
     if (dev)
     {
-        psvDebugScreenPrintf("Switching to DevKit...");
-        sceClibPrintf("Switching to DevKit...\n");
+        DebugLog("Switching to TOOL");
         CopyFile("app0:/dev_vita.skprx", "ur0:tai/testkit.skprx");
         scePowerRequestColdReset();
     }
 
     if (test)
     {
-        psvDebugScreenPrintf("Switching to TestKit...\n");
-        sceClibPrintf("Switching to Testkit\n");
+        DebugLog("Switching to DEX");
         CopyFile("app0:/testkit_vita.skprx", "ur0:tai/testkit.skprx");
         scePowerRequestColdReset();
     }
 
     if (pro)
     {
-        psvDebugScreenPrintf("Switching to Prototype...\n");
-        sceClibPrintf("Switching to Prototype\n");
+        DebugLog("Switching to PRO");
         CopyFile("app0:/pro_vita.skprx", "ur0:tai/testkit.skprx");
         scePowerRequestColdReset();
     }

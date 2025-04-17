@@ -1,0 +1,25 @@
+[Buildset]
+BuildItems=@Variant(\x00\x00\x00\t\x00\x00\x00\x00\x01\x00\x00\x00\x0b\x00\x00\x00\x00\x01\x00\x00\x00\n\x00m\x00i\x00a\x00k\x00i)
+
+[Launch]
+Launch Configurations=Launch Configuration 0
+
+[Launch][Launch Configuration 0]
+Configured Launch Modes=execute
+Configured Launchers=scriptAppLauncher
+Name=New Script Application Launcher
+Type=Script Application
+
+[Launch][Launch Configuration 0][Data]
+Arguments=
+EnvironmentGroup=
+Executable=file:///mnt/VitaStuff/dev_project/miaki/build.sh
+Execute on Remote Host=false
+Interpreter=bash
+Output Filtering Mode=2
+Remote Host=
+Run current file=false
+Working Directory=
+
+[Project]
+VersionControlSupport=kdevgit

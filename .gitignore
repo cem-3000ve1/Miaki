@@ -15,6 +15,8 @@ kmspico
 miaki_kern
 miaki_user
 .vscode/
+miaki.kdev4
+.kdev4/miaki.kdev4
 devmode/Makefile
 devmode/devmode
 devmode/devmode-stubs/Makefile
@@ -25,6 +27,12 @@ kernel/stubs.yml
 kmspico/install_manifest.txt
 kmspico/kmspico
 kmspico/stubs.yml
+lowkmspico/Makefile
+lowkmspico/install_manifest.txt
+lowkmspico/stubs.yml
+ykmspico/Makefile
+ykmspico/stubs.yml
+ykmspico/install_manifest.txt
 user/Makefile
 app/Makefile
 user/miaki_user
@@ -36,3 +44,4 @@ app/.kdev4/
 app/app.kdev4
 app/compile_commands.json
 app/eboot.bin
+devmode/install_manifest.txt

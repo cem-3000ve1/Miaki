@@ -13,7 +13,13 @@
  
 int ret;
 int left = -1;
-int sceClibDebugPrintf(const char *format, ...);
+
+// Thanks powerm1nt :-)
+void DebugLog(const char *message)
+{
+	printf(message);
+	sceClibPrintf(message);
+}
 
 int getFileSize(const char *file) {
 	SceUID fd = sceIoOpen(file, SCE_O_RDONLY, 0);
