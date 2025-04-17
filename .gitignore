@@ -45,3 +45,5 @@ app/app.kdev4
 app/compile_commands.json
 app/eboot.bin
 devmode/install_manifest.txt
+miaki.kdev4
+.kdev4/miaki.kdev4

@@ -20,7 +20,7 @@
 #include "include/flasher.h"
 
 #define printf psvDebugScreenPrintf
-char ver[] = "Miaki v2.1.2";
+char ver[] = "Miaki v2.1.3-pub";
 
 
 
