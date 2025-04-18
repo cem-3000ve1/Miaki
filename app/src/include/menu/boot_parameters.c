@@ -19,8 +19,6 @@ void boot_parameters(void) {
     Menu menu;
     psvDebugScreenClear();
     menu_create(&menu, "Release Check Mode");
-   // menu_printf(&menu, "Miaki activation spoofer:");
-    //menu_printf(&menu, "ONLY DEX SPOOF!");
     sel_printf(&menu, "Development Mode");
     sel_printf(&menu, "Release Mode");
     menu_draw(&menu);
