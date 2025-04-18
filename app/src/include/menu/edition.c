@@ -19,8 +19,6 @@ void menu_edition(void) {
     Menu menu;
     psvDebugScreenClear();
     menu_create(&menu, "ProductCode");
-   // menu_printf(&menu, "Miaki activation spoofer:");
-    //menu_printf(&menu, "ONLY DEX SPOOF!");
     sel_printf(&menu, "Flash TOOL spoof");
     sel_printf(&menu, "Flash DEX spoof");
     sel_printf(&menu, "Flash PRO spoof");
