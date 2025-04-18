@@ -10,7 +10,7 @@
 #include "include/menu/boot_parameters.h"
 #include "include/flasher.h"
 
-char ver[] = "Miaki v3.0.0-internal";
+char ver[] = "Miaki v3.0.0-pub";
 
 int isRex() {
     return 1;
