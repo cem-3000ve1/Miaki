@@ -3,61 +3,73 @@
 #include <stdio.h>
 #include <vitasdk.h>
 #include <taihen.h>
+#include "../ui/ui.h"
 
 #include "../../miaki_user.h"
 
 #include "../../ctrl.h"
 #include "../../pup.h"
+#include "../utils.h"
 #include "edition.h"
 
 #define printf psvDebugScreenPrintf
 
-
 void menu_edition(void) {
-    int pro = 0;
-    int dev = 0;
-    int test = 0;
-    sceKernelDelayThread(100000);
-    psvDebugScreenClear(0);
-    psvDebugScreenPrintf("Product Code Spoof:\n\n");
-    psvDebugScreenPrintf("X: Switch TOOL spoof\n");
-    psvDebugScreenPrintf("O: Switch DEX spoof\n");
-    psvDebugScreenPrintf("[]: Switch PRO spoof\n");
-
-    sceKernelDelayThread(100000);
-    switch(get_key(0)) {
-        case SCE_CTRL_CROSS:
-            dev = 1;
-            break;
-        case SCE_CTRL_CIRCLE:
-            test = 1;
-            break;
-        case SCE_CTRL_SQUARE:
-            pro = 1;
-            break;
-        default:
-            sceKernelExitProcess(0);
-            break;
+    int running = 1;
+    Menu menu;
+    psvDebugScreenClear();
+    menu_create(&menu, "ProductCode");
+   // menu_printf(&menu, "Miaki activation spoofer:");
+    //menu_printf(&menu, "ONLY DEX SPOOF!");
+    sel_printf(&menu, "Flash TOOL spoof");
+    sel_printf(&menu, "Flash DEX spoof");
+    sel_printf(&menu, "Flash PRO spoof");
+    menu_draw(&menu);
+    while (running) {
+        uint32_t key = get_key(0);
+        int needs_refresh = 0;
+        if (key == SCE_CTRL_UP) {
+            if (menu.selected > 0) {
+                menu.selected--;
+                needs_refresh = 1;
+            }
+            sceKernelDelayThread(150000);
+        }
+        if (key == SCE_CTRL_DOWN) {
+            if (menu.selected < menu.option_count - 1) {
+                menu.selected++;
+                needs_refresh = 1;
+            }
+            sceKernelDelayThread(150000);
+        }
+        if (key == SCE_CTRL_CROSS) {
+            if (menu_edition) {
+                switch (menu.selected) {
+                    case 0:
+                        DebugLog("TOOL spoof");
+                        CopyFile("app0:/dev_vita.skprx", "ur0:tai/testkit.skprx");
+                        scePowerRequestColdReset();        
+                        needs_refresh = 1;
+                        break;
+                    case 1:
+                        DebugLog("DEX spoof");
+                        CopyFile("app0:/testkit_vita.skprx", "ur0:tai/testkit.skprx");
+                        scePowerRequestColdReset();
+                        needs_refresh = 1;
+                        break;
+                    case 2:
+                        DebugLog("PRO spoof");
+                        CopyFile("app0:/pro_vita.skprx", "ur0:tai/testkit.skprx");
+                        scePowerRequestColdReset();
+                        needs_refresh = 1;
+                        break;
+                }
+            } 
+        }
+        if (needs_refresh) {
+            menu_draw(&menu);
+        }
+        sceKernelDelayThread(10000);
     }
-
-    if (dev)
-    {
-        DebugLog("Switching to TOOL");
-        CopyFile("app0:/dev_vita.skprx", "ur0:tai/testkit.skprx");
-        scePowerRequestColdReset();
-    }
-
-    if (test)
-    {
-        DebugLog("Switching to DEX");
-        CopyFile("app0:/testkit_vita.skprx", "ur0:tai/testkit.skprx");
-        scePowerRequestColdReset();
-    }
-
-    if (pro)
-    {
-        DebugLog("Switching to PRO");
-        CopyFile("app0:/pro_vita.skprx", "ur0:tai/testkit.skprx");
-        scePowerRequestColdReset();
-    }
+        
 }
