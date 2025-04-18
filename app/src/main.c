@@ -1,150 +1,143 @@
-#include <stdlib.h>
-#include <string.h>
-#include <stdio.h>
 #include <vitasdk.h>
-#include <taihen.h>
-#include <psp2/appmgr.h> 
-#include <psp2/sharedfb.h> 
-#include <vita2d.h>
-
-#include "miaki_user.h"
-
-#include "ctrl.h"
-#include "debugScreen.h"
-#include "pup.h"
-#include "include/utils.h"
-#include "include/menu/edition.h"
-#include "include/menu/activation.h"
-#include "include/menu/boot_parameters.h"
-#include "include/modules.h"
-#include "include/flasher.h"
+#include <stdio.h>
+#include <string.h>
 
 #define printf psvDebugScreenPrintf
-char ver[] = "Miaki v2.1.3-pub";
+#include "debugScreen.h"
 
+#include "ctrl.h"
+#include "include/menu/activation.h"
+#include "include/menu/boot_parameters.h"
+#include "include/flasher.h"
 
+#define COLOR_BLACK 0xFF000000
+#define COLOR_WHITE 0xFFFFFFFF
+#define COLOR_RED   0xFF0000FF
+#define COLOR_GREEN 0xFF00FF00
 
-int isRex()
-{
-	if(getFileSize("vs0:/app/NPXS10998/sce_sys/livearea/contents/bg0.png") > 0)
-	{
-		return 1;
-	}
-	else
-	{
-		return 0;
-	}
+char ver[] = "Miaki v3.0";
+
+int isRex() {
+    return 1;
 }
 
-void copyappinfo() // Setup Epic "interlectural property notices" thing
-{
-	if(getFileSize("ux0:/psm/CEXR20202/RO/Application/app.info") != getFileSize("app0:/app.info"))
-	{
-		sceIoMkdir("ux0:/psm", 0777);
-		sceIoMkdir("ux0:/psm/CEXR20202", 0777);
-		sceIoMkdir("ux0:/psm/CEXR20202/RO", 0777);
-		sceIoMkdir("ux0:/psm/CEXR20202/RO/Application", 0777);
-		CopyFile("app0:/app.info","ux0:/psm/CEXR20202/RO/Application/app.info");
-	}
+void initScreen() {
+    psvDebugScreenInit();
+    psvDebugScreenClear(COLOR_BLACK);
+    psvDebugScreenSetFgColor(COLOR_WHITE);
 }
 
+void drawMenu(int is_rex, int selected) {
+    psvDebugScreenClear(COLOR_BLACK);
+
+    psvDebugScreenSetFgColor(COLOR_RED);
+    printf("----- MYAPP LOG -----\n");
+    psvDebugScreenSetFgColor(COLOR_GREEN);
+    printf("Release: Public\n");
+    printf("Version: %s\n\n", ver);
+
+    psvDebugScreenSetFgColor(COLOR_WHITE);
+    if (is_rex) {
+        printf("DevKit fw: Installed\n");
+        printf("Release Mode: DevMode\n");
+        printf("Activation status: Activated\n");
+        printf("%s - Currently REX\n\n", ver);
+        printf("  %s Uninstall DevKit Firmware\n", selected == 0 ? "> " : "  ");
+        printf("  %s Activation\n", selected == 1 ? "> " : "  ");
+        printf("  %s Change ProductCode\n", selected == 2 ? "> " : "  ");
+        printf("  %s Release Check Mode\n", selected == 3 ? "> " : "  ");
+        printf("  %s Exit\n", selected == 4 ? "> " : "  ");
+    } else {
+        printf("DevKit fw: Not installed\n");
+        printf("%s - Currently CEX\n\n", ver);
+        printf("NOTE: Do not install a testkit firmware!\n\n");
+        printf("  %s Install DevKit Firmware\n", selected == 0 ? "> " : "  ");
+        printf("  %s Exit\n", selected == 1 ? "> " : "  ");
+    }
+
+    psvDebugScreenSetFgColor(COLOR_GREEN);
+    printf("\nUse UP/DOWN to navigate, CROSS to select\n");
+}
 
 int main() {
-		copyappinfo();
-		psvDebugScreenInit();
-        psvDebugScreenClear(0);
-        sceClibPrintf("\n");
-        sceClibPrintf("-----MIAKI LOG-----\n");
-        sceClibPrintf("Release: Public\n");
-        sceClibPrintf("Version: %s\n", ver);
-			
-		int pup_type = 0;
-		int fd = sceIoOpen("ux0:/DEX.PUP", SCE_O_RDONLY, 0777);
-		if(fd > 0)
-		{
-			sceIoLseek(fd,0x3c,SCE_SEEK_SET);
-			sceIoRead(fd,&pup_type, sizeof(int));
-			sceIoClose(fd);
-		}
-		else
-		{
-			char version[16];
-			SceKernelFwInfo data;
-			data.size = sizeof(SceKernelFwInfo);
-			_vshSblGetSystemSwVersion(&data);
-			snprintf(version, 16, "%s", data.versionString);
-			
-			psvDebugScreenPrintf("ux0:/DEX.PUP NOT FOUND!\nPlease download the DEX %s firmware update file (.PUP)\nAnd place it in ux0:/DEX.PUP",version);
-			while(1){};
-		}
-		
-		
-		if(isRex() == 0)
-		{
-            sceClibPrintf("DevKit fw: Not installed\n");
-			psvDebugScreenPrintf("%s - Currently CEX\n", ver);
-			psvDebugScreenPrintf("NOTE: Do not install a testkit firmware because you will not be able to uninstall it!\n\n");
-			psvDebugScreenPrintf("X: Install DevKit Firmware\n");
-			
-			sceKernelDelayThread(100000);
-			while(1)
-			{
-				switch(get_key(0)) {
-						case SCE_CTRL_CROSS:
-							install();
-							break;
-						default:
-							break;
-						}
-			}
-		}
-		else
-		{
-            sceClibPrintf("Devkit fw: Installed\n");
-            if(getFileSize("ur0:tai/devmode.skprx") > 0)
-            {
-                sceClibPrintf("Release Mode: DevMode\n");
-            }
-            else
-            {
-                sceClibPrintf("Realese Mode: Release\n");
-            }
+    initScreen();
 
-            if(getFileSize("ur0:tai/kmspico.skprx") > 0)
-            {
-                sceClibPrintf("Activation status: Activated\n");
-            }
-            else
-            {
-                sceClibPrintf("Activation status: Expired\n");
-            }
+    int is_rex = isRex();
+    int selected = 0;
+    int running = 1;
 
-			psvDebugScreenPrintf("%s - Currently REX\n\n", ver);
-			psvDebugScreenPrintf("X: Uninstall DevKit Firmware\n");
-			psvDebugScreenPrintf("O: Activation\n");
-			psvDebugScreenPrintf("[]: Change ProductCode\n");
-			psvDebugScreenPrintf("/\\ : Release Check Mode\n");
-			sceKernelDelayThread(100000);
-			switch(get_key(0)) {
-						case SCE_CTRL_CROSS:
-                        sceClibPrintf("Starting uninstaller...\n");
-							uninstall();
-							break;
-						case SCE_CTRL_CIRCLE:
-                        sceClibPrintf("Activation menu\n");
-							activator();
-							break;
-						case SCE_CTRL_SQUARE:
-                        sceClibPrintf("Edition menu\n");
-							menu_edition();
-							break;
-						case SCE_CTRL_TRIANGLE:
-                        sceClibPrintf("Boot Parameters\n");
-							boot_parameters();
-							break;
-						default:
-							break;
-						}
-		}
+    drawMenu(is_rex, selected);
+
+    while (running) {
+        uint32_t key = get_key(0);
+
+        int needs_refresh = 0;
+
+        if (key == SCE_CTRL_UP) {
+            if (selected > 0) {
+                selected--;
+                needs_refresh = 1;
+            }
+            sceKernelDelayThread(150000);
+        }
+        if (key == SCE_CTRL_DOWN) {
+            if (is_rex && selected < 4) {
+                selected++;
+                needs_refresh = 1;
+            } else if (!is_rex && selected < 1) {
+                selected++;
+                needs_refresh = 1;
+            }
+            sceKernelDelayThread(150000);
+        }
+
+        if (key == SCE_CTRL_CROSS) {
+            if (is_rex) {
+                switch (selected) {
+                    case 0:
+                        uninstall();
+                        needs_refresh = 1;
+                        break;
+                    case 1:
+                        activator();
+                        needs_refresh = 1;
+                        break;
+                    case 2:
+                        menu_edition();
+                        needs_refresh = 1;
+                        break;
+                    case 3:
+                        boot_parameters();
+                        needs_refresh = 1;
+                        break;
+                    case 4:
+                        running = 0;
+                        break;
+                }
+            } else {
+                switch (selected) {
+                    case 0:
+                        install();
+                        needs_refresh = 1;
+                        break;
+                    case 1:
+                        running = 0;
+                        break;
+                }
+            }
+            sceKernelDelayThread(150000);
+        }
+
+        if (needs_refresh) {
+            drawMenu(is_rex, selected);
+        }
+
+        sceKernelDelayThread(10000);
+    }
+
+    psvDebugScreenClear(COLOR_BLACK);
+    printf("Exiting...\n");
+    sceKernelDelayThread(1000000);
+    sceKernelExitProcess(0);
     return 0;
 }
