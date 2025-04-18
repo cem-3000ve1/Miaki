@@ -6,7 +6,7 @@
 void activator(void);
 extern int activated;
 extern int expired;
-extern int yellowmsg;
+void yellowmsg(void);
 extern int lowactivation;
 
 #endif
