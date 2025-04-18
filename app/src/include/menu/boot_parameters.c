@@ -18,9 +18,9 @@ void boot_parameters(void) {
     int devmode = 0;
 	int back = 0;
         psvDebugScreenClear();
-        psvDebugScreenPrintf("Boot Parameters:\n\n");
-        psvDebugScreenPrintf("X: Enable DevMode\n");
-        psvDebugScreenPrintf("O: Disable DevMode\n");
+        psvDebugScreenPrintf("Release Check Mode:\n\n");
+        psvDebugScreenPrintf("X: Development Mode\n");
+        psvDebugScreenPrintf("O: Release Mode\n");
         sceKernelDelayThread(100000);
         switch(get_key(0)) {
             case SCE_CTRL_CROSS:
@@ -36,14 +36,14 @@ void boot_parameters(void) {
 		
         if (devmode)
         {
-            DebugLog("Enable DevMode...");
+            DebugLog("Development Mode");
             CopyFile("app0:/devmode.skprx", "ur0:tai/devmode.skprx");
             scePowerRequestColdReset();
         }
 
         if (release)
         {
-            DebugLog("Disable DevMode...");
+            DebugLog("Release Mode");
             sceIoRemove("ur0:tai/devmode.skprx");
             scePowerRequestColdReset();
         }

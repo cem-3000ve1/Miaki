@@ -38,6 +38,8 @@ kmspico/src/yellowmsg/stubs/Makefile
 kmspico/Makefile
 user/Makefile
 app/Makefile
+kmspico/src/lowact/install_manifest.txt
+kmspico/src/yellowmsg/Makefile
 user/miaki_user
 user/install_manifest.txt
 user/stubs.yml

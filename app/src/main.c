@@ -83,6 +83,7 @@ int main() {
 		{
             sceClibPrintf("DevKit fw: Not installed\n");
 			psvDebugScreenPrintf("%s - Currently CEX\n", ver);
+			psvDebugScreenPrintf("NOTE: Do not install a testkit firmware because you will not be able to uninstall it!\n\n");
 			psvDebugScreenPrintf("X: Install DevKit Firmware\n");
 			
 			sceKernelDelayThread(100000);
@@ -120,9 +121,9 @@ int main() {
 
 			psvDebugScreenPrintf("%s - Currently REX\n\n", ver);
 			psvDebugScreenPrintf("X: Uninstall DevKit Firmware\n");
-			psvDebugScreenPrintf("O: Change Activation\n");
+			psvDebugScreenPrintf("O: Activation\n");
 			psvDebugScreenPrintf("[]: Change ProductCode\n");
-			psvDebugScreenPrintf("/\\ : Boot Parameters\n");
+			psvDebugScreenPrintf("/\\ : Release Check Mode\n");
 			sceKernelDelayThread(100000);
 			switch(get_key(0)) {
 						case SCE_CTRL_CROSS:

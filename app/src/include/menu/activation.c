@@ -19,7 +19,7 @@ void activator(void) {
     int yellowmsg = 0;
     int lowactivation = 0;
     psvDebugScreenClear();
-    psvDebugScreenPrintf("Miaki activation spoofer:\n");
+    psvDebugScreenPrintf("Activation:\n");
     psvDebugScreenPrintf("ONLY DEX SPOOF!\n\n");
     psvDebugScreenPrintf("X: 12y Activation date\n");
     psvDebugScreenPrintf("O: Expired\n");
