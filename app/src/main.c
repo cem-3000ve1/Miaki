@@ -13,7 +13,15 @@
 char ver[] = "Miaki v3.0.0-pub";
 
 int isRex() {
-    return 1;
+    if(getFileSize("vs0:/app/NPXS10998/sce_sys/livearea/contents/bg0.png") > 0)
+	{
+		return 1;
+	}
+	else
+	{
+		return 0;
+	}
+
 }
 
 int main() {

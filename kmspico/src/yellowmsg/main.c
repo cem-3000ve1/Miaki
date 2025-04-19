@@ -8,8 +8,7 @@ static tai_hook_ref_t ref_hook;
 
 int ksceSblPostSsMgrGetExpireDate_patched(int *arg1, int arg2)
 {
-    
-    *arg1 = 0x6802F8A4;
+    *arg1 = 0x680b52e4;
     return 0;
 }
 

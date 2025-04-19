@@ -25,10 +25,8 @@ void activator(void) {
     menu_create(&menu, "Miaki Activation Spoofer");
     menu_printf(&menu, "Miaki activation spoofer:");
     menu_printf(&menu, "ONLY DEX SPOOF!");
-    sel_printf(&menu, "12y Activation date");
+    sel_printf(&menu, "80y Activation date");
     sel_printf(&menu, "Expired");
-    sel_printf(&menu, "Yellow message (1d act)");
-    sel_printf(&menu, "38d Activation date");
     menu_draw(&menu);
     while (running) {
         uint32_t key = get_key(0);
