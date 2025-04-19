@@ -30,7 +30,6 @@ int main() {
     int running = 1;
     menu_create(&menu, ver);
     if (is_rex) {
-		menu_printf(&menu, "Test very sigma");
         sel_printf(&menu, "Uninstall DevKit Firmware");
         sel_printf(&menu, "Activation");
         sel_printf(&menu, "Change ProductCode");
