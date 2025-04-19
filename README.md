@@ -85,6 +85,13 @@ Miaki supports switching between **Console IDs** (Prototype, DevKit, TestKit), d
 
 ---
 
+## Pictures 
+
+![devkit.png](https://git.hitius.bar/ImLazy/assets/raw/branch/main/2025-04-20-074408.png)
+
+---
+
+
 ## Special Thanks
 
 - **Li** – Original CEX2REX creator and for sharing knowledge
