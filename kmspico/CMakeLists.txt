@@ -32,7 +32,7 @@ target_link_libraries(${PROJECT_NAME}
   taihenModuleUtils_stub
 )
 
-vita_create_self(kmspico.skprx ${PROJECT_NAME} CONFIG exports.yml UNSAFE)
+vita_create_self(dkmspico.skprx ${PROJECT_NAME} CONFIG exports.yml UNSAFE)
 
 vita_create_stubs(stubs ${PROJECT_NAME} ${CMAKE_SOURCE_DIR}/exports.yml KERNEL)
 

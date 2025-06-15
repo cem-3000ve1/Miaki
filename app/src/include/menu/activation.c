@@ -25,7 +25,8 @@ void activator(void) {
     menu_create(&menu, "Miaki Activation Spoofer");
     menu_printf(&menu, "Miaki activation spoofer:");
     menu_printf(&menu, "ONLY DEX SPOOF!");
-    sel_printf(&menu, "80y Activation date");
+    sel_printf(&menu, "No expiration Date");
+	sel_printf(&menu, "Expiration Date!");
     sel_printf(&menu, "Expired");
     menu_draw(&menu);
     while (running) {
@@ -58,23 +59,16 @@ void activator(void) {
                         break;
                     case 1:
                         psvDebugScreenClear();
+                        psvDebugScreenPrintf("Activated!");
+                        sceClibPrintf("Activated!\n");
+                        CopyFile("app0:/dkmspico.skprx", "ur0:tai/kmspico.skprx");
+                        scePowerRequestColdReset();
+                        needs_refresh = 1;
+                    case 2:
+                        psvDebugScreenClear();
                         psvDebugScreenPrintf("Expired!");
                         sceClibPrintf("Expired!\n");
                         sceIoRemove("ur0:tai/kmspico.skprx");
-                        scePowerRequestColdReset();
-                        needs_refresh = 1;
-                        break;
-                    case 2:
-                        psvDebugScreenClear();
-                        DebugLog("1d activated");
-                        CopyFile("app0:/ykmspico.skprx", "ur0:tai/kmspico.skprx");
-                        scePowerRequestColdReset();
-                        needs_refresh = 1;
-                        break;
-                    case 3:
-                        psvDebugScreenClear();
-                        DebugLog("38d activated");
-                        CopyFile("app0:/lowkmspico.skprx", "ur0:tai/kmspico.skprx");
                         scePowerRequestColdReset();
                         needs_refresh = 1;
                         break;

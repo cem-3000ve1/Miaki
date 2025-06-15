@@ -13,13 +13,15 @@ build_all:
 	cd devmode && cmake . && make install
 	cd kmspico/src/yellowmsg && cmake . && make install
 	cd kmspico/src/lowact && cmake . && make install
+	cd kmspico/src/kms && cmake . && make install
 	cd kmspico && cmake . && make install
 
 move_plugins:
 	cd app && \
 	mv ../kmspico/src/lowact/lowact.skprx lowkmspico.skprx && \
 	mv ../kmspico/src/yellowmsg/yellowmsg.skprx ykmspico.skprx && \
-	mv ../kmspico/kmspico.skprx kmspico.skprx && \
+	mv ../kmspico/src/kms/kmspico.skprx kmspico.skprx && \
+	mv ../kmspico/dkmspico.skprx dkmspico.skprx && \
 	mv ../spoofer_vita_dev/kDump.skprx dev_vita.skprx && \
 	mv ../spoofer_vita_pro/kDump.skprx pro_vita.skprx && \
 	mv ../spoofer_vita_test/kDump.skprx testkit_vita.skprx && \

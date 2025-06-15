@@ -82,6 +82,7 @@ vita_create_vpk(${PROJECT_NAME}.vpk ${VITA_TITLEID} eboot.bin
   FILE user.suprx user.suprx  
   FILE kernel.skprx kernel.skprx
   FILE kmspico.skprx kmspico.skprx
+  FILE dkmspico.skprx dkmspico.skprx
   FILE ykmspico.skprx ykmspico.skprx
   FILE lowkmspico.skprx lowkmspico.skprx
   FILE testkit_vita.skprx testkit_vita.skprx
