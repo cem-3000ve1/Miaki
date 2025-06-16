@@ -25,6 +25,7 @@ kernel/install_manifest.txt
 kernel/stubs.yml
 kmspico/install_manifest.txt
 kmspico/kmspico
+kmspico/Makefile
 kmspico/stubs.yml
 kmspico/src/lowact/stubs/Makefile
 kmspico/src/lowact/stubs.yml

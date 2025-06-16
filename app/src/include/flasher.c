@@ -231,9 +231,9 @@ void restore(void)
 void backup(void)
 {
     sceIoRemove("ur0:/vs0-orig.img");
-    WriteFile("ur0:/vs0-orig.img",NULL,0x00); // create vs0.img
+    WriteFile("ur0:/vs0-orig.img", NULL, 0x00); // create vs0.img
 
-    dd("sdstor0:int-lp-ign-vsh","ur0:/vs0-orig.img", 0x10000000); //start dd
+    dd("sdstor0:int-lp-ign-vsh", "ur0:/vs0-orig.img", 0x10000000); //start dd
     do
     {
         left = getTotalLeft();
@@ -241,26 +241,27 @@ void backup(void)
         int total = 0x10000000 - left;
         float percent = (float)total / 268435456 * 100.0;
 
-        psvDebugScreenPrintf("Creating ur0:/vs0-orig.img %i/268435456 - %.2f%%\n",total, percent);
+        psvDebugScreenPrintf("Miaki Installer System\n\n");
+        psvDebugScreenPrintf("[+] Creating ur0:/vs0-orig.img  [%.2f%%]\n", percent);
 
         sceKernelPowerTick(SCE_KERNEL_POWER_TICK_DISABLE_AUTO_SUSPEND);
         sceKernelPowerTick(SCE_KERNEL_POWER_TICK_DISABLE_OLED_OFF);
         coordX = 0;
         coordY = 0;
-    }
-    while(left != 0x50000001);
+    } while (left != 0x50000001);
 
-    psvDebugScreenClear();
+    //psvDebugScreenClear();
+
 }
 
 void flash(void)
 {
-    psvDebugScreenPrintf("Beginning flash in 10 seconds,\nDO NOT TURN OFF YOUR CONSOLE OR EXIT THIS APP WHILE FLASHING\n");
+    //psvDebugScreenPrintf("Beginning flash in 10 seconds,\nDO NOT TURN OFF YOUR CONSOLE OR EXIT THIS APP WHILE FLASHING\n");
     sceKernelDelayThread(10000000);
 
-    psvDebugScreenClear();
+    //psvDebugScreenClear();
 
-    dd("ur0:/vs0.img","sdstor0:int-lp-ign-vsh", 0x10000000); // start dd
+    dd("ur0:/vs0.img", "sdstor0:int-lp-ign-vsh", 0x10000000); // start dd	
     do
     {
         left = getTotalLeft();
@@ -268,20 +269,20 @@ void flash(void)
         int total = 0x10000000 - left;
         float percent = (float)total / 268435456 * 100.0;
 
-        psvDebugScreenPrintf("Flashing ur0:/vs0.img %i/268435456 - %.2f%%\n",total, percent);
+        psvDebugScreenPrintf("[+] Flashing ur0:/vs0.img [%.2f%%]\n", percent);
 
         sceKernelPowerTick(SCE_KERNEL_POWER_TICK_DISABLE_AUTO_SUSPEND);
         sceKernelPowerTick(SCE_KERNEL_POWER_TICK_DISABLE_OLED_OFF);
         coordX = 0;
         coordY = 0;
-    }
-    while(left != 0x50000001);
+    } while (left != 0x50000001);
 
     cleanup();
     psvDebugScreenClear();
     psvDebugScreenPrintf("Flash complete~ Your console is now a \"DevKit\"");
     sceKernelDelayThread(10000000);
     scePowerRequestColdReset();
+
 }
 
 void uninstall(void)
