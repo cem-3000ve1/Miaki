@@ -1,4 +1,4 @@
-#include <stdlib.h>
+﻿#include <stdlib.h>
 #include <string.h>
 #include <stdio.h>
 #include <vitasdk.h>
@@ -9,6 +9,7 @@
 #include "../ctrl.h"
 #include "../pup.h"
 #include "flasher.h"
+//#include "ui/ui.h"
 #include "utils.h"
 #include "modules.h"
 #include "flasher/config.h"
@@ -230,52 +231,53 @@ void restore(void)
 
 void backup(void)
 {
+    int left;
+
     sceIoRemove("ur0:/vs0-orig.img");
     WriteFile("ur0:/vs0-orig.img", NULL, 0x00); // create vs0.img
 
     dd("sdstor0:int-lp-ign-vsh", "ur0:/vs0-orig.img", 0x10000000); //start dd
-    do
-    {
+
+    do {
         left = getTotalLeft();
 
         int total = 0x10000000 - left;
         float percent = (float)total / 268435456 * 100.0;
 
-        psvDebugScreenPrintf("Miaki Installer System\n\n");
-        psvDebugScreenPrintf("[+] Creating ur0:/vs0-orig.img  [%.2f%%]\n", percent);
+        psvDebugScreenPrintf("[+] Creating ur0:/vs0-orig.img [%i/268435456]   \n", total);
 
         sceKernelPowerTick(SCE_KERNEL_POWER_TICK_DISABLE_AUTO_SUSPEND);
         sceKernelPowerTick(SCE_KERNEL_POWER_TICK_DISABLE_OLED_OFF);
         coordX = 0;
         coordY = 0;
-    } while (left != 0x50000001);
 
-    //psvDebugScreenClear();
+    } while (left != 0x50000001);
 
 }
 
 void flash(void)
 {
-    //psvDebugScreenPrintf("Beginning flash in 10 seconds,\nDO NOT TURN OFF YOUR CONSOLE OR EXIT THIS APP WHILE FLASHING\n");
     sceKernelDelayThread(10000000);
+    dd("ur0:/vs0.img", "sdstor0:int-lp-ign-vsh", 0x10000000);
 
-    //psvDebugScreenClear();
+    psvDebugScreenClear(); // Nettoyer l’écran une fois au début
+    psvDebugScreenPrintf("Miaki Installer System\n\n");
 
-    dd("ur0:/vs0.img", "sdstor0:int-lp-ign-vsh", 0x10000000); // start dd	
-    do
+    while (1)
     {
         left = getTotalLeft();
+        if (left == 0x50000001) break;
 
         int total = 0x10000000 - left;
-        float percent = (float)total / 268435456 * 100.0;
+        float percent = (float)total / 268435456.0f * 100.0f;
 
-        psvDebugScreenPrintf("[+] Flashing ur0:/vs0.img [%.2f%%]\n", percent);
+        psvDebugScreenPrintf("[+] Flashing ur0:/vs0.img [%i/268435456]      \n", total); // les espaces à la fin effacent l'ancienne valeur
 
         sceKernelPowerTick(SCE_KERNEL_POWER_TICK_DISABLE_AUTO_SUSPEND);
         sceKernelPowerTick(SCE_KERNEL_POWER_TICK_DISABLE_OLED_OFF);
         coordX = 0;
         coordY = 0;
-    } while (left != 0x50000001);
+    }
 
     cleanup();
     psvDebugScreenClear();
