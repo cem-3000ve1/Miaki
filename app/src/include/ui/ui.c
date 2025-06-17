@@ -13,6 +13,9 @@
 #include "../menu/activation.h"
 #define printf psvDebugScreenPrintf
 
+extern int coordX;
+extern int coordY;
+
 static void initScreen() {
     psvDebugScreenInit();
     psvDebugScreenClear(COLOR_BLACK);
@@ -63,6 +66,12 @@ void menu_draw(Menu *menu) {
     }
     psvDebugScreenSetFgColor(COLOR_GREEN);
     printf("\nUse UP/DOWN to navigate, CROSS to select\n");
+}
+
+
+void psvDebugScreenSetXY(int x, int y) {
+    coordX = x;
+    coordY = y;
 }
 
 void menu_destroy(Menu *menu) {
