@@ -42,7 +42,7 @@ Miaki supports switching between **Console IDs** (Prototype, DevKit, TestKit), d
 - Install **DevKit firmware** on retail PS Vita (3.60 / 3.65)
 - **Switch Console ID** on the fly: DevKit, TestKit, or Prototype
 - **Activate DevMode** directly from the Miaki app
-- **12-year activation** via KMSpico (included)
+- **80-year activation** via KMSpico (included)
 - Simple UI: One-button install
 - Fully offline compatible (after downloading required files)
 
