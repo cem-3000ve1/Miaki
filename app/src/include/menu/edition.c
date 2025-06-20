@@ -21,7 +21,7 @@ void menu_edition(void) {
     menu_create(&menu, "ProductCode");
     sel_printf(&menu, "Flash TOOL spoof");
     sel_printf(&menu, "Flash DEX spoof");
-    sel_printf(&menu, "Flash PRO spoof");
+    sel_printf(&menu, "Flash TEST spoof");
     menu_draw(&menu);
     while (running) {
         uint32_t key = get_key(0);
@@ -56,7 +56,7 @@ void menu_edition(void) {
                         needs_refresh = 1;
                         break;
                     case 2:
-                        DebugLog("PRO spoof");
+                        DebugLog("TEST spoof");
                         CopyFile("app0:/pro_vita.skprx", "ur0:tai/testkit.skprx");
                         scePowerRequestColdReset();
                         needs_refresh = 1;

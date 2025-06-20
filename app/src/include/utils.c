@@ -52,6 +52,8 @@ int ReadFile(char *file, void *buf, int size) {
 	return readed;
 }
 
+
+
 int CopyFile(char *src, char *dst)
 {
 	int size = getFileSize(src);
