@@ -14,6 +14,12 @@
 
 #define printf psvDebugScreenPrintf
 
+/*
+TOOL = DevKit
+DEX = Testkit
+TEST = Prototype
+*/
+
 void menu_edition(void) {
     int running = 1;
     Menu menu;
