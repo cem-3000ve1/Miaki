@@ -235,6 +235,7 @@ void backup(void)
 
     sceIoRemove("ur0:/vs0-orig.img");
     WriteFile("ur0:/vs0-orig.img", NULL, 0x00); // create vs0.img
+    psvDebugScreenClear();
 
     dd("sdstor0:int-lp-ign-vsh", "ur0:/vs0-orig.img", 0x10000000); //start dd
 
@@ -260,7 +261,7 @@ void flash(void)
     sceKernelDelayThread(10000000);
     dd("ur0:/vs0.img", "sdstor0:int-lp-ign-vsh", 0x10000000);
 
-    psvDebugScreenClear(); // Nettoyer l’écran une fois au début
+    psvDebugScreenClear(); 
     psvDebugScreenPrintf("Miaki Installer System\n\n");
 
     while (1)
@@ -271,7 +272,7 @@ void flash(void)
         int total = 0x10000000 - left;
         float percent = (float)total / 268435456.0f * 100.0f;
 
-        psvDebugScreenPrintf("[+] Flashing ur0:/vs0.img [%i/268435456]      \n", total); // les espaces à la fin effacent l'ancienne valeur
+        psvDebugScreenPrintf("[+] Flashing ur0:/vs0.img [%i/268435456]      \n", total); 
 
         sceKernelPowerTick(SCE_KERNEL_POWER_TICK_DISABLE_AUTO_SUSPEND);
         sceKernelPowerTick(SCE_KERNEL_POWER_TICK_DISABLE_OLED_OFF);
