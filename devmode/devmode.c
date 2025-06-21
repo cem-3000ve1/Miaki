@@ -6,7 +6,9 @@
 #include <taihen.h>
 
 static int hook = -1;
+static int hook1 = -1;
 static tai_hook_ref_t ref_hook;
+static tai_hook_ref_t ref_hook1;
 
 static int returntrue() {
     return 1;
@@ -21,6 +23,13 @@ int module_start(SceSize argc, const void *args)
 		0x35C5ACD4, //SceVshBridge
 		0x641890D8, //vshSblSsIsDevelopmentMode
 		returntrue);
+
+	   hook1 = taiHookFunctionExportForKernel(KERNEL_PID, 
+		   &ref_hook1, 
+		   "SceVshBridge",
+		   0x35C5ACD4, //SceVshBridge
+		   0xDDFC4EEE, //vshSblAimgrIsGenuineDolce
+		   returntrue);
        
        
        
@@ -30,5 +39,6 @@ int module_start(SceSize argc, const void *args)
 int module_stop(SceSize argc, const void *args)
 {
 	if (hook >= 0) taiHookReleaseForKernel(hook, ref_hook);   
+	if (hook1 >= 0) taiHookReleaseForKernel(hook1, ref_hook1);
 	return SCE_KERNEL_STOP_SUCCESS;
 }
