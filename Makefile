@@ -1,5 +1,6 @@
 VITASDK ?= /usr/local/vitasdk
 PATH := $(VITASDK)/bin:$(PATH)
+TOOLCHAIN := -DCMAKE_TOOLCHAIN_FILE=$(VITASDK)/share/vita.cmake
 
 all: build_all move_plugins build_final_app
 
