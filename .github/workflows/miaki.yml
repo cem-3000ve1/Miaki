@@ -17,16 +17,20 @@ jobs:
     - name: Install dependencies
       run: |
         sudo apt update
-        sudo apt install -y make g++ git wget
+        sudo apt install -y make git wget cmake python bzip2
 
     - name: Install VitaSDK
       run: |
         git clone https://github.com/vitasdk/vdpm
         cd vdpm
-        ./bootstrap-vitasdk.sh -y
+        ./bootstrap-vitasdk.sh
+
+    - name: Setup VitaSDK
+      run: | 
+        ./install-all.sh
         echo "VITASDK=$HOME/vitasdk" >> $GITHUB_ENV
         echo "$HOME/vitasdk/bin" >> $GITHUB_PATH
 
-    - name: Build Miaki with make
+    - name: Build Miaki
       run: |
         make
