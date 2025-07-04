@@ -25,8 +25,8 @@ jobs:
         cd vdpm
         ./bootstrap-vitasdk.sh
         ./install-all.sh
-        echo "VITASDK=$HOME/vitasdk" >> $GITHUB_ENV
-        echo "$HOME/vitasdk/bin" >> $GITHUB_PATH
+        export VITASDK=/usr/local/vitasdk
+        export PATH=$VITASDK/bin:$PATH
 
     - name: Build Miaki
       run: |
