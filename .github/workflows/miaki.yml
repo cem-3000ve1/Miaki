@@ -24,9 +24,6 @@ jobs:
         git clone https://github.com/vitasdk/vdpm
         cd vdpm
         ./bootstrap-vitasdk.sh
-
-    - name: Setup VitaSDK
-      run: | 
         ./install-all.sh
         echo "VITASDK=$HOME/vitasdk" >> $GITHUB_ENV
         echo "$HOME/vitasdk/bin" >> $GITHUB_PATH
