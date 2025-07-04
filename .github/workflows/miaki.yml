@@ -18,6 +18,12 @@ jobs:
       run: |
         sudo apt update
         sudo apt install -y make git wget cmake python-is-python3 bzip2
+    
+    - name: Setup export
+      run: |
+          echo export VITASDK=/usr/local/vitasdk >> ~/.bashrc
+          echo export PATH=$VITASDK/bin:$PATH >> ~/.bashrc
+
 
     - name: Install VitaSDK
       run: |
@@ -25,9 +31,7 @@ jobs:
         cd vdpm
         ./bootstrap-vitasdk.sh
         ./install-all.sh
-        echo export VITASDK=/usr/local/vitasdk >> ~/.bashrc
-        export PATH=$VITASDK/bin:$PATH >> ~/.bashrc
-
+        
     - name: Build Miaki
       run: |
         make
