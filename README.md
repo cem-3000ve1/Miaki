@@ -59,8 +59,8 @@ Miaki supports switching between **Console IDs** (Prototype, DevKit, TestKit), d
 
 ### Step 2: Prepare the Files
 
-- Rename your downloaded DevKit update to `DEX.PUP`
-- Place `DEX.PUP` in the **root** of `ux0:` (i.e., `ux0:/DEX.PUP`)
+- Rename your downloaded DevKit update to `TOOL.PUP`
+- Place `TOOL.PUP` in the **root** of `ux0:` (i.e., `ux0:/TOOL.PUP`)
 
 ### Step 3: Install Miaki
 
