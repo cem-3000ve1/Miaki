@@ -22,6 +22,12 @@ void activator(void) {
     //int yellowmsg = 0;
     int lowactivation = 0;
     psvDebugScreenClear();
+    /*
+    
+    Henkaku on an activated kit can have issues. I recommend using Red-Msg-Del (by Princess of Sleeping) with TOOL CID.
+    https://github.com/Princess-of-Sleeping/Red-Msg-Delete/releases/tag/v1.1
+
+    */
     menu_create(&menu, "Miaki Activation Spoofer");
     menu_printf(&menu, "Miaki activation spoofer:");
     menu_printf(&menu, "ONLY DEX SPOOF!");
