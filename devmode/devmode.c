@@ -7,8 +7,10 @@
 
 static int hook = -1;
 static int hook1 = -1;
+static int hook2 = -1;
 static tai_hook_ref_t ref_hook;
 static tai_hook_ref_t ref_hook1;
+static tai_hook_ref_t ref_hook2;
 
 static int returntrue() {
     return 1;
@@ -30,6 +32,13 @@ int module_start(SceSize argc, const void *args)
 		   0x35C5ACD4, //SceVshBridge
 		   0xDDFC4EEE, //vshSblAimgrIsGenuineDolce
 		   returntrue);
+	
+		hook2 = taiHookFunctionExportForKernel(KERNEL_PID, 
+			&ref_hook2, 
+		   "SceSblQafMgr",
+		   0x756B7E89, //SceSblQafMgr
+		   0xD22A8731, //sceSblQafMgrIsAllowScreenShotAlways
+		   returntrue);
        
        
        
@@ -40,5 +49,6 @@ int module_stop(SceSize argc, const void *args)
 {
 	if (hook >= 0) taiHookReleaseForKernel(hook, ref_hook);   
 	if (hook1 >= 0) taiHookReleaseForKernel(hook1, ref_hook1);
+	if (hook2 >= 0) taiHookReleaseForKernel(hook2, ref_hook2);
 	return SCE_KERNEL_STOP_SUCCESS;
 }
