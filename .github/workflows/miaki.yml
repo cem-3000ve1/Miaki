@@ -45,29 +45,4 @@ jobs:
       run: |
         make
 
-    - name: Create Draft Release
-      id: create_release
-      uses: actions/create-release@v1
-      if: startsWith(github.ref, 'refs/tags/')
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        tag_name: ${{ github.ref_name }}
-        release_name: Release ${{ github.ref_name }}
-        draft: true
-        prerelease: false
-        body: |
-          Release brouillon pour Miaki ${{ github.ref_name }}.
-          Fichier .vpk pour PlayStation Vita.
-          Consultez le README pour les instructions d'installation.
-
-    - name: Upload VPK to Release
-      uses: actions/upload-release-asset@v1
-      if: startsWith(github.ref, 'refs/tags/')
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_path: ./miaki.vpk
-        asset_name: miaki-${{ github.ref_name }}.vpk
-        asset_content_type: application/octet-stream
+   
