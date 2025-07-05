@@ -1,6 +1,7 @@
 Credits:
 
-Li - All Graphics, Most Code
+LazyPreview - Make Miaki
+Li - All Graphics, Most Code, original creator of CEX-2-REX
 PSM INSTITUTIONS LLC (aka Li) - Epic "Intellectual Property Notices"
 Princess Of Sleeping - PUP Extractor
 TheFlow0 - SPKG Decryptor (modoru)
@@ -12,11 +13,12 @@ zecoaxco - spoof_testkit / memdump
 	Removed all calls to LOG()
 	
 
-CEX 2 REX 2.0--
+CEX 2 REX 2.0 // Miaki
 
 The MIT License (MIT)
 
-Copyright (c) 2019 Li
+Copyright (c) 2019 Li -- CEX-2-REX
+Copyright (c) 2025 LazyPreview -- Miaki
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
