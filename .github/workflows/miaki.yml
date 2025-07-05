@@ -1,14 +1,10 @@
-name: Build and Release Miaki
+name: Build Miaki
 
 on:
   push:
     branches: [ main ]
-    tags: [ 'v*.*.*' ]
   pull_request:
     branches: [ main ]
-
-permissions:
-  contents: write
 
 jobs:
   build:
@@ -33,16 +29,8 @@ jobs:
         git clone https://github.com/vitasdk/vdpm
         cd vdpm
         ./bootstrap-vitasdk.sh
-        sudo ./install-all.sh
-
-    - name: Verify VitaSDK
-      run: |
-        vitacompiler --version
-        echo "VITASDK=$VITASDK"
-        echo "PATH=$PATH"
+        ./install-all.sh
         
     - name: Build Miaki
       run: |
         make
-
-   
