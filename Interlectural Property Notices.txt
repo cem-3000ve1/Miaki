@@ -1,6 +1,6 @@
 Credits:
 
-LazyPreview - Make Miaki
+LazyPreview - Creator Miaki
 Li - All Graphics, Most Code, original creator of CEX-2-REX
 PSM INSTITUTIONS LLC (aka Li) - Epic "Intellectual Property Notices"
 Princess Of Sleeping - PUP Extractor
