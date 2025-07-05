@@ -32,8 +32,8 @@ void config(void)
         psvDebugScreenPrintf("If you use the wrong config you have to reinstall firmware!\n\n");
     }
 
-    psvDebugScreenPrintf("X: Activated DevKit\n");
-    psvDebugScreenPrintf("O: Expired DevKit\n");
+    psvDebugScreenPrintf("X: Activated TOOL\n");
+    psvDebugScreenPrintf("O: Expired TOOL\n");
 
     sceKernelDelayThread(100000);
 

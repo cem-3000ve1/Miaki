@@ -38,13 +38,13 @@ int main() {
     int running = 1;
     menu_create(&menu, ver);
     if (is_rex) {
-        sel_printf(&menu, "Uninstall DevKit Firmware");
+        sel_printf(&menu, "Uninstall TOOL Firmware");
         sel_printf(&menu, "Activation");
         sel_printf(&menu, "Change ProductCode");
         sel_printf(&menu, "Release Check Mode");
         sel_printf(&menu, "Exit");
     } else {
-        sel_printf(&menu, "Install DevKit Firmware");
+        sel_printf(&menu, "Install TOOL Firmware");
         sel_printf(&menu, "Exit");
     }
     menu_draw(&menu);

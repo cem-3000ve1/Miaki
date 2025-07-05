@@ -282,7 +282,7 @@ void flash(void)
 
     cleanup();
     psvDebugScreenClear();
-    psvDebugScreenPrintf("Flash complete~ Your console is now a \"DevKit\"");
+    psvDebugScreenPrintf("Flash complete~ Your console is now a \"ROOL\"");
     sceKernelDelayThread(10000000);
     scePowerRequestColdReset();
 

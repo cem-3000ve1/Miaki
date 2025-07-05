@@ -22,9 +22,9 @@ move_plugins:
 	mv ../kmspico/src/yellowmsg/yellowmsg.skprx ykmspico.skprx && \
 	mv ../kmspico/src/kms/kmspico.skprx kmspico.skprx && \
 	mv ../kmspico/dkmspico.skprx dkmspico.skprx && \
-	mv ../spoofer_vita_dev/kDump.skprx dev_vita.skprx && \
-	mv ../spoofer_vita_pro/kDump.skprx pro_vita.skprx && \
-	mv ../spoofer_vita_test/kDump.skprx testkit_vita.skprx && \
+	mv ../spoofer_vita/TOOL/kDump.skprx dev_vita.skprx && \
+	mv ../spoofer_vita/TEST/kDump.skprx pro_vita.skprx && \
+	mv ../spoofer_vita/kDump.skprx testkit_vita.skprx && \
 	mv ../spoofer_pstv/kDump.skprx testkit_pstv.skprx && \
 	mv ../devmode/devmode.skprx devmode.skprx && \
 	mv ../kernel/kernel.skprx kernel.skprx && \
@@ -35,9 +35,9 @@ build_final_app:
 
 clean:
 	cd kernel && make clean || true
-	cd spoofer_vita_dev && make clean || true
-	cd spoofer_vita_pro && make clean || true
-	cd spoofer_vita_test && make clean || true
+	cd spoofer_vita && make clean || true
+	cd spoofer_vita/TOOL && make clean || true
+	cd spoofer_vita/TEST && make clean || true
 	cd spoofer_pstv && make clean || true
 	cd user && make clean || true
 	cd devmode && make clean || true
