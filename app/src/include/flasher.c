@@ -53,8 +53,8 @@ void extract(void)
 {
     cleanup();
     psvDebugScreenClear();
-    psvDebugScreenPrintf("Extracting DEX.PUP...\n");
-    scePlayStartionUpdatePackageExtractStage1("ux0:/DEX.PUP");
+    psvDebugScreenPrintf("Extracting TOOL.PUP...\n");
+    scePlayStartionUpdatePackageExtractStage1("ux0:/TOOL.PUP");
 }
 
 void vercheck(void)
@@ -77,7 +77,7 @@ void vercheck(void)
 
     if(strcmp(target_version,version) != 0)
     {
-        psvDebugScreenPrintf("ux0:/DEX.PUP version is %s\nBut your current version is %s. cannot continue\nPlease update your console to retail %s first.\nor download the DEX %s.PUP",target_version,version,target_version,version);
+        psvDebugScreenPrintf("ux0:/TOOL.PUP version is %s\nBut your current version is %s. cannot continue\nPlease update your console to retail %s first.\nor download the DEX %s.PUP",target_version,version,target_version,version);
         sceKernelDelayThread(10000000);
         cleanup();
         sceKernelExitProcess(0);
@@ -94,7 +94,7 @@ void decrypt(void)
     int type = 0;
 
     psvDebugScreenClear();
-    psvDebugScreenPrintf("Decrypting DEX.PUP\n");
+    psvDebugScreenPrintf("Decrypting TOOL.PUP\n");
 
     for(int i = 0; i <= 26; i++)
     {
