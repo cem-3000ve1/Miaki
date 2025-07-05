@@ -1,4 +1,4 @@
-# ★Miaki - Transform Your PS Vita Into a DevKit
+# ★Miaki - Transform Your PS Vita Into a DevKit (CEX-2-ROOL)
 
 ## Disclaimer
 
@@ -55,7 +55,7 @@ Miaki supports switching between **Console IDs** (Prototype, DevKit, TestKit), d
 - Download the **DevKit firmware** matching your Vita firmware:
   - For **3.60**, get `3.600.011`
   - For **3.65**, get `3.650.011`
-- Download **Miaki** from [Gitea](#) (link to be added)
+- Download **Miaki** from [Github](#) (link to be added)
 
 ### Step 2: Prepare the Files
 
