@@ -37,6 +37,13 @@ jobs:
     - name: Build Miaki
       run: |
         make
+
+    - name: Upload VPK as artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: Miaki
+        path: app/MIAKI.vpk
+      if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     
     - name: Create Draft Release
       if: github.event_name == 'push' && github.ref == 'refs/heads/main'
