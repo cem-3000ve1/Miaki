@@ -49,6 +49,6 @@ jobs:
           This is a draft release for Miaki.
           Built from commit: ${{ github.sha }}
         files: |
-          path/to/your/artifact/*
+          app/MIAKI.vpk
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
