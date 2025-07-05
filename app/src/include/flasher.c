@@ -77,7 +77,7 @@ void vercheck(void)
 
     if(strcmp(target_version,version) != 0)
     {
-        psvDebugScreenPrintf("ux0:/TOOL.PUP version is %s\nBut your current version is %s. cannot continue\nPlease update your console to retail %s first.\nor download the DEX %s.PUP",target_version,version,target_version,version);
+        psvDebugScreenPrintf("ux0:/TOOL.PUP version is %s\nBut your current version is %s. cannot continue\nPlease update your console to retail %s first.\nor download the TOOL %s.PUP",target_version,version,target_version,version);
         sceKernelDelayThread(10000000);
         cleanup();
         sceKernelExitProcess(0);
