@@ -5,9 +5,9 @@ all: build_all move_plugins build_final_app
 
 build_all:
 	cd kernel && cmake . && make install
-	cd spoofer_vita_dev && make clean && make
-	cd spoofer_vita_pro && make clean && make
-	cd spoofer_vita_test && make clean && make
+	cd spoofer_vita/TOOL && make clean && make
+	cd spoofer_vita/TEST && make clean && make
+	cd spoofer_vita && make clean && make
 	cd spoofer_pstv && make clean && make
 	cd user && cmake . && make install
 	cd devmode && cmake . && make install
