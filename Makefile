@@ -24,7 +24,6 @@ move_plugins:
 	mv ../spoofer_vita/TOOL/kDump.skprx dev_vita.skprx && \
 	mv ../spoofer_vita/TEST/kDump.skprx pro_vita.skprx && \
 	mv ../spoofer_vita/kDump.skprx testkit_vita.skprx && \
-	mv ../spoofer_pstv/kDump.skprx testkit_pstv.skprx && \
 	mv ../devmode/devmode.skprx devmode.skprx && \
 	mv ../kernel/kernel.skprx kernel.skprx && \
 	mv ../user/user.suprx user.suprx
@@ -37,7 +36,6 @@ clean:
 	cd spoofer_vita && make clean || true
 	cd spoofer_vita/TOOL && make clean || true
 	cd spoofer_vita/TEST && make clean || true
-	cd spoofer_pstv && make clean || true
 	cd user && make clean || true
 	cd devmode && make clean || true
 	cd kmspico/src/yellowmsg && make clean || true
