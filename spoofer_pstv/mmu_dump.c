@@ -15,6 +15,7 @@
  * limitations under the License.
  */
 
+ /*
 #include <stdio.h>
 #include <string.h>
 #include <psp2kern/kernel/modulemgr.h>
@@ -52,7 +53,7 @@ static unsigned int pa2va(unsigned int pa)
 
 static void mmu_get_perms(int ap2, int ap1, int *ur, int *uw, int *pr, int *pw)
 {
-    /* AFE enabled, use simple permissions */
+
     if (afe)
     {
         *ur = ap1 > 1;
@@ -93,7 +94,7 @@ static int mmu_dump_pages(unsigned int vaddr, unsigned int entry)
     unsigned int paddr;
     SceUID fd;
 
-    if ((entry & 0x3) == 0x1) /* large page */
+    if ((entry & 0x3) == 0x1) 
     {
         xn = entry & 0x8000;
         ng = entry & 0x800;
@@ -126,7 +127,7 @@ static int mmu_dump_pages(unsigned int vaddr, unsigned int entry)
             
 			}
     }
-    else if ((entry & 0x2)) /* small page */
+    else if ((entry & 0x2)) 
     {
         xn = entry & 1;
         ng = entry & 0x800;
@@ -185,7 +186,7 @@ static int mmu_dump_sections(unsigned int vaddr, unsigned int entry)
     unsigned int *tbl;
     
 
-    if ((entry & 0x3) == 2) /* section or supersection */
+    if ((entry & 0x3) == 2) 
     {
         ns = entry & 0x80000;
         ss = entry & 0x40000;
@@ -199,7 +200,7 @@ static int mmu_dump_sections(unsigned int vaddr, unsigned int entry)
         paddr = ss ? entry & 0xFF000000 : entry & 0xFFF00000;
 
             }
-    else if ((entry & 0x3) == 1) /* page table */
+    else if ((entry & 0x3) == 1)
     {
         domain = (entry >> 5) & 15;
         ns = entry & 8;
@@ -213,7 +214,7 @@ static int mmu_dump_sections(unsigned int vaddr, unsigned int entry)
 			}
         }
     }
-    else if ((entry & 0x3) == 0) /* not mapped */
+    else if ((entry & 0x3) == 0) 
     {
             }
     else
@@ -284,3 +285,4 @@ int module_stop(SceSize argc, const void *args)
 }
 
 
+*/
