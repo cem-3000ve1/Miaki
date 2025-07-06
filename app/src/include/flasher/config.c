@@ -65,8 +65,8 @@ void config(void)
 
         if(pstv)
         {
-            CopyFile("app0:/pstvConfig.txt","ur0:tai/boot_config.txt");
-            CopyFile("app0:/testkit_pstv.skprx","ur0:tai/testkit.skprx");
+          //  CopyFile("app0:/pstvConfig.txt","ur0:tai/boot_config.txt");
+          //  CopyFile("app0:/testkit_pstv.skprx","ur0:tai/testkit.skprx");
 
         }
         else

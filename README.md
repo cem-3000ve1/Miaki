@@ -5,6 +5,9 @@
 **Use at your own risk!**  
 I am **not responsible** for any damage (brick, etc.) that may occur. Make sure you understand what you're doing before proceeding.
 
+## Original project
+> https://silica.codes/Li/cex-2-rex
+
 ---
 
 ## Introduction
