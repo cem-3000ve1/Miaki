@@ -2,9 +2,9 @@ name: Build Miaki
 
 on:
   push:
-    branches: [ main ]
+    branches: [ dev ]
   pull_request:
-    branches: [ main ]
+    branches: [ dev ]
 
 permissions:
   contents: write
@@ -43,10 +43,10 @@ jobs:
       with:
         name: Miaki
         path: app/MIAKI.vpk
-      if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+      if: github.event_name == 'push' && github.ref == 'refs/heads/dev'
     
     - name: Create Draft Release
-      if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+      if: github.event_name == 'push' && github.ref == 'refs/heads/dev'
       uses: softprops/action-gh-release@v2
       with:
         draft: true 
