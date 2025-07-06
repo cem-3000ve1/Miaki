@@ -91,6 +91,5 @@ vita_create_vpk(${PROJECT_NAME}.vpk ${VITA_TITLEID} eboot.bin
   FILE pro_vita.skprx pro_vita.skprx
   FILE dev_vita.skprx dev_vita.skprx
   FILE vitaConfig.txt vitaConfig.txt
-  FILE pstvConfig.txt pstvConfig.txt
   FILE app.info app.info
 )
