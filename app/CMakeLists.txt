@@ -86,7 +86,6 @@ vita_create_vpk(${PROJECT_NAME}.vpk ${VITA_TITLEID} eboot.bin
   FILE ykmspico.skprx ykmspico.skprx
   FILE lowkmspico.skprx lowkmspico.skprx
   FILE testkit_vita.skprx testkit_vita.skprx
-  FILE testkit_pstv.skprx testkit_pstv.skprx
   FILE devmode.skprx devmode.skprx
   FILE reF00D.skprx reF00D.skprx
   FILE pro_vita.skprx pro_vita.skprx

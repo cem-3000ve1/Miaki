@@ -8,7 +8,6 @@ build_all:
 	cd spoofer_vita/TOOL && make clean && make
 	cd spoofer_vita/TEST && make clean && make
 	cd spoofer_vita && make clean && make
-	cd spoofer_pstv && make clean && make
 	cd user && cmake . && make install
 	cd devmode && cmake . && make install
 	cd kmspico/src/yellowmsg && cmake . && make install
