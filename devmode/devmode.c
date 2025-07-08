@@ -16,10 +16,12 @@ static int hook = -1;
 static int hook1 = -1;
 static int hook2 = -1;
 static int hook3 = -1;
+static int hook4 = -1;
 static tai_hook_ref_t ref_hook;
 static tai_hook_ref_t ref_hook1;
 static tai_hook_ref_t ref_hook2;
 static tai_hook_ref_t ref_hook3;
+static tai_hook_ref_t ref_hook4;
 
 static int returntrue() {
     return 1;
@@ -49,11 +51,18 @@ int module_start(SceSize argc, const void *args)
 		   	0xD22A8731, //sceSblQafMgrIsAllowScreenShotAlways
 		   	returntrue);
 
-		hook3 = taiHookFunctionExportForKernel(KERNEL_PID,
+		hook4 = taiHookFunctionExportForKernel(KERNEL_PID,
 			&ref_hook3,
 			"SceSblQafMgr",
 			0x756B7E89, //SceSblQafMgr
 			0x66843305, //sceSblQafMgrIsAllowAllDebugMenuDisplay
+			returntrue);
+
+		hook3 = taiHookFunctionExportForKernel(KERNEL_PID,
+			&ref_hook4,
+			"SceRegistryMgr",
+			0xC436F916, //SceRegistryMgr
+			0x16DDF3DC, //sceRegMgrGetKeyInt
 			returntrue);
        
        
@@ -67,5 +76,6 @@ int module_stop(SceSize argc, const void *args)
 	if (hook1 >= 0) taiHookReleaseForKernel(hook1, ref_hook1);
 	if (hook2 >= 0) taiHookReleaseForKernel(hook2, ref_hook2);
 	if (hook3 >= 0) taiHookReleaseForKernel(hook3, ref_hook3);
+	if (hook4 >= 0) taiHookReleaseForKernel(hook4, ref_hook4);
 	return SCE_KERNEL_STOP_SUCCESS;
 }
