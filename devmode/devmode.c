@@ -25,7 +25,27 @@ static tai_hook_ref_t ref_hook4;
 
 static int returntrue() {
     return 1;
-}	
+}
+
+// Adapted from GrapheneCT QAScreenshot
+// https://github.com/GrapheneCt/QAscreenshot
+static SceUID g_hooks[2];
+static int sceRegMgrGetKeyInt_patched(const char* category, const char* name, int* buf) {
+	int ret = TAI_CONTINUE(int, ref_hook0, category, name, buf);
+	if (sceClibStrcmp(name, "debug_screenshot_format") == 0 || sceClibStrcmp(name, "debug_screenshot") == 0)
+	{
+		*buf = 1;
+		return 0;
+	}
+	return ret;
+}
+
+// Adapted from GrapheneCT QAScreenshot
+// https://github.com/GrapheneCt/QAscreenshot
+static int sceSblQafMgrIsAllowScreenShotAlways_patched(int* arg1, int* arg2, int* arg3, int* arg4) {
+	return 1;
+}
+
 void _start() __attribute__ ((weak, alias ("module_start")));
 int module_start(SceSize argc, const void *args)
 {
@@ -50,16 +70,17 @@ int module_start(SceSize argc, const void *args)
 		   	0x756B7E89, //SceSblQafMgr
 		   	0xD22A8731, //sceSblQafMgrIsAllowScreenShotAlways
 		   	returntrue);
-
-		hook4 = taiHookFunctionExportForKernel(KERNEL_PID,
+		
+		/*
+		hook3 = taiHookFunctionExportForKernel(KERNEL_PID,
 			&ref_hook3,
 			"SceSblQafMgr",
 			0x756B7E89, //SceSblQafMgr
 			0x66843305, //sceSblQafMgrIsAllowAllDebugMenuDisplay
 			returntrue);
 
-		/*
-		hook3 = taiHookFunctionExportForKernel(KERNEL_PID,
+		
+		hook4 = taiHookFunctionExportForKernel(KERNEL_PID,
 			&ref_hook4,
 			"SceRegistryMgr",
 			0xC436F916, //SceRegistryMgr
@@ -67,9 +88,20 @@ int module_start(SceSize argc, const void *args)
 			returntrue);
 		*/
 		
-       
-       
-       
+		// Adapted from GrapheneCT QAScreenshot
+		// https://github.com/GrapheneCt/QAscreenshot
+	  	g_hooks[0] = taiHookFunctionImport(&ref_hook3,
+			  TAI_MAIN_MODULE,
+		      0xC436F916, //SceRegMgr
+			  0x16DDF3DC,
+			  sceRegMgrGetKeyInt_patched);
+
+ 	    g_hooks[1] = taiHookFunctionImport(&ref_hook4,
+			  TAI_MAIN_MODULE,
+			  0x756B7E89, //SceSblQafMgr
+			  0xD22A8731,
+			  sceSblQafMgrIsAllowScreenShotAlways_patched);
+			  
 	return SCE_KERNEL_START_SUCCESS;
 }
 
