@@ -11,6 +11,8 @@
 
 #include <vitasdk.h>
 #include <taihen.h>
+#include <psp2/kernel/clib.h>
+#include <psp2common/kernel/modulemgr.h>
 
 static int hook = -1;
 static int hook1 = -1;
@@ -90,13 +92,13 @@ int module_start(SceSize argc, const void *args)
 		
 		// Adapted from GrapheneCT QAScreenshot
 		// https://github.com/GrapheneCt/QAscreenshot
-	  	g_hooks[0] = taiHookFunctionExportForKernel(&ref_hook3,
+	  	g_hooks[0] = taiHookFunctionImport(&ref_hook3,
 			  TAI_MAIN_MODULE,
 		      0xC436F916, //SceRegMgr
 			  0x16DDF3DC,
 			  sceRegMgrGetKeyInt_patched);
 
- 	    g_hooks[1] = taiHookFunctionExportForKernel(&ref_hook4,
+ 	    g_hooks[1] = taiHookFunctionImport(&ref_hook4,
 			  TAI_MAIN_MODULE,
 			  0x756B7E89, //SceSblQafMgr
 			  0xD22A8731,
@@ -112,7 +114,7 @@ int module_stop(SceSize argc, const void *args)
 	if (hook2 >= 0) taiHookReleaseForKernel(hook2, ref_hook2);
 	if (hook3 >= 0) taiHookReleaseForKernel(hook3, ref_hook3);
 	if (hook4 >= 0) taiHookReleaseForKernel(hook4, ref_hook4);
-	if (g_hooks[0] >= 0) taiHookReleaseForKernel(g_hooks[0], ref_hook3);
-	if (g_hooks[1] >= 0) taiHookReleaseForKernel(g_hooks[1], ref_hook4);
+	if (g_hooks[0] >= 0) taiHookRelease(g_hooks[0], ref_hook3);
+	if (g_hooks[1] >= 0) taiHookRelease(g_hooks[1], ref_hook4);
 	return SCE_KERNEL_STOP_SUCCESS;
 }
