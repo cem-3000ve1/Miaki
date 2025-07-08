@@ -58,12 +58,15 @@ int module_start(SceSize argc, const void *args)
 			0x66843305, //sceSblQafMgrIsAllowAllDebugMenuDisplay
 			returntrue);
 
+		/*
 		hook3 = taiHookFunctionExportForKernel(KERNEL_PID,
 			&ref_hook4,
 			"SceRegistryMgr",
 			0xC436F916, //SceRegistryMgr
 			0x16DDF3DC, //sceRegMgrGetKeyInt
 			returntrue);
+		*/
+		
        
        
        
