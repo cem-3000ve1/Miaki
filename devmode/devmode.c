@@ -44,10 +44,10 @@ int module_start(SceSize argc, const void *args)
 	
 		hook2 = taiHookFunctionExportForKernel(KERNEL_PID, 
 			&ref_hook2, 
-		   "SceSblQafMgr",
-		   0x756B7E89, //SceSblQafMgr
-		   0xD22A8731, //sceSblQafMgrIsAllowScreenShotAlways
-		   returntrue);
+		   	"SceSblQafMgr",
+		   	0x756B7E89, //SceSblQafMgr
+		   	0xD22A8731, //sceSblQafMgrIsAllowScreenShotAlways
+		   	returntrue);
 
 		hook3 = taiHookFunctionExportForKernel(KERNEL_PID,
 			&ref_hook3,
