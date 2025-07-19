@@ -88,6 +88,6 @@ int module_stop(SceSize argc, const void *args)
 	if (hook1 >= 0) taiHookReleaseForKernel(hook1, ref_hook1);
 	if (hook2 >= 0) taiHookReleaseForKernel(hook2, ref_hook2);
 	if (hook3 >= 0) taiHookReleaseForKernel(hook3, ref_hook3);
-	if (hook4 >= 0) taiHookReleaseForKernel(hook_uid, hook_ref);
+	if (hook4 >= 0) taiHookReleaseForKernel(hook4, ref_hook4);
 	return SCE_KERNEL_STOP_SUCCESS;
 }
