@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 2.8)
+cmake_minimum_required(VERSION 3.8)
 
 if(NOT DEFINED CMAKE_TOOLCHAIN_FILE)
   if(DEFINED ENV{VITASDK})
@@ -30,6 +30,8 @@ target_link_libraries(${PROJECT_NAME}
         SceIofilemgrForDriver_stub
         SceCpuForDriver_stub
         taihenForKernel_stub
+        SceLibKernel_stub
+        taihen_stub
         gcc
         -nostdlib
 )
