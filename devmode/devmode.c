@@ -69,7 +69,7 @@ int module_start(SceSize argc, const void *args)
 			0x66843305, //sceSblQafMgrIsAllowAllDebugMenuDisplay
 			returntrue);
 
-		hook4 = taiHookFunctionExportForKernel(
+		hook4 = taiHookFunctionExportForKernel(KERNEL_PID,
         	&ref_hook4,
         	"SceAppMgr", 
         	0xD99B9B7D,  
