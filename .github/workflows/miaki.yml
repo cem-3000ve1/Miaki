@@ -27,12 +27,12 @@ jobs:
         echo "VITASDK=/usr/local/vitasdk" >> $GITHUB_ENV
         echo "PATH=/usr/local/vitasdk/bin:$PATH" >> $GITHUB_ENV
 
-    # - name: Install VitaSDK
-    #   run: |
-    #     git clone https://github.com/vitasdk/vdpm
-    #     cd vdpm
-    #     ./bootstrap-vitasdk.sh
-    #     ./install-all.sh
+    - name: Install VitaSDK
+      run: |
+        git clone https://github.com/vitasdk/vdpm
+        cd vdpm
+        ./bootstrap-vitasdk.sh
+        ./install-all.sh
         
     - name: Build Miaki
       run: |
