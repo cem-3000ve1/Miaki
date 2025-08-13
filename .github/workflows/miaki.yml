@@ -27,6 +27,7 @@ jobs:
         echo "VITASDK=/usr/local/vitasdk" >> $GITHUB_ENV
         echo "PATH=/usr/local/vitasdk/bin:$PATH" >> $GITHUB_ENV
 
+        
     - name: Build Miaki
       run: |
         make
