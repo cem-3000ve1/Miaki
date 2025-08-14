@@ -14,7 +14,7 @@ I am **not responsible** for any damage (brick, etc.) that may occur. Make sure 
 
 **Miaki** is a CEX2REX mod that allows you to install the **DevKit firmware** on a **retail PS Vita**. This tool provides an updated version of the original CEX2REX method, now with **extra features** and a streamlined installation process.
 
-Miaki supports switching between **Console IDs** (Prototype, DevKit, TestKit), direct activation of **DevMode**, and includes a **12-year activation** using KMSpico.
+Miaki supports switching between **Console IDs** (Prototype, DevKit, TestKit), direct activation of **DevMode**, and includes a **80-year activation** using activation spoof plugin (Only DEX spoof).
 
 ---
 
