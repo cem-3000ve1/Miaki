@@ -19,12 +19,10 @@
 #include "../../pup.h"
 #include "../utils.h"
 #include "../menu/activation.h"
-#include "../../debugScreen.h"
 #define printf psvDebugScreenPrintf
 
 extern int coordX;
 extern int coordY;
-
 
 static void initScreen() {
     psvDebugScreenInit();
@@ -76,7 +74,6 @@ void menu_draw(Menu *menu) {
     }
     psvDebugScreenSetFgColor(COLOR_GREEN);
     printf("\nUse UP/DOWN to navigate, CROSS to select\n");
-    psvDebugScreenSetFgColor(COLOR_WHITE);
 }
 
 
