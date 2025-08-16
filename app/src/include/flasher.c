@@ -9,7 +9,7 @@
 #include "../ctrl.h"
 #include "../pup.h"
 #include "flasher.h"
-//#include "ui/ui.h"
+#include "ui/ui.h"
 #include "utils.h"
 #include "modules.h"
 #include "flasher/config.h"
@@ -244,13 +244,12 @@ void backup(void)
 
         int total = 0x10000000 - left;
         float percent = (float)total / 268435456 * 100.0;
+        psvDebugScreenSetXY(0, 5);
 
         psvDebugScreenPrintf("[+] Creating ur0:/vs0-orig.img [%i/268435456]   \n", total);
 
         sceKernelPowerTick(SCE_KERNEL_POWER_TICK_DISABLE_AUTO_SUSPEND);
         sceKernelPowerTick(SCE_KERNEL_POWER_TICK_DISABLE_OLED_OFF);
-        coordX = 0;
-        coordY = 0;
 
     } while (left != 0x50000001);
 
@@ -271,13 +270,12 @@ void flash(void)
 
         int total = 0x10000000 - left;
         float percent = (float)total / 268435456.0f * 100.0f;
+        psvDebugScreenSetXY(0, 5);
 
         psvDebugScreenPrintf("[+] Flashing ur0:/vs0.img [%i/268435456]      \n", total); 
 
         sceKernelPowerTick(SCE_KERNEL_POWER_TICK_DISABLE_AUTO_SUSPEND);
         sceKernelPowerTick(SCE_KERNEL_POWER_TICK_DISABLE_OLED_OFF);
-        coordX = 0;
-        coordY = 0;
     }
 
     cleanup();
