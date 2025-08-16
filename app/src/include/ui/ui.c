@@ -24,7 +24,8 @@
 extern int coordX;
 extern int coordY;
 extern int SCREEN_W;
-extern uint16_t *psvDebugScreenBase; 
+uint32_t *psvDebugScreenBase   = (uint32_t *)0xE0000000; 
+uint32_t *psvDebugScreenCurrent = (uint32_t *)0xE0000000;
 
 static void initScreen() {
     psvDebugScreenInit();
