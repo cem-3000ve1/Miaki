@@ -10,6 +10,7 @@
 #include <stdio.h>
 #include <vitasdk.h>
 #include <taihen.h>
+#include <psp2/kernel/clib.h>
 
 #include "../miaki_user.h"
 
@@ -28,7 +29,7 @@ void DebugLog(const char *fmt, ...)
 	va_list args;
 	va_start(args, fmt);
 	vprintf(fmt, args);
-	va_end(fmt, args);
+	va_end(args);
 	va_start(args, fmt);
 	sceClibVprintf(fmt, args);
 	va_end(args);
