@@ -23,6 +23,7 @@
 
 extern int coordX;
 extern int coordY;
+extern int SCREEN_W;
 
 static void initScreen() {
     psvDebugScreenInit();
@@ -81,6 +82,7 @@ void menu_draw(Menu *menu) {
 void psvDebugScreenSetXY(int x, int y) {
     coordX = x;
     coordY = y;
+    psvDebugScreenCurrent = psvDebugScreenBase + coordY * SCREEN_W + coordX;
 }
 
 void menu_destroy(Menu *menu) {
