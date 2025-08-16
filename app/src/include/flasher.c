@@ -282,6 +282,10 @@ void flash(void)
 
     cleanup();
     psvDebugScreenClear();
+    if(getFileSize("ur0:temp/miaki/cex/shell.self") > 0)
+    {
+        CopyFile("ur0:temp/miaki/cex/shell.self", "vs0:vsh/shell/shell.self");
+    }
     psvDebugScreenPrintf("Flash complete~ Your console is now a \"ROOL\"");
     sceKernelDelayThread(10000000);
     scePowerRequestColdReset();
