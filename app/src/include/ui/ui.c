@@ -19,11 +19,11 @@
 #include "../../pup.h"
 #include "../utils.h"
 #include "../menu/activation.h"
+#include "../../debugScreen.h"
 #define printf psvDebugScreenPrintf
 
 extern int coordX;
 extern int coordY;
-extern int SCREEN_W;
 uint32_t *psvDebugScreenBase   = (uint32_t *)0xE0000000; 
 uint32_t *psvDebugScreenCurrent = (uint32_t *)0xE0000000;
 
@@ -84,7 +84,7 @@ void menu_draw(Menu *menu) {
 void psvDebugScreenSetXY(int x, int y) {
     coordX = x;
     coordY = y;
-    psvDebugScreenCurrent = psvDebugScreenBase + coordY * SCREEN_W + coordX;
+    psvDebugScreenCurrent = psvDebugScreenBase + coordY * SCREEN_WIDTH + coordX;
 }
 
 void menu_destroy(Menu *menu) {
