@@ -36,7 +36,6 @@ Miaki supports switching between **Console IDs** (Prototype, DevKit, TestKit), d
 - **DevKit Activation** does not work with DevKit CID. You may see the message:  
   `"The backup battery has failed"` — this is **normal**, as retail units lack a GCP.
 - **Neighborhood** (host-based tools) is **not supported** for the same reason.
-- In **Manufacturing Mode** the console while crash (Only for retail).
 - With **Enso_ex** if you have a typespoof TOOL Miaki will not launch and will say "The file is corrupt.".
 - To **remove** the `"backup battery has failed"` message, use **Red-Msg-Delete** by *Princess of Sleeping*.
 
