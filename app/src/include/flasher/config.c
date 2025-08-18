@@ -109,5 +109,11 @@ void installconfig(void)
         sceIoMkdir("ur0:temp/miaki/cex", 0777);
         sceIoMkdir("ur0:temp/miaki/tool", 0777);
         CopyFile("vs0:vsh/shell/shell.self", "ur0:temp/miaki/cex");
+        DebugLog("Enso less");
+    }
+
+    if(enso)
+    {
+        DebugLog("Enso");
     }
 }

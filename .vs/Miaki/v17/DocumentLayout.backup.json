@@ -1,28 +1,7 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "D:\\Dev\\Sources\\Repos\\Miaki\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Dev\\Sources\\Repos\\Miaki\\app\\src\\include\\flasher.c||{3B902123-F8A7-4915-9F01-361F908088D0}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:app\\src\\include\\flasher.c||{3B902123-F8A7-4915-9F01-361F908088D0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Dev\\Sources\\Repos\\Miaki\\app\\src\\include\\flasher\\config.c||{3B902123-F8A7-4915-9F01-361F908088D0}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:app\\src\\include\\flasher\\config.c||{3B902123-F8A7-4915-9F01-361F908088D0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Dev\\Sources\\Repos\\Miaki\\app\\src\\include\\utils.c||{3B902123-F8A7-4915-9F01-361F908088D0}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:app\\src\\include\\utils.c||{3B902123-F8A7-4915-9F01-361F908088D0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Dev\\Sources\\Repos\\Miaki\\app\\src\\include\\modules.c||{3B902123-F8A7-4915-9F01-361F908088D0}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:app\\src\\include\\modules.c||{3B902123-F8A7-4915-9F01-361F908088D0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Dev\\Sources\\Repos\\Miaki\\app\\src\\main.c||{3B902123-F8A7-4915-9F01-361F908088D0}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:app\\src\\main.c||{3B902123-F8A7-4915-9F01-361F908088D0}"
-    }
-  ],
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -30,7 +9,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 210,
-          "SelectedChildIndex": 49,
+          "SelectedChildIndex": -1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -83,6 +62,10 @@
             {
               "$type": "Bookmark",
               "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
             },
             {
               "$type": "Bookmark",
@@ -219,75 +202,6 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "config.c",
-              "DocumentMoniker": "D:\\Dev\\Sources\\Repos\\Miaki\\app\\src\\include\\flasher\\config.c",
-              "RelativeDocumentMoniker": "app\\src\\include\\flasher\\config.c",
-              "ToolTip": "D:\\Dev\\Sources\\Repos\\Miaki\\app\\src\\include\\flasher\\config.c",
-              "RelativeToolTip": "app\\src\\include\\flasher\\config.c",
-              "ViewState": "AgIAAFcAAAAAAAAAAAAAAG8AAAAbAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
-              "WhenOpened": "2025-08-17T03:49:00.093Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "flasher.c",
-              "DocumentMoniker": "D:\\Dev\\Sources\\Repos\\Miaki\\app\\src\\include\\flasher.c",
-              "RelativeDocumentMoniker": "app\\src\\include\\flasher.c",
-              "ToolTip": "D:\\Dev\\Sources\\Repos\\Miaki\\app\\src\\include\\flasher.c",
-              "RelativeToolTip": "app\\src\\include\\flasher.c",
-              "ViewState": "AgIAAB0BAAAAAAAAAAAAAC4BAAANAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
-              "WhenOpened": "2025-08-17T03:48:48.423Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "utils.c",
-              "DocumentMoniker": "D:\\Dev\\Sources\\Repos\\Miaki\\app\\src\\include\\utils.c",
-              "RelativeDocumentMoniker": "app\\src\\include\\utils.c",
-              "ToolTip": "D:\\Dev\\Sources\\Repos\\Miaki\\app\\src\\include\\utils.c",
-              "RelativeToolTip": "app\\src\\include\\utils.c",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
-              "WhenOpened": "2025-08-17T03:48:34.765Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "modules.c",
-              "DocumentMoniker": "D:\\Dev\\Sources\\Repos\\Miaki\\app\\src\\include\\modules.c",
-              "RelativeDocumentMoniker": "app\\src\\include\\modules.c",
-              "ToolTip": "D:\\Dev\\Sources\\Repos\\Miaki\\app\\src\\include\\modules.c",
-              "RelativeToolTip": "app\\src\\include\\modules.c",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
-              "WhenOpened": "2025-08-17T03:48:31.526Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "main.c",
-              "DocumentMoniker": "D:\\Dev\\Sources\\Repos\\Miaki\\app\\src\\main.c",
-              "RelativeDocumentMoniker": "app\\src\\main.c",
-              "ToolTip": "D:\\Dev\\Sources\\Repos\\Miaki\\app\\src\\main.c",
-              "RelativeToolTip": "app\\src\\main.c",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAUAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
-              "WhenOpened": "2025-08-17T03:47:51.742Z",
-              "EditorCaption": ""
             }
           ]
         },

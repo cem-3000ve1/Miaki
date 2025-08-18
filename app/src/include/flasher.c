@@ -207,13 +207,12 @@ void restore(void)
 
         int total = 0x10000000 - left;
         float percent = (float)total / 268435456 * 100.0;
+        psvDebugScreenSetXY(0, 5);
 
         psvDebugScreenPrintf("Restoring ur0:/vs0-orig.img %i/268435456 - %.2f%%\n",total, percent);
 
         sceKernelPowerTick(SCE_KERNEL_POWER_TICK_DISABLE_AUTO_SUSPEND);
         sceKernelPowerTick(SCE_KERNEL_POWER_TICK_DISABLE_OLED_OFF);
-        coordX = 0;
-        coordY = 0;
     }
     while(left != 0x50000001);
 

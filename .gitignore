@@ -53,3 +53,4 @@ app/eboot.bin
 devmode/install_manifest.txt
 miaki.kdev4
 .kdev4/miaki.kdev4
+/.vs/Miaki/FileContentIndex
