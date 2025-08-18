@@ -17,6 +17,7 @@
 #include "include/menu/activation.h"
 #include "include/menu/boot_parameters.h"
 #include "include/flasher.h"
+#include "include/flasher/boot.h"
 
 char ver[] = "Miaki v3.0.0-pub";
 
