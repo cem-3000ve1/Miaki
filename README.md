@@ -91,7 +91,7 @@ Miaki supports switching between **Console IDs** (Prototype, DevKit, TestKit), d
 
 ## Pictures 
 
-![devkit.png](https://git.hitius.bar/ImLazy/assets/raw/branch/main/2025-04-20-074408.png)
+![devkit.png](https://github.com/cem-3000ve1/Assets/blob/main/2025-04-20-074408.png)
 
 ---
 
