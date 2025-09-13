@@ -15,6 +15,9 @@
 #define COLOR_WHITE 0xFFFFFFFF
 #define COLOR_RED   0xFF0000FF
 #define COLOR_GREEN 0xFF00FF00
+#define SCREEN_W (960/8)
+#define SCREEN_H (544/8)
+
 
 typedef struct {
     const char *text;

@@ -17,6 +17,7 @@
 #include "include/menu/activation.h"
 #include "include/menu/boot_parameters.h"
 #include "include/flasher.h"
+#include "include/flasher/boot.h"
 
 char ver[] = "Miaki v3.0.0-pub";
 
@@ -42,6 +43,7 @@ int main() {
         sel_printf(&menu, "Activation");
         sel_printf(&menu, "Change ProductCode");
         sel_printf(&menu, "Release Check Mode");
+        sel_printf(&menu, "Fix the boot configuration");
         sel_printf(&menu, "Exit");
     } else {
         sel_printf(&menu, "Install TOOL Firmware");
@@ -85,6 +87,10 @@ int main() {
                         needs_refresh = 1;
                         break;
                     case 4:
+                        fixboot();
+                        needs_refresh = 1;
+                        break;
+                    case 5:
                         running = 0;
                         break;
                 }

@@ -1,8 +1,16 @@
+/* utils.c -- Main Application
+ *
+ * Copyright (C) 2025 LazyPreview
+ *
+ * This software may be modified and distributed under the terms
+ * of the MIT license.  See the LICENSE file for details.
+ */
 #include <stdlib.h>
 #include <string.h>
 #include <stdio.h>
 #include <vitasdk.h>
 #include <taihen.h>
+#include <psp2/kernel/clib.h>
 
 #include "../miaki_user.h"
 
@@ -14,11 +22,16 @@
 int ret;
 int left = -1;
 
-// Thanks powerm1nt :-)
-void DebugLog(const char *message)
+// Fixed by LazyPreview
+void DebugLog(const char *fmt, ...)
 {
-	printf(message);
-	sceClibPrintf(message);
+	va_list args;
+	va_start(args, fmt);
+	vprintf(fmt, args);
+	va_end(args);
+	va_start(args, fmt);
+	sceClibVprintf(fmt, args);
+	va_end(args);
 }
 
 int getFileSize(const char *file) {

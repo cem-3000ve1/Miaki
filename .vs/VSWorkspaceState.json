@@ -1,0 +1,12 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\app",
+    "\\app\\src",
+    "\\app\\src\\include",
+    "\\app\\src\\include\\flasher",
+    "\\app\\src\\include\\ui"
+  ],
+  "SelectedNode": "\\app\\src\\include\\flasher\\config.c",
+  "PreviewInSolutionExplorer": false
+}

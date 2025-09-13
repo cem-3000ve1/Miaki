@@ -82,3 +82,38 @@ void config(void)
         CopyFile("app0:/kmspico.skprx","ur0:tai/kmspico.skprx");
     }
 }
+
+void installconfig(void)
+{
+    int enso_less = 0;
+    int enso = 0;
+    psvDebugScreenClear();
+    psvDebugScreenPrintf("X: Enso-less installation");
+    psvDebugScreenPrintf("O: Enso installation");
+
+    switch(get_key(0)) {
+        case SCE_CTRL_CROSS:
+            enso_less = 1;
+            break;
+        case SCE_CTRL_CIRCLE:
+            enso = 1;
+            break;
+        default:
+            sceKernelExitProcess(0);
+            break;
+    }
+
+    if(enso_less)
+    {
+        sceIoMkdir("ur0:temp/miaki", 0777);
+        sceIoMkdir("ur0:temp/miaki/cex", 0777);
+        sceIoMkdir("ur0:temp/miaki/tool", 0777);
+        CopyFile("vs0:vsh/shell/shell.self", "ur0:temp/miaki/cex");
+        DebugLog("Enso less");
+    }
+
+    if(enso)
+    {
+        DebugLog("Enso");
+    }
+}
