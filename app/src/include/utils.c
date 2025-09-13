@@ -22,7 +22,6 @@
 int ret;
 int left = -1;
 
-// Thanks powerm1nt :-)
 // Fixed by LazyPreview
 void DebugLog(const char *fmt, ...)
 {
