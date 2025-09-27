@@ -92,6 +92,11 @@ void activator(void) {
                 }
             } 
         }
+		if(key == SCE_CTRL_CIRCLE)
+		{
+			main();
+		}
+
         if (needs_refresh) {
             menu_draw(&menu);
         }
