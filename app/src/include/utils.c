@@ -22,6 +22,20 @@
 int ret;
 int left = -1;
 
+// Spoofer variables
+int rool_spoof = 0;
+int rtu_spoof = 0;
+int rex_spoof = 0;
+
+// Boot Parameters
+int devmodeii = 0;
+int ReleaseMode = 0;
+
+// Activator 
+int ActivatedNoDate = 0;
+int ActivatedWithDate = 0;
+int Expired = 0;
+
 // Fixed by LazyPreview
 void DebugLog(const char *fmt, ...)
 {
@@ -32,6 +46,74 @@ void DebugLog(const char *fmt, ...)
 	va_start(args, fmt);
 	sceClibVprintf(fmt, args);
 	va_end(args);
+}
+
+void apply()
+{
+	// Base
+	int processlist = 1;
+
+	// ProcessList 
+	if (processlist)
+	{	
+		// Clear screen
+		psvDebugScreenClear();
+
+		// Spoofer
+		if (rool_spoof)
+		{
+			DebugLog("TOOL spoof\n");
+			CopyFile("app0:/dev_vita.skprx", "ur0:tai/testkit.skprx");
+		}
+
+		if (rtu_spoof)
+		{
+			DebugLog("TEST spoof\n");
+			CopyFile("app0:/pro_vita.skprx", "ur0:tai/testkit.skprx");
+		}
+
+		if (rex_spoof)
+		{
+			DebugLog("DEX spoof\n");
+			CopyFile("app0:/testkit_vita.skprx", "ur0:tai/testkit.skprx");
+		}
+
+		// ReleaseCheckMode
+		if (ReleaseMode)
+		{
+			DebugLog("Release Mode\n");
+			sceIoRemove("ur0:tai/devmode.skprx");
+		}
+
+		if (devmodeii)
+		{
+			DebugLog("Development Mode\n");
+			CopyFile("app0:/devmode.skprx", "ur0:tai/devmode.skprx");
+		}
+
+		// Activator
+		if (ActivatedNoDate)
+		{
+			DebugLog("ActivatedNoDate\n");
+			CopyFile("app0:/kmspico.skprx", "ur0:tai/kmspico.skprx");
+		}
+
+		if (ActivatedWithDate)
+		{
+			DebugLog("ActivatedWithDate\n");
+			CopyFile("app0:/dkmspico.skprx", "ur0:tai/kmspico.skprx");
+		}
+
+		if (Expired)
+		{
+			DebugLog("Expired\n");
+			sceIoRemove("ur0:tai/kmspico.skprx");
+		}
+
+		DebugLog("Rebooting in 3s...");
+		sceKernelDelayThread(3000000);
+		scePowerRequestColdReset();
+	}
 }
 
 int getFileSize(const char *file) {

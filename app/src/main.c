@@ -19,12 +19,13 @@
 #include "include/flasher.h"
 #include "include/flasher/boot.h"
 
-char ver[] = "Miaki v3.0.0-pub";
+char ver[] = "Miaki v3.5.0-pub";
 
 int vshSblAimgrIsCEX(void);
 int vshSblAimgrIsDEX(void);
 int vshSblAimgrIsTool(void);
 int vshSblAimgrIsTest(void);
+
 
 int isRex() {
 	int cex = vshSblAimgrIsCEX();
@@ -76,7 +77,6 @@ int isRex() {
 }
 
 int main() {
-	
     Menu menu;
     int is_rex = isRex();
     int running = 1;
@@ -87,6 +87,7 @@ int main() {
         sel_printf(&menu, "Change ProductCode");
         sel_printf(&menu, "Release Check Mode");
         sel_printf(&menu, "Fix the boot configuration");
+		sel_printf(&menu, "Apply configuration");
         sel_printf(&menu, "Exit");
     } else {
         sel_printf(&menu, "Install TOOL Firmware");
@@ -133,7 +134,11 @@ int main() {
                         fixboot();
                         needs_refresh = 1;
                         break;
-                    case 5:
+					case 5:
+						apply();
+						needs_refresh = 1;
+						break;
+                    case 6:
                         running = 0;
                         break;
                 }

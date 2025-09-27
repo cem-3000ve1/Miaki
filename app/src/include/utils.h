@@ -18,5 +18,15 @@ int WriteFile(char *file, void *buf, int size);
 int ReadFile(char *file, void *buf, int size);
 int CopyFile(char *src, char *dst);
 
+void apply(void);
+extern int rool_spoof;
+extern int rtu_spoof;
+extern int rex_spoof;
+extern int devmodeii;
+extern int ReleaseMode;
+extern int ActivatedNoDate;
+extern int ActivatedWithDate;
+extern int Expired;
+
 
 #endif

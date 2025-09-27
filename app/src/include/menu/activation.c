@@ -64,26 +64,15 @@ void activator(void) {
             if (activator) {
                 switch (menu.selected) {
                     case 0:
-                        psvDebugScreenClear();
-                        psvDebugScreenPrintf("Activated!");
-                        sceClibPrintf("Activated!\n");
-                        CopyFile("app0:/kmspico.skprx", "ur0:tai/kmspico.skprx");
-                        scePowerRequestColdReset();
+						ActivatedNoDate = 1;
                         needs_refresh = 1;
                         break;
                     case 1:
-                        psvDebugScreenClear();
-                        psvDebugScreenPrintf("Activated!");
-                        sceClibPrintf("Activated!\n");
-                        CopyFile("app0:/dkmspico.skprx", "ur0:tai/kmspico.skprx");
-                        scePowerRequestColdReset();
+						ActivatedWithDate = 1;
                         needs_refresh = 1;
+						break;
                     case 2:
-                        psvDebugScreenClear();
-                        psvDebugScreenPrintf("Expired!");
-                        sceClibPrintf("Expired!\n");
-                        sceIoRemove("ur0:tai/kmspico.skprx");
-                        scePowerRequestColdReset();
+						Expired = 1;
                         needs_refresh = 1;
                         break;
                     case 4:
