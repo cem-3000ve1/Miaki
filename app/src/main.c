@@ -21,19 +21,62 @@
 
 char ver[] = "Miaki v3.0.0-pub";
 
+int vshSblAimgrIsCEX(void);
+int vshSblAimgrIsDEX(void);
+int vshSblAimgrIsTool(void);
+int vshSblAimgrIsTest(void);
+
 int isRex() {
-    if(getFileSize("vs0:/app/NPXS10998/sce_sys/livearea/contents/bg0.png") > 0)
+	int cex = vshSblAimgrIsCEX();
+    int dex = vshSblAimgrIsDEX();
+	int test = vshSblAimgrIsTest();
+	int tool = vshSblAimgrIsTool();
+	if(cex == 1)
 	{
 		return 1;
 	}
-	else
+	
+	if(dex == 1)
 	{
-		return 0;
+		if(getFileSize("ur0:tai/testkit.skprx") > 0)
+		{
+			return 1;
+		}
+		else
+		{
+			return 0;
+		}
 	}
-
+	
+	if(tool == 1)
+	{
+		if(getFileSize("ur0:tai/testkit.skprx") > 0)
+		{
+			return 1;
+		}
+		else
+		{
+			return 0;
+		}
+	}
+	
+	if(test == 1)
+	{
+		if(getFileSize("ur0:tai/testkit.skprx") > 0)
+		{
+			return 1;
+		}
+		else
+		{
+			return 0;
+		}
+	}
+	
+	return 0; // Hmm probably diag?
 }
 
 int main() {
+	
     Menu menu;
     int is_rex = isRex();
     int running = 1;
