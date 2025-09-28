@@ -39,18 +39,22 @@ int Expired = 0;
 // Fixed by LazyPreview
 void DebugLog(const char *fmt, ...)
 {
-	va_list args;
-	va_start(args, fmt);
-	vprintf(fmt, args);
-	va_end(args);
-	va_start(args, fmt);
-	sceClibVprintf(fmt, args);
-	va_end(args);
+	va_list args1, args2;
+
+	va_start(args1, fmt);
+	va_copy(args2, args1);
+
+	psvDebugScreenPrintf(fmt, args1);
+	sceClibVprintf(fmt, args2);
+
+	va_end(args1);
+	va_end(args2);
 }
 
 void apply()
 {
 	// Base
+	DebugLog("Starting ProcessList...");
 	int processlist = 1;
 
 	// ProcessList 
