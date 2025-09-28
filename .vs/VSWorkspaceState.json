@@ -5,8 +5,9 @@
     "\\app\\src",
     "\\app\\src\\include",
     "\\app\\src\\include\\flasher",
+    "\\app\\src\\include\\menu",
     "\\app\\src\\include\\ui"
   ],
-  "SelectedNode": "\\app\\src\\include\\flasher\\config.c",
+  "SelectedNode": "\\app\\src\\main.c",
   "PreviewInSolutionExplorer": false
 }

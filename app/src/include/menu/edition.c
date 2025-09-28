@@ -60,26 +60,24 @@ void menu_edition(void) {
             if (menu_edition) {
                 switch (menu.selected) {
                     case 0:
-                        DebugLog("TOOL spoof");
-                        CopyFile("app0:/dev_vita.skprx", "ur0:tai/testkit.skprx");
-                        scePowerRequestColdReset();        
+						rool_spoof = 1;
                         needs_refresh = 1;
                         break;
                     case 1:
-                        DebugLog("DEX spoof");
-                        CopyFile("app0:/testkit_vita.skprx", "ur0:tai/testkit.skprx");
-                        scePowerRequestColdReset();
+						rex_spoof = 1;
                         needs_refresh = 1;
                         break;
                     case 2:
-                        DebugLog("TEST spoof");
-                        CopyFile("app0:/pro_vita.skprx", "ur0:tai/testkit.skprx");
-                        scePowerRequestColdReset();
+						rtu_spoof = 1;
                         needs_refresh = 1;
                         break;
                 }
             } 
         }
+		if(key == SCE_CTRL_CIRCLE)
+		{
+			main();
+		}
         if (needs_refresh) {
             menu_draw(&menu);
         }

@@ -19,18 +19,61 @@
 #include "include/flasher.h"
 #include "include/flasher/boot.h"
 
-char ver[] = "Miaki v3.0.0-pub";
+char ver[] = "Miaki v3.5.0-pub";
+
+int vshSblAimgrIsCEX(void);
+int vshSblAimgrIsDEX(void);
+int vshSblAimgrIsTool(void);
+int vshSblAimgrIsTest(void);
+
 
 int isRex() {
-    if(getFileSize("vs0:/app/NPXS10998/sce_sys/livearea/contents/bg0.png") > 0)
+	int cex = vshSblAimgrIsCEX();
+    int dex = vshSblAimgrIsDEX();
+	int test = vshSblAimgrIsTest();
+	int tool = vshSblAimgrIsTool();
+	if(cex == 1)
 	{
 		return 1;
 	}
-	else
+	
+	if(dex == 1)
 	{
-		return 0;
+		if(getFileSize("ur0:tai/testkit.skprx") > 0)
+		{
+			return 1;
+		}
+		else
+		{
+			return 0;
+		}
 	}
-
+	
+	if(tool == 1)
+	{
+		if(getFileSize("ur0:tai/testkit.skprx") > 0)
+		{
+			return 1;
+		}
+		else
+		{
+			return 0;
+		}
+	}
+	
+	if(test == 1)
+	{
+		if(getFileSize("ur0:tai/testkit.skprx") > 0)
+		{
+			return 1;
+		}
+		else
+		{
+			return 0;
+		}
+	}
+	
+	return 0; // Hmm probably diag?
 }
 
 int main() {
@@ -44,6 +87,7 @@ int main() {
         sel_printf(&menu, "Change ProductCode");
         sel_printf(&menu, "Release Check Mode");
         sel_printf(&menu, "Fix the boot configuration");
+		sel_printf(&menu, "Apply configuration");
         sel_printf(&menu, "Exit");
     } else {
         sel_printf(&menu, "Install TOOL Firmware");
@@ -90,7 +134,11 @@ int main() {
                         fixboot();
                         needs_refresh = 1;
                         break;
-                    case 5:
+					case 5:
+						apply();
+						needs_refresh = 1;
+						break;
+                    case 6:
                         running = 0;
                         break;
                 }
@@ -114,7 +162,7 @@ int main() {
     }
     menu_destroy(&menu);
     psvDebugScreenClear(COLOR_BLACK);
-    printf("Exiting...\n");
+    DebugLog("Exiting...\n");
     sceKernelDelayThread(1000000);
     sceKernelExitProcess(0);
     return 0;

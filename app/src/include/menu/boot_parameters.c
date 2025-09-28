@@ -51,20 +51,21 @@ void boot_parameters(void) {
             if (boot_parameters) {
                 switch (menu.selected) {
                     case 0:
-                        DebugLog("Development Mode");
-                        CopyFile("app0:/devmode.skprx", "ur0:tai/devmode.skprx");
-                        scePowerRequestColdReset();        
+						devmodeii = 1;
                         needs_refresh = 1;
                         break;
                     case 1:
-                        DebugLog("Release Mode");
-                        sceIoRemove("ur0:tai/devmode.skprx");
-                        scePowerRequestColdReset();
+						ReleaseMode = 1;
                         needs_refresh = 1;
                         break;
                 }
             } 
         }
+		if(key == SCE_CTRL_CIRCLE)
+		{
+			main();
+		}
+
         if (needs_refresh) {
             menu_draw(&menu);
         }
