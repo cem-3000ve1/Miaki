@@ -103,3 +103,4 @@ Miaki supports switching between **Console IDs** (Prototype, DevKit, TestKit), d
 
 ## Warning
 - The **Delacroix** family is not allowed to use this source code.
+<img width="333" height="248" alt="hgfjf" src="https://github.com/user-attachments/assets/03266010-d378-4590-be9c-4c4f2eb5383c" />
