@@ -99,6 +99,7 @@ Miaki supports switching between **Console IDs** (Prototype, DevKit, TestKit), d
 
 - **Li** – Original CEX2REX creator and for sharing knowledge
 - **skgleba** – Technical insights and guidance
+- **Powerm1nt** – Miaki helper and first gay-user of miaki!
 - **Princess Of Sleeping** – Creator of `red_msg_del.suprx`
 
 ## Warning
