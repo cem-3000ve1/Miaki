@@ -98,10 +98,6 @@ Miaki supports switching between **Console IDs** (Prototype, DevKit, TestKit), d
 ## Special Thanks
 
 - **Li** – Original CEX2REX creator and for sharing knowledge
-<<<<<<< main
-=======
-- **Powerm1nt** – Helped with core development
->>>>>>> main
 - **skgleba** – Technical insights and guidance
 - **Princess Of Sleeping** – Creator of `red_msg_del.suprx`
 
