@@ -37,8 +37,6 @@ void activator(void) {
 
     */
     menu_create(&menu, "Miaki Activation Spoofer");
-    menu_printf(&menu, "Miaki activation spoofer:");
-    menu_printf(&menu, "ONLY DEX SPOOF!");
     sel_printf(&menu, "No expiration Date");
 	sel_printf(&menu, "Expiration Date!");
     sel_printf(&menu, "Expired");

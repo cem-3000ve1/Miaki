@@ -17,6 +17,7 @@ void config(void)
 {
     int spoofer = 0;
     int activator = 0;
+	int running = 1;
     int pstv = sceKernelIsPSVitaTV();
     configMenuStart:
     psvDebugScreenClear(0);

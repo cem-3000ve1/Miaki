@@ -54,7 +54,7 @@ void DebugLog(const char *fmt, ...)
 void apply()
 {
 	// Base
-	DebugLog("Starting ProcessList...");
+	DebugLog("Starting ProcessList...\n");
 	int processlist = 1;
 
 	// ProcessList 
