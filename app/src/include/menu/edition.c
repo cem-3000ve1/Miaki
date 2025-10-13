@@ -61,14 +61,20 @@ void menu_edition(void) {
                 switch (menu.selected) {
                     case 0:
 						rool_spoof = 1;
+                        rex_spoof = 0;
+                        rtu_spoof = 0;
                         needs_refresh = 1;
                         break;
                     case 1:
 						rex_spoof = 1;
+                        rool_spoof = 0;
+                        rtu_spoof = 0;
                         needs_refresh = 1;
                         break;
                     case 2:
 						rtu_spoof = 1;
+                        rool_spoof = 0;
+                        rex_spoof = 0;
                         needs_refresh = 1;
                         break;
                 }

@@ -135,7 +135,7 @@ int main() {
                         needs_refresh = 1;
                         break;
 					case 5:
-						apply();
+						checker();
 						needs_refresh = 1;
 						break;
                     case 6:

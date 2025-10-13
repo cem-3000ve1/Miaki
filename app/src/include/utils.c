@@ -36,6 +36,11 @@ int ActivatedNoDate = 0;
 int ActivatedWithDate = 0;
 int Expired = 0;
 
+// Checker
+int CheckerCID = 0;
+int CheckerBoot = 0;
+int CheckerAct = 0;
+
 // Fixed by LazyPreview
 void DebugLog(const char *fmt, ...)
 {
@@ -51,72 +56,192 @@ void DebugLog(const char *fmt, ...)
 	va_end(args2);
 }
 
+
+void checker()
+{
+
+	int checker_processlist = 1;
+	int checker_apply = 1;
+
+	if (checker_processlist)
+	{
+		int cex = vshSblAimgrIsCEX();
+		int dex = vshSblAimgrIsDEX();
+		int test = vshSblAimgrIsTest();
+		int tool = vshSblAimgrIsTool();
+		int CheckerListCid()
+		{
+			if (rtu_spoof)
+			{
+				if(test == 1)
+				{
+					if(getFileSize("ur0:tai/testkit.skprx") > 0)
+					{
+						return 0;
+					}
+					else
+					{
+						return 1;
+					}
+				}
+			}
+
+			if (rex_spoof)
+			{
+				if(dex == 1)
+				{
+					if(getFileSize("ur0:tai/testkit.skprx") > 0)
+					{
+						return 0;
+					}
+					else
+					{
+						return 1;
+					}
+				}
+			}
+
+			if (rool_spoof)
+			{
+				if(tool == 1)
+				{
+					if(getFileSize("ur0:tai/testkit.skprx") > 0)
+					{
+						return 0;
+					}
+					else
+					{
+						return 1;
+					}
+				}
+			}
+
+			return 0;
+		}
+
+		int CheckerListBoot()
+		{
+			if (ReleaseMode)
+			{
+				if(getFileSize("ur0:tai/devmode.skprx") > 0)
+				{
+					return 1;
+				}
+				else
+				{
+					return 0;
+				}
+			}
+
+			if (devmodeii)
+			{
+				if(getFileSize("ur0:tai/devmode.skprx") <= 0)
+				{
+					return 1;
+				}
+				else
+				{
+					return 0;
+				}
+			}
+		}
+
+		CheckerCID = CheckerListCid();
+		CheckerBoot = CheckerListBoot();
+
+		apply();
+	}
+}
+
 void apply()
 {
 	// Base
 	DebugLog("Starting ProcessList...\n");
 	int processlist = 1;
-
 	// ProcessList 
 	if (processlist)
 	{	
 		// Clear screen
 		psvDebugScreenClear();
+		int activity = 0;
 
-		// Spoofer
-		if (rool_spoof)
+		// Checker Phase 1
+		if (CheckerCID)
 		{
-			DebugLog("TOOL spoof\n");
-			CopyFile("app0:/dev_vita.skprx", "ur0:tai/testkit.skprx");
+			activity = 1;
+			// Spoofer
+			if (rool_spoof)
+			{
+				DebugLog("TOOL spoof\n");
+				CopyFile("app0:/dev_vita.skprx", "ur0:tai/testkit.skprx");
+			}
+
+			if (rtu_spoof)
+			{
+				DebugLog("TEST spoof\n");
+				CopyFile("app0:/pro_vita.skprx", "ur0:tai/testkit.skprx");
+			}
+
+			if (rex_spoof)
+			{
+				DebugLog("DEX spoof\n");
+				CopyFile("app0:/testkit_vita.skprx", "ur0:tai/testkit.skprx");
+			}
 		}
 
-		if (rtu_spoof)
+		if (CheckerBoot)
 		{
-			DebugLog("TEST spoof\n");
-			CopyFile("app0:/pro_vita.skprx", "ur0:tai/testkit.skprx");
+			activity = 1;
+			// ReleaseCheckMode
+			if (ReleaseMode)
+			{
+				DebugLog("Release Mode\n");
+				sceIoRemove("ur0:tai/devmode.skprx");
+			}
+
+			if (devmodeii)
+			{
+				DebugLog("Development Mode\n");
+				CopyFile("app0:/devmode.skprx", "ur0:tai/devmode.skprx");
+			}
 		}
 
-		if (rex_spoof)
-		{
-			DebugLog("DEX spoof\n");
-			CopyFile("app0:/testkit_vita.skprx", "ur0:tai/testkit.skprx");
-		}
-
-		// ReleaseCheckMode
-		if (ReleaseMode)
-		{
-			DebugLog("Release Mode\n");
-			sceIoRemove("ur0:tai/devmode.skprx");
-		}
-
-		if (devmodeii)
-		{
-			DebugLog("Development Mode\n");
-			CopyFile("app0:/devmode.skprx", "ur0:tai/devmode.skprx");
-		}
 
 		// Activator
 		if (ActivatedNoDate)
 		{
+			activity = 1;
 			DebugLog("ActivatedNoDate\n");
 			CopyFile("app0:/kmspico.skprx", "ur0:tai/kmspico.skprx");
 		}
 
 		if (ActivatedWithDate)
 		{
+			activity = 1;
 			DebugLog("ActivatedWithDate\n");
 			CopyFile("app0:/dkmspico.skprx", "ur0:tai/kmspico.skprx");
 		}
 
 		if (Expired)
 		{
+			activity = 1;
 			DebugLog("Expired\n");
 			sceIoRemove("ur0:tai/kmspico.skprx");
 		}
 
-		DebugLog("Rebooting in 3s...");
-		sceKernelDelayThread(3000000);
-		scePowerRequestColdReset();
+		if (!activity)
+		{
+			DebugLog("Nothing to do...\n");
+			sceKernelDelayThread(3000000);
+			sceKernelExitProcess(0);
+		}
+		else
+		{
+			DebugLog("Rebooting in 3s...\n");
+			sceKernelDelayThread(3000000);
+			scePowerRequestColdReset();
+		}
+
 	}
 }
 

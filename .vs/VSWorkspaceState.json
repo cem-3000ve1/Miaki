@@ -2,12 +2,13 @@
   "ExpandedNodes": [
     "",
     "\\app",
+    "\\app\\sce_sys",
+    "\\app\\sce_sys\\livearea",
+    "\\app\\sce_sys\\livearea\\contents",
     "\\app\\src",
     "\\app\\src\\include",
-    "\\app\\src\\include\\flasher",
-    "\\app\\src\\include\\menu",
     "\\app\\src\\include\\ui"
   ],
-  "SelectedNode": "\\app\\src\\main.c",
+  "SelectedNode": "\\app\\sce_sys\\livearea\\contents\\template.xml",
   "PreviewInSolutionExplorer": false
 }
