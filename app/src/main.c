@@ -34,7 +34,7 @@ int isRex() {
 	int tool = vshSblAimgrIsTool();
 	if(cex == 1)
 	{
-		return 1;
+		return 0;
 	}
 	
 	if(dex == 1)
