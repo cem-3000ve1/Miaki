@@ -99,3 +99,4 @@ app/src/.main.c.kate-swp
 .vs/slnx.sqlite
 .vs/VSWorkspaceState.json
 *.sqlite
+.vs/Miaki/v17/DocumentLayout.backup.json

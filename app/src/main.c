@@ -36,7 +36,7 @@ int isRex() {
 	{
 		return 0;
 	}
-	
+
 	if(dex == 1)
 	{
 		if(getFileSize("ur0:tai/testkit.skprx") > 0)
@@ -48,7 +48,7 @@ int isRex() {
 			return 0;
 		}
 	}
-	
+
 	if(tool == 1)
 	{
 		if(getFileSize("ur0:tai/testkit.skprx") > 0)
@@ -60,7 +60,7 @@ int isRex() {
 			return 0;
 		}
 	}
-	
+
 	if(test == 1)
 	{
 		if(getFileSize("ur0:tai/testkit.skprx") > 0)
