@@ -115,8 +115,6 @@ void checker()
 					}
 				}
 			}
-
-			return 0;
 		}
 
 		int CheckerListBoot()
