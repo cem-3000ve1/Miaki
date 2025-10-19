@@ -63,6 +63,7 @@ void boot_parameters(void) {
         }
 		if(key == SCE_CTRL_CIRCLE)
 		{
+            menu_destroy(&menu);
 			main();
 		}
 

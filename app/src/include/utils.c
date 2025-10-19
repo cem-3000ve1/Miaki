@@ -166,22 +166,24 @@ void apply()
 		// Checker Phase 1
 		if (CheckerCID)
 		{
-			activity = 1;
 			// Spoofer
 			if (rool_spoof)
 			{
+				activity = 1;
 				DebugLog("TOOL spoof\n");
 				CopyFile("app0:/dev_vita.skprx", "ur0:tai/testkit.skprx");
 			}
 
 			if (rtu_spoof)
 			{
+				activity = 1;
 				DebugLog("TEST spoof\n");
 				CopyFile("app0:/pro_vita.skprx", "ur0:tai/testkit.skprx");
 			}
 
 			if (rex_spoof)
 			{
+				activity = 1;
 				DebugLog("DEX spoof\n");
 				CopyFile("app0:/testkit_vita.skprx", "ur0:tai/testkit.skprx");
 			}
@@ -189,16 +191,17 @@ void apply()
 
 		if (CheckerBoot)
 		{
-			activity = 1;
 			// ReleaseCheckMode
 			if (ReleaseMode)
 			{
+				activity = 1;
 				DebugLog("Release Mode\n");
 				sceIoRemove("ur0:tai/devmode.skprx");
 			}
 
 			if (devmodeii)
 			{
+				activity = 1;
 				DebugLog("Development Mode\n");
 				CopyFile("app0:/devmode.skprx", "ur0:tai/devmode.skprx");
 			}
@@ -227,17 +230,17 @@ void apply()
 			sceIoRemove("ur0:tai/kmspico.skprx");
 		}
 
-		if (!activity)
-		{
-			DebugLog("Nothing to do...\n");
-			sceKernelDelayThread(3000000);
-			sceKernelExitProcess(0);
-		}
-		else
+		if (activity)
 		{
 			DebugLog("Rebooting in 3s...\n");
 			sceKernelDelayThread(3000000);
 			scePowerRequestColdReset();
+		}
+		else
+		{
+			DebugLog("Nothing to do...\n");
+			sceKernelDelayThread(3000000);
+			sceKernelExitProcess(0);
 		}
 
 	}

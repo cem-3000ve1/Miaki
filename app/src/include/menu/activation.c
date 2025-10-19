@@ -81,6 +81,7 @@ void activator(void) {
         }
 		if(key == SCE_CTRL_CIRCLE)
 		{
+            menu_destroy(&menu);
 			main();
 		}
 

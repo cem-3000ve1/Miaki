@@ -60,7 +60,7 @@ EQUALS = =
 CMAKE_SOURCE_DIR = /home/toude/Documents/GitHub/Miaki/kmspico
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/toude/Documents/GitHub/Miaki/kmspico
+CMAKE_BINARY_DIR = /mnt/Windows/Docs/GitHub/Miaki/kmspico
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -132,9 +132,9 @@ install/strip/fast: preinstall/fast
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/toude/Documents/GitHub/Miaki/kmspico/CMakeFiles /home/toude/Documents/GitHub/Miaki/kmspico//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/Windows/Docs/GitHub/Miaki/kmspico/CMakeFiles /mnt/Windows/Docs/GitHub/Miaki/kmspico//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/toude/Documents/GitHub/Miaki/kmspico/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/Windows/Docs/GitHub/Miaki/kmspico/CMakeFiles 0
 .PHONY : all
 
 # The main clean target

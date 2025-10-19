@@ -82,6 +82,7 @@ void menu_edition(void) {
         }
 		if(key == SCE_CTRL_CIRCLE)
 		{
+            menu_destroy(&menu);
 			main();
 		}
         if (needs_refresh) {
