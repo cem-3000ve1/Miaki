@@ -115,7 +115,7 @@ int main() {
             if (is_rex) {
                 switch (menu.selected) {
                     case 0:
-                        uninstall();
+                        flash();
                         needs_refresh = 1;
                         break;
                     case 1:

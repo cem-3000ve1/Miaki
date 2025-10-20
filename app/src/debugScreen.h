@@ -174,6 +174,11 @@ void psvDebugScreenSetBgColor(uint32_t rgb){
 	psvDebugScreenPrintf("\e[48;2;%u;%u;%um", (rgb>>16)&0xFF, (rgb>>8)&0xFF, rgb&0xFF);
 }
 
+void psvDebugScreenSetXY(int x, int y) {
+    coordX = x * 16; 
+    coordY = y * 16;
+}
+
 void psvDebugScreenClear(){
 	psvDebugScreenPrintf("                                                                                                                                                                                                                                                                                                                                                                         ");
 	psvDebugScreenPrintf("                                                                                                                                                                                                                                                                                                                                                                         ");

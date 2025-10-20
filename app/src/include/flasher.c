@@ -77,6 +77,7 @@ void vercheck(void)
 
     if(strcmp(target_version,version) != 0)
     {
+        psvDebugScreenSetFgColor(COLOR_RED_ALERT);
         psvDebugScreenPrintf("ux0:/TOOL.PUP version is %s\nBut your current version is %s. cannot continue\nPlease update your console to retail %s first.\nor download the TOOL %s.PUP",target_version,version,target_version,version);
         sceKernelDelayThread(10000000);
         cleanup();
@@ -94,7 +95,7 @@ void decrypt(void)
     int type = 0;
 
     psvDebugScreenClear();
-    psvDebugScreenPrintf("Decrypting TOOL.PUP\n");
+    psvDebugScreenPrintf("Miaki Installer System\n");
 
     for(int i = 0; i <= 26; i++)
     {
@@ -105,12 +106,13 @@ void decrypt(void)
         int sz = getFileSize(path);
         if(sz > 0)
         {
-
-            psvDebugScreenPrintf("Decrypting %s\n",path);
+            psvDebugScreenSetXY(0, 5);
+            psvDebugScreenPrintf("[+] Decrypting %s\n",path);
             int ret = DecryptSpkgFile(path,pathout);
             if(ret < 0)
             {
                 psvDebugScreenClear();
+                psvDebugScreenSetFgColor(COLOR_RED_ALERT);
                 psvDebugScreenPrintf("Error decrypting %s",path);
                 sceKernelDelayThread(10000000);
                 cleanup();
@@ -141,8 +143,8 @@ void decrypt(void)
 
 void join(void)
 {
-    psvDebugScreenClear();
-    psvDebugScreenPrintf("Concatenating package data...\n");
+
+    //psvDebugScreenPrintf("Concatenating package data...\n");
     char path[0x1028];
     int fd = 0;
     int sz = 0;
@@ -155,7 +157,8 @@ void join(void)
     {
         memset(path,0x00,0x1028);
         sprintf(path,"ur0:/pup_out/vs0-%i.dec",i);
-        psvDebugScreenPrintf("Adding %s to vs0.img\n",path);
+        psvDebugScreenSetXY(0, 7);
+        psvDebugScreenPrintf("[+] Adding %s to vs0.img\n",path);
 
         sz = getFileSize(path) - 0x480;
 
@@ -183,13 +186,13 @@ void join(void)
 
     }
     sceIoClose(vs0Img);
-    psvDebugScreenClear();
 }
 
 void restore(void)
 {
-    psvDebugScreenClear();
+    
     if(getFileSize("ur0:/vs0-orig.img") < 0){
+        psvDebugScreenSetFgColor(COLOR_RED_ALERT);
         psvDebugScreenPrintf("ur0:/vs0-orig.img MISSING, cannot restore\nIf you must go back,\nReinstall your firmware w official updater");
         sceKernelDelayThread(10000000);
         sceKernelExitProcess(0);
@@ -234,7 +237,6 @@ void backup(void)
 
     sceIoRemove("ur0:/vs0-orig.img");
     WriteFile("ur0:/vs0-orig.img", NULL, 0x00); // create vs0.img
-    psvDebugScreenClear();
 
     dd("sdstor0:int-lp-ign-vsh", "ur0:/vs0-orig.img", 0x10000000); //start dd
 
@@ -243,9 +245,9 @@ void backup(void)
 
         int total = 0x10000000 - left;
         float percent = (float)total / 268435456 * 100.0;
-        psvDebugScreenSetXY(0, 5);
+        psvDebugScreenSetXY(0, 9);
 
-        psvDebugScreenPrintf("[+] Creating ur0:/vs0-orig.img [%i/268435456]   \n", total);
+        psvDebugScreenPrintf("[+] Creating ur0:/vs0-oroig.img [%i/268435456]   \n", total);
 
         sceKernelPowerTick(SCE_KERNEL_POWER_TICK_DISABLE_AUTO_SUSPEND);
         sceKernelPowerTick(SCE_KERNEL_POWER_TICK_DISABLE_OLED_OFF);
@@ -259,8 +261,6 @@ void flash(void)
     sceKernelDelayThread(10000000);
     dd("ur0:/vs0.img", "sdstor0:int-lp-ign-vsh", 0x10000000);
 
-    psvDebugScreenClear(); 
-    psvDebugScreenPrintf("Miaki Installer System\n\n");
 
     while (1)
     {
@@ -269,7 +269,7 @@ void flash(void)
 
         int total = 0x10000000 - left;
         float percent = (float)total / 268435456.0f * 100.0f;
-        psvDebugScreenSetXY(0, 5);
+        psvDebugScreenSetXY(0, 12);
 
         psvDebugScreenPrintf("[+] Flashing ur0:/vs0.img [%i/268435456]      \n", total); 
 

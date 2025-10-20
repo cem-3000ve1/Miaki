@@ -78,11 +78,6 @@ void menu_draw(Menu *menu) {
 }
 
 
-void psvDebugScreenSetXY(int x, int y) {
-    coordX = x;
-    coordY = y;
-}
-
 void menu_destroy(Menu *menu) {
     if (menu->options) {
         free(menu->options);
