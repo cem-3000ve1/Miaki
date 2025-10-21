@@ -19,7 +19,7 @@
 #include "include/flasher.h"
 #include "include/flasher/boot.h"
 
-char ver[] = "Miaki v3.5.0-pub";
+char ver[] = "Miaki v4.0-dev";
 
 int vshSblAimgrIsCEX(void);
 int vshSblAimgrIsDEX(void);
