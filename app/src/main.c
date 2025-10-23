@@ -18,6 +18,7 @@
 #include "include/menu/boot_parameters.h"
 #include "include/flasher.h"
 #include "include/flasher/boot.h"
+#include "include/compat/cex2rex.h"
 
 char ver[] = "Miaki v4.0-dev";
 
@@ -26,8 +27,21 @@ int vshSblAimgrIsDEX(void);
 int vshSblAimgrIsTool(void);
 int vshSblAimgrIsTest(void);
 
+int isCexRex() {
+    int dex = vshSblAimgrIsDEX();
+    int spoof = getFileSize("ur0:tai/testkit.skprx") > 0;
+    int msfq = getFileSize("vs0:/app/NPXS10104/eboot.bin") > 0;
+    if (dex == 1 && spoof && msfq)
+    {
+        return 1;
+    } else {
+        return 0;
+    }
+    
+}
 
 int isRex() {
+    int is_cex2rex = isCexRex();
 	int cex = vshSblAimgrIsCEX();
     int dex = vshSblAimgrIsDEX();
 	int test = vshSblAimgrIsTest();
@@ -46,7 +60,8 @@ int isRex() {
 		else
 		{
 			return 0;
-		}
+		} 
+        if (is_cex2rex) return 0;
 	}
 
 	if(tool == 1)
@@ -79,9 +94,12 @@ int isRex() {
 int main() {
     Menu menu;
     int is_rex = isRex();
+    int is_cexrex = isCexRex();
     int running = 1;
     menu_create(&menu, ver);
-    if (is_rex) {
+    if (is_cexrex) {
+        cex2rexmain();
+    } else if (is_rex) {
         sel_printf(&menu, "Uninstall TOOL Firmware");
         sel_printf(&menu, "Activation");
         sel_printf(&menu, "Change ProductCode");
@@ -115,7 +133,7 @@ int main() {
             if (is_rex) {
                 switch (menu.selected) {
                     case 0:
-                        flash();
+                        uninstall();
                         needs_refresh = 1;
                         break;
                     case 1:
@@ -136,6 +154,7 @@ int main() {
                         break;
 					case 5:
 						checker();
+                        apply();
 						needs_refresh = 1;
 						break;
                     case 6:

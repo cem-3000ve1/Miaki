@@ -23,6 +23,33 @@
 
 extern int coordX;
 extern int coordY;
+int vshSblAimgrIsCEX(void);
+int vshSblAimgrIsDEX(void);
+int vshSblAimgrIsTool(void);
+int vshSblAimgrIsTest(void);
+
+int ActUI() {
+
+    if(getFileSize("ur0:tai/kmspico.skprx") > 0)
+    {
+        return 1;
+    }
+    else
+    {
+        return 0;
+    }
+}
+
+int ReleaseCheck() {
+    if(getFileSize("ur0:tai/devmode.skprx") > 0)
+		{
+			return 1;
+		}
+		else
+		{
+			return 0;
+		}
+}
 
 static void initScreen() {
     psvDebugScreenInit();
@@ -43,7 +70,8 @@ void menu_create(Menu *menu, const char *title) {
 }
 
 void sel_printf(Menu *menu, const char *text) {
-    menu->options = realloc(menu->options, (menu->option_count + 1) * sizeof(MenuOption));
+    menu->options = realloc(menu->options, (menu->option_count + 1) *
+    sizeof(MenuOption));
     if (!menu->options) {
         return;
     }
@@ -61,6 +89,13 @@ void menu_printf(Menu *menu, const char *text) {
 }
 
 void menu_draw(Menu *menu) {
+    int release_check = ReleaseCheck();
+    int is_cex2rex = isCexRex();
+    int act_ui = ActUI();
+    int cex = vshSblAimgrIsCEX();
+    int dex = vshSblAimgrIsDEX();
+    int test = vshSblAimgrIsTest();
+    int tool = vshSblAimgrIsTool();
     psvDebugScreenClear(COLOR_BLACK);
     psvDebugScreenSetFgColor(COLOR_RED);
     printf("----- %s -----\n", menu->title);
@@ -70,10 +105,29 @@ void menu_draw(Menu *menu) {
         printf("\n");
     }
     for (int i = 0; i < menu->option_count; i++) {
-        printf("  %s %s\n", i == menu->selected ? "> " : "  ", menu->options[i].text);
+        printf("  %s %s\n", i == menu->selected ? "--> " : "  ", menu->options[i].text);
     }
     psvDebugScreenSetFgColor(COLOR_GREEN);
     printf("\nUse UP/DOWN to navigate, CROSS to select\n");
+    psvDebugScreenSetFgColor(COLOR_PURPLE);
+    if (!is_cex2rex) {
+    printf("System information: \n\n");
+    if (tool == 1)
+    {
+        printf("ProductCode: TOOL\n");
+    }
+    if (dex == 1)
+    {
+        printf("ProductCode: DEX\n");
+    }
+    if (test == 1)
+    {
+        printf("ProductCode: TEST\n");
+    }
+
+     act_ui ? printf("Activation: Activated\n") : printf("Activation: Expired\n");
+     release_check ? printf("ReleaseCheckMode: Development Mode") : printf("ReleaseCheckMode: Release Mode");
+  }
     psvDebugScreenSetFgColor(COLOR_WHITE);
 }
 

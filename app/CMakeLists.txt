@@ -44,6 +44,8 @@ add_executable(${PROJECT_NAME}
   src/include/flasher/boot.c
   src/include/flasher/config.c
   src/include/ui/ui.c
+  src/include/compat/cex2rex.c
+  src/include/compat/config.c
 )
 
 target_link_libraries(${PROJECT_NAME}

@@ -6,7 +6,6 @@
 #include <stdarg.h>
 #include <inttypes.h>
 
-
 typedef struct PsvDebugScreenFont {
 	unsigned char* glyphs, width, height, first, last, size_w, size_h;
 } PsvDebugScreenFont;
@@ -175,7 +174,7 @@ void psvDebugScreenSetBgColor(uint32_t rgb){
 }
 
 void psvDebugScreenSetXY(int x, int y) {
-    coordX = x * 16; 
+    coordX = x * 16;
     coordY = y * 16;
 }
 

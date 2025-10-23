@@ -11,6 +11,7 @@ void join(void);
 void restore(void);
 void backup(void);
 void flash(void);
+void upgrade(void);
 void uninstall(void);
 void install(void);
 void config(void);

@@ -27,8 +27,23 @@ void boot_parameters(void) {
     Menu menu;
     psvDebugScreenClear();
     menu_create(&menu, "Release Check Mode");
-    sel_printf(&menu, "Development Mode");
-    sel_printf(&menu, "Release Mode");
+    if (devmodeii)
+    {
+        sel_printf(&menu, "[*] Development Mode");
+    }
+    else
+    {
+        sel_printf(&menu, "[] Development Mode");
+    }
+
+    if (ReleaseMode)
+    {
+        sel_printf(&menu, "[*] Release Mode");
+    }
+    else
+    {
+        sel_printf(&menu, "[] Release Mode");
+    }
     menu_draw(&menu);
     while (running) {
         uint32_t key = get_key(0);
@@ -52,14 +67,18 @@ void boot_parameters(void) {
                 switch (menu.selected) {
                     case 0:
 						devmodeii = 1;
+                        ReleaseMode = 0;
+                        boot_parameters();
                         needs_refresh = 1;
                         break;
                     case 1:
 						ReleaseMode = 1;
+                        devmodeii = 0;
+                        boot_parameters();
                         needs_refresh = 1;
                         break;
                 }
-            } 
+            }
         }
 		if(key == SCE_CTRL_CIRCLE)
 		{

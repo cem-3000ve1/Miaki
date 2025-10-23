@@ -296,6 +296,17 @@ void uninstall(void)
     restore();
 }
 
+void upgrade(void)
+{
+    extract();
+    vercheck();
+    load_modules();
+    lock();
+    decrypt();
+    join();
+    flash();
+}
+
 void install(void)
 {
     extract();
