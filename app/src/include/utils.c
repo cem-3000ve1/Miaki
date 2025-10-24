@@ -17,6 +17,7 @@
 #include "../ctrl.h"
 #include "../pup.h"
 
+
 #define printf psvDebugScreenPrintf
  
 int ret;
@@ -26,6 +27,8 @@ int left = -1;
 int rool_spoof = 0;
 int rtu_spoof = 0;
 int rex_spoof = 0;
+int iduset = 0;
+int iduclear = 0;
 
 // Boot Parameters
 int devmodeii = 0;
@@ -39,6 +42,7 @@ int Expired = 0;
 // Checker
 int CheckerCID = 0;
 int CheckerBoot = 0;
+int CheckerIDU = 0;
 int CheckerAct = 0;
 
 int vshSblAimgrIsCEX(void);
@@ -72,6 +76,36 @@ static int CheckerListBoot()
 	return 0;
 }
 
+static int CheckerListIDU()
+{
+	int iduenabled = vshSysconIduModeSet();
+	int idudisabled = vshSysconIduModeClear();
+
+	if (iduset)
+	{
+		if (iduenabled == 1)
+		{
+			return 0;
+		}
+		else
+		{
+			return 1;
+		}
+   	}
+
+	if (iduclear)
+	{
+		if (idudisabled == 1)
+		{
+			return 0;
+		}
+		else
+		{
+			return 1;
+		}
+	}
+}
+
 static int CheckerListCid()
 {
 	int cex = vshSblAimgrIsCEX();
@@ -93,6 +127,7 @@ static int CheckerListCid()
 
 void checker()
 {
+CheckerIDU = CheckerListIDU();
 CheckerCID = CheckerListCid();
 CheckerBoot = CheckerListBoot();
 }
@@ -101,8 +136,9 @@ void apply()
 {
 	// Base
 	checker();
-	DebugLog("Starting ProcessList...\n");
+	DebugLog("\nStarting ProcessList...\n");
 	int activity = 0;
+	int iduactivity = 0;
 	// ProcessList 
 	if (CheckerCID)
 		{
@@ -127,6 +163,20 @@ void apply()
 			}
 		}
 
+		if (CheckerIDU)
+		{
+			if (iduset)
+			{
+				iduactivity = 1;
+				ret = vshSysconIduModeSet();
+			}
+
+			if (iduclear)
+			{
+				iduactivity = 1;
+				ret = vshSysconIduModeClear();
+			}
+		}
 		
 		if (CheckerBoot)
 		{
@@ -164,7 +214,14 @@ void apply()
 			sceIoRemove("ur0:tai/kmspico.skprx");
 		}
 
-		if (activity)
+		if (iduactivity)
+		{
+			DebugLog("IDU detected. To enable/disable IDU mode, turn off your console and then turn it back on. Miaki will close in 6 seconds.\n");
+			sceKernelDelayThread(6000000);
+			sceKernelExitProcess(0);
+			
+		}
+		else if (activity)
 		{
 			DebugLog("Rebooting in 3s...\n");
 			sceKernelDelayThread(3000000);

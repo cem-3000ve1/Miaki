@@ -46,6 +46,7 @@ add_executable(${PROJECT_NAME}
   src/include/ui/ui.c
   src/include/compat/cex2rex.c
   src/include/compat/config.c
+  src/include/compat/idu.c
 )
 
 target_link_libraries(${PROJECT_NAME}

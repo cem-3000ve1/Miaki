@@ -42,7 +42,6 @@ int isCexRex() {
 }
 
 int isRex() {
-    uint32_t key = get_key(0);
     int is_cex2rex = isCexRex();
 	int cex = vshSblAimgrIsCEX();
     int dex = vshSblAimgrIsDEX();
@@ -99,16 +98,17 @@ int main() {
     int is_cexrex = isCexRex();
     int running = 1;
     menu_create(&menu, ver);
-    if (is_cexrex) {
-        cex2rexmain();
-    } else if (is_rex) {
+     if (is_rex) {
         sel_printf(&menu, "Uninstall TOOL Firmware");
         sel_printf(&menu, "Activation");
         sel_printf(&menu, "Change ProductCode");
         sel_printf(&menu, "Release Check Mode");
+        sel_printf(&menu, "Enable/Disable IDU mode");
         sel_printf(&menu, "Fix the boot configuration");
 		sel_printf(&menu, "Apply configuration");
         sel_printf(&menu, "Exit");
+    } else if (is_cexrex) {
+        cex2rexmain();
     } else {
         sel_printf(&menu, "Install TOOL Firmware");
         sel_printf(&menu, "Exit");
@@ -151,15 +151,19 @@ int main() {
                         needs_refresh = 1;
                         break;
                     case 4:
+                        idumenu();
+                        needs_refresh = 1;
+                        break;
+                    case 5:
                         fixboot();
                         needs_refresh = 1;
                         break;
-					case 5:
+					case 6:
 						checker();
                         apply();
 						needs_refresh = 1;
 						break;
-                    case 6:
+                    case 7:
                         running = 0;
                         break;
                 }

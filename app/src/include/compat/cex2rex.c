@@ -28,6 +28,7 @@ void cex2rexmain(void) {
     int running = 1;
     menu_create(&menu, vercr);
     if (is_rexcr) {
+        menu_draw(&menu);
         sel_printf(&menu, "Uninstall TestKit Firmware");
         sel_printf(&menu, "Upgrade to a DevTool Firmware");
         sel_printf(&menu, "Change Installation Type");
