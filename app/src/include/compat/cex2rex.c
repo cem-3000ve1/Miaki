@@ -18,8 +18,6 @@
 #include "config.h"
 
 char vercr[] = "Miaki cex2rex-mode";
-
-
 int isRexcr() {
     return 1;
 }

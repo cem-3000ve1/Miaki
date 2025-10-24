@@ -40,5 +40,6 @@ void sel_printf(Menu *menu, const char *text);
 void menu_printf(Menu *menu, const char *text);
 void menu_draw(Menu *menu);
 void menu_destroy(Menu *menu);
+extern int debug;
 
 #endif

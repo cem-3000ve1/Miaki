@@ -21,6 +21,7 @@
 #include "../menu/activation.h"
 #define printf psvDebugScreenPrintf
 
+int debug = 0;
 extern int coordX;
 extern int coordY;
 int vshSblAimgrIsCEX(void);
@@ -110,7 +111,7 @@ void menu_draw(Menu *menu) {
     psvDebugScreenSetFgColor(COLOR_GREEN);
     printf("\nUse UP/DOWN to navigate, CROSS to select\n");
     psvDebugScreenSetFgColor(COLOR_PURPLE);
-    if (!is_cex2rex) {
+    if (!debug) {
     printf("System information: \n\n");
     if (tool == 1)
     {

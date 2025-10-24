@@ -19,13 +19,14 @@
 #include "include/flasher.h"
 #include "include/flasher/boot.h"
 #include "include/compat/cex2rex.h"
-
 char ver[] = "Miaki v4.0-dev";
 
 int vshSblAimgrIsCEX(void);
 int vshSblAimgrIsDEX(void);
 int vshSblAimgrIsTool(void);
 int vshSblAimgrIsTest(void);
+
+
 
 int isCexRex() {
     int dex = vshSblAimgrIsDEX();
@@ -41,6 +42,7 @@ int isCexRex() {
 }
 
 int isRex() {
+    uint32_t key = get_key(0);
     int is_cex2rex = isCexRex();
 	int cex = vshSblAimgrIsCEX();
     int dex = vshSblAimgrIsDEX();
