@@ -47,7 +47,7 @@ bool isRex() {
 
 	if(cex)
 	{
-		return true;
+		return false;
 	}
 
 	if(dex)
