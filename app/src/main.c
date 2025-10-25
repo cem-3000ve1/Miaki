@@ -27,8 +27,6 @@ int vshSblAimgrIsDEX(void);
 int vshSblAimgrIsTool(void);
 int vshSblAimgrIsTest(void);
 
-
-
 bool isCexRex() {
     sceClibPrintf("[MIAKI]: Starting Checker phase 1\n");
     int dex = vshSblAimgrIsDEX();
@@ -52,12 +50,17 @@ bool isRex() {
 		return true;
 	}
 
-	if(dex || test || tool)
+	if(dex)
 	{
-        if (isCexRex)
+        if (isCexRex) {
             cex2rexmain();
+			return false;
+		}
+	}
 
-        return getFileSize("ur0:tai/testkit.skprx") > 0;
+	if (dex || test || tool)
+	{
+		return getFileSize("ur0:tai/testkit.skprx") > 0;
 	}
 
 	return false;
