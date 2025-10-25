@@ -29,19 +29,19 @@ int vshSblAimgrIsTest(void);
 
 
 int isCexRex() {
+    sceClibPrintf("[MIAKI]: Starting Checker phase 1\n");
     int dex = vshSblAimgrIsDEX();
     int spoof = getFileSize("ur0:tai/testkit.skprx") > 0;
-    int msfq = getFileSize("vs0:/app/NPXS10104/eboot.bin") > 0;
-    if (dex == 1 && spoof && msfq)
-    {
+    int c2r = getFileSize("ux0:/app/CEX2REX20/eboot.bin") > 0;
+
+    if (dex == 1 && spoof && c2r)
         return 1;
-    } else {
+    else
         return 0;
-    }
-    
 }
 
 int isRex() {
+    sceClibPrintf("[MIAKI]: Starting Checker phase 2\n");
     int is_cex2rex = isCexRex();
 	int cex = vshSblAimgrIsCEX();
     int dex = vshSblAimgrIsDEX();
@@ -57,12 +57,17 @@ int isRex() {
 		if(getFileSize("ur0:tai/testkit.skprx") > 0)
 		{
 			return 1;
+            sceClibPrintf("[MIAKI]: ur0:tai/testkit.skprx isDEX\n");
 		}
 		else
 		{
 			return 0;
 		} 
-        if (is_cex2rex) return 0;
+
+        if (isCexRex)
+        {
+            cex2rexmain();
+        }
 	}
 
 	if(tool == 1)
@@ -70,6 +75,7 @@ int isRex() {
 		if(getFileSize("ur0:tai/testkit.skprx") > 0)
 		{
 			return 1;
+            sceClibPrintf("[MIAKI]: ur0:tai/testkit.skprx isTOOL\n");
 		}
 		else
 		{
@@ -82,6 +88,7 @@ int isRex() {
 		if(getFileSize("ur0:tai/testkit.skprx") > 0)
 		{
 			return 1;
+            sceClibPrintf("[MIAKI]: ur0:tai/testkit.skprx isTEST\n");
 		}
 		else
 		{
@@ -96,9 +103,16 @@ int main() {
     Menu menu;
     int is_rex = isRex();
     int is_cexrex = isCexRex();
+    if (is_cexrex)
+    {
+        sceClibPrintf("[MIAKI]: isCEX2REX\n");
+        cex2rexmain();
+        return 0;
+    }
     int running = 1;
     menu_create(&menu, ver);
      if (is_rex) {
+        sceClibPrintf("[MIAKI]: isRex\n");
         sel_printf(&menu, "Uninstall TOOL Firmware");
         sel_printf(&menu, "Activation");
         sel_printf(&menu, "Change ProductCode");
@@ -107,9 +121,9 @@ int main() {
         sel_printf(&menu, "Fix the boot configuration");
 		sel_printf(&menu, "Apply configuration");
         sel_printf(&menu, "Exit");
-    } else if (is_cexrex) {
-        cex2rexmain();
     } else {
+        sceClibPrintf("[MIAKI]: noTool vsh detected");
+        menu_draw(&menu);
         sel_printf(&menu, "Install TOOL Firmware");
         sel_printf(&menu, "Exit");
     }

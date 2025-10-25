@@ -29,6 +29,7 @@ void cex2rexmain(void) {
     menu_create(&menu, vercr);
     if (is_rexcr) {
         menu_draw(&menu);
+        sceClibPrintf("[MIAKI]: isREXCR Loaded!");
         sel_printf(&menu, "Uninstall TestKit Firmware");
         sel_printf(&menu, "Upgrade to a DevTool Firmware");
         sel_printf(&menu, "Change Installation Type");

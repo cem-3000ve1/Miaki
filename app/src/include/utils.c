@@ -136,7 +136,7 @@ void apply()
 {
 	// Base
 	checker();
-	DebugLog("\nStarting ProcessList...\n");
+	DebugLog("\n[MIAKI]: Starting ProcessList...\n");
 	int activity = 0;
 	int iduactivity = 0;
 	// ProcessList 
@@ -146,19 +146,19 @@ void apply()
 			if (rool_spoof)
 			{
 				activity = 1;
-				DebugLog("TOOL spoof\n");
+				DebugLog("[MIAKI]: Loaded TOOL spoof\n");
 				CopyFile("app0:/dev_vita.skprx", "ur0:tai/testkit.skprx");
 			}
 			else if (rtu_spoof)
 			{
 				activity = 1;
-				DebugLog("TEST spoof\n");
+				DebugLog("[MIAKI]: Loaded TEST spoof\n");
 				CopyFile("app0:/pro_vita.skprx", "ur0:tai/testkit.skprx");
 			}
 			else if (rex_spoof)
 			{
 				activity = 1;
-				DebugLog("DEX spoof\n");
+				DebugLog("[MIAKI]: Loaded DEX spoof\n");
 				CopyFile("app0:/testkit_vita.skprx", "ur0:tai/testkit.skprx");
 			}
 		}
@@ -184,13 +184,13 @@ void apply()
 			if (ReleaseMode)
 			{
 				activity = 1;
-				DebugLog("Release Mode\n");
+				DebugLog("[MIAKI]: Change to Release Mode\n");
 				sceIoRemove("ur0:tai/devmode.skprx");
 			}
 			else if (devmodeii)
 			{
 				activity = 1;
-				DebugLog("Development Mode\n");
+				DebugLog("[MIAKI]: Change to Development Mode\n");
 				CopyFile("app0:/devmode.skprx", "ur0:tai/devmode.skprx");
 			}
 		}
@@ -198,38 +198,39 @@ void apply()
 		if (ActivatedNoDate)
 		{
 			activity = 1;
-			DebugLog("ActivatedNoDate\n");
+			DebugLog("[MIAKI]: Activated for ever\n");
 			CopyFile("app0:/kmspico.skprx", "ur0:tai/kmspico.skprx");
 		}
 		else if (ActivatedWithDate)
 		{
 			activity = 1;
-			DebugLog("ActivatedWithDate\n");
+			DebugLog("[MIAKI]: Activated with date\n");
 			CopyFile("app0:/dkmspico.skprx", "ur0:tai/kmspico.skprx");
 		}
 		else if (Expired)
 		{
 			activity = 1;
-			DebugLog("Expired\n");
+			DebugLog("[MIAKI]: Expired\n");
 			sceIoRemove("ur0:tai/kmspico.skprx");
 		}
 
 		if (iduactivity)
 		{
-			DebugLog("IDU detected. To enable/disable IDU mode, turn off your console and then turn it back on. Miaki will close in 6 seconds.\n");
+			psvDebugScreenPrintf("IDU detected. To enable/disable IDU mode, turn off your console and then turn it back on. Miaki will close in 6 seconds.\n");
+			sceClibPrintf("[MIAKI]: IDU detected. manual reboot required.\n");
 			sceKernelDelayThread(6000000);
 			sceKernelExitProcess(0);
 			
 		}
 		else if (activity)
 		{
-			DebugLog("Rebooting in 3s...\n");
+			DebugLog("[MIAKI]: The console while reboot in 3s...\n");
 			sceKernelDelayThread(3000000);
 			scePowerRequestColdReset();
 		}
 		else
 		{
-			DebugLog("Nothing to do...\n");
+			DebugLog("[MIAKI]: Nothing to do...\n");
 			sceKernelDelayThread(3000000);
 			sceKernelExitProcess(0);
 		}
