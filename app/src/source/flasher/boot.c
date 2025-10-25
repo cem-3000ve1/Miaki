@@ -4,14 +4,14 @@
 #include <vitasdk.h>
 #include <taihen.h>
 
-#include "../../miaki_user.h"
+#include "../../include/miaki_user.h"
 
-#include "../../ctrl.h"
-#include "../../pup.h"
-#include "../flasher.h"
-#include "../utils.h"
-#include "../modules.h"
-#include "../ui/ui.h"
+#include "../../include/ctrl.h"
+#include "../../include/pup.h"
+#include "../../include/flasher.h"
+#include "../../include/utils.h"
+#include "../../include/modules.h"
+#include "../../include/ui.h"
 #define printf psvDebugScreenPrintf
 
 void fixboot(void)

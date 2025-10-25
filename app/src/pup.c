@@ -3,7 +3,7 @@
 *	https://github.com/Princess-of-Sleeping/PSV-PUP-Extractor
 */
 
-#include "pup.h"
+#include "include/pup.h"
 int psvDebugScreenPrintf(const char *format, ...);
 void psvDebugScreenClear();
 

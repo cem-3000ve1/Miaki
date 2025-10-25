@@ -35,18 +35,18 @@ add_executable(${PROJECT_NAME}
   src/pup.c
   src/main.c
   src/ctrl.c
-  src/include/utils.c
-  src/include/menu/edition.c
-  src/include/menu/activation.c
-  src/include/menu/boot_parameters.c
-  src/include/modules.c
-  src/include/flasher.c
-  src/include/flasher/boot.c
-  src/include/flasher/config.c
-  src/include/ui/ui.c
-  src/include/compat/cex2rex.c
-  src/include/compat/config.c
-  src/include/compat/idu.c
+  src/source/utils.c
+  src/source/menu/edition.c
+  src/source/menu/activation.c
+  src/source/menu/boot_parameters.c
+  src/source/modules.c
+  src/source/flasher.c
+  src/source/flasher/boot.c
+  src/source/flasher/config.c
+  src/source/ui/ui.c
+  src/source/compat/cex2rex.c
+  src/source/compat/config.c
+  src/source/compat/idu.c
 )
 
 target_link_libraries(${PROJECT_NAME}

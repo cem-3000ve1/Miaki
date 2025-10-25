@@ -4,11 +4,11 @@
 #include <vitasdk.h>
 #include <taihen.h>
 
-#include "../miaki_user.h"
+#include "../include/miaki_user.h"
 
-#include "../ctrl.h"
-#include "../pup.h"
-#include "modules.h"
+#include "../include/ctrl.h"
+#include "../include/pup.h"
+#include "../include/modules.h"
 #include <psp2/types.h>
 #include <psp2/kernel/processmgr.h>
 

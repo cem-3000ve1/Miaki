@@ -11,11 +11,11 @@
 #include <string.h>
 
 #define printf psvDebugScreenPrintf
-#include "../ui/ui.h"
-#include "../../ctrl.h"
-#include "../flasher.h"
-#include "../flasher/boot.h"
-#include "config.h"
+#include "../../include/ui.h"
+#include "../../include/ctrl.h"
+#include "../../include/flasher.h"
+#include "../../include/boot.h"
+#include "../../include/crconfig.h"
 
 char vercr[] = "Miaki cex2rex-mode";
 int isRexcr() {

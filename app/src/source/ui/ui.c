@@ -11,14 +11,14 @@
 #include <stdio.h>
 #include <vitasdk.h>
 #include <taihen.h>
-#include "../ui/ui.h"
+#include "../../include/ui.h"
 
-#include "../../miaki_user.h"
+#include "../../include/miaki_user.h"
 
-#include "../../ctrl.h"
-#include "../../pup.h"
-#include "../utils.h"
-#include "../menu/activation.h"
+#include "../../include/ctrl.h"
+#include "../../include/pup.h"
+#include "../../include/utils.h"
+#include "../../include/activation.h"
 #define printf psvDebugScreenPrintf
 
 int debug = 0;

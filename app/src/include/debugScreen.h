@@ -10,7 +10,7 @@ typedef struct PsvDebugScreenFont {
 	unsigned char* glyphs, width, height, first, last, size_w, size_h;
 } PsvDebugScreenFont;
 
-#include "debugScreenFont.c"
+#include "../debugScreenFont.c"
 
 #define SCREEN_WIDTH    (960)
 #define SCREEN_HEIGHT   (544)

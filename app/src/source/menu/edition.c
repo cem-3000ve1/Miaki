@@ -1,4 +1,4 @@
-/* boot_parameters.c -- Boot Parameters
+/* edition.c -- CID Changer
  *
  * Copyright (C) 2025 LazyPreview
  *
@@ -11,39 +11,33 @@
 #include <stdio.h>
 #include <vitasdk.h>
 #include <taihen.h>
-#include "../ui/ui.h"
+#include "../../include/ui.h"
 
-#include "../../miaki_user.h"
+#include "../../include/miaki_user.h"
 
-#include "../../ctrl.h"
-#include "../../pup.h"
-#include "../utils.h"
-#include "boot_parameters.h"
+#include "../../include/ctrl.h"
+#include "../../include/pup.h"
+#include "../../include/utils.h"
+#include "../../include/edition.h"
 
 #define printf psvDebugScreenPrintf
 
-void boot_parameters(void) {
+/*
+
+TOOL = DevKit
+DEX = Testkit
+TEST = Prototype
+
+*/
+
+void menu_edition(void) {
     int running = 1;
     Menu menu;
     psvDebugScreenClear();
-    menu_create(&menu, "Release Check Mode");
-    if (devmodeii)
-    {
-        sel_printf(&menu, "[*] Development Mode");
-    }
-    else
-    {
-        sel_printf(&menu, "[] Development Mode");
-    }
-
-    if (ReleaseMode)
-    {
-        sel_printf(&menu, "[*] Release Mode");
-    }
-    else
-    {
-        sel_printf(&menu, "[] Release Mode");
-    }
+    menu_create(&menu, "ProductCode");
+    rool_spoof ? sel_printf(&menu, "[*] Flash TOOL spoof") : sel_printf(&menu, "[] Flash TOOL spoof");
+    rex_spoof ? sel_printf(&menu, "[*] Flash DEX spoof") : sel_printf(&menu, "[] Flash DEX spoof");
+    rtu_spoof ? sel_printf(&menu, "[*] Flash TEST spoof") : sel_printf(&menu, "[] Flash TEST spoof");
     menu_draw(&menu);
     while (running) {
         uint32_t key = get_key(0);
@@ -63,29 +57,37 @@ void boot_parameters(void) {
             sceKernelDelayThread(150000);
         }
         if (key == SCE_CTRL_CROSS) {
-            if (boot_parameters) {
+            if (menu_edition) {
                 switch (menu.selected) {
                     case 0:
-						devmodeii = 1;
-                        ReleaseMode = 0;
-                        boot_parameters();
+						rool_spoof = 1;
+                        rex_spoof = 0;
+                        rtu_spoof = 0;
+                        menu_edition();
                         needs_refresh = 1;
                         break;
                     case 1:
-						ReleaseMode = 1;
-                        devmodeii = 0;
-                        boot_parameters();
+						rex_spoof = 1;
+                        rool_spoof = 0;
+                        rtu_spoof = 0;
+                        menu_edition();
+                        needs_refresh = 1;
+                        break;
+                    case 2:
+						rtu_spoof = 1;
+                        rool_spoof = 0;
+                        rex_spoof = 0;
+                        menu_edition();
                         needs_refresh = 1;
                         break;
                 }
-            }
+            } 
         }
 		if(key == SCE_CTRL_CIRCLE)
 		{
             menu_destroy(&menu);
 			main();
 		}
-
         if (needs_refresh) {
             menu_draw(&menu);
         }

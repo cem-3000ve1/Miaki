@@ -11,14 +11,14 @@
 #include <string.h>
 
 #define printf psvDebugScreenPrintf
-#include "debugScreen.h"
-#include "include/ui/ui.h"
-#include "ctrl.h"
-#include "include/menu/activation.h"
-#include "include/menu/boot_parameters.h"
+#include "include/debugScreen.h"
+#include "include/ui.h"
+#include "include/ctrl.h"
+#include "include/activation.h"
+#include "include/boot_parameters.h"
 #include "include/flasher.h"
-#include "include/flasher/boot.h"
-#include "include/compat/cex2rex.h"
+#include "include/boot.h"
+#include "include/cex2rex.h"
 char ver[] = "Miaki v4.0-dev";
 
 int vshSblAimgrIsCEX(void);

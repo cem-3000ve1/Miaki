@@ -12,10 +12,10 @@
 #include <taihen.h>
 #include <psp2/kernel/clib.h>
 
-#include "../miaki_user.h"
+#include "../include/miaki_user.h"
 
-#include "../ctrl.h"
-#include "../pup.h"
+#include "../include/ctrl.h"
+#include "../include/pup.h"
 
 
 #define printf psvDebugScreenPrintf
