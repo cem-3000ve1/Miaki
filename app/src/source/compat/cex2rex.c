@@ -18,24 +18,31 @@
 #include "../../include/crconfig.h"
 
 char vercr[] = "Miaki cex2rex-mode";
-int isRexcr() {
-    return 1;
-}
 
 void cex2rexmain(void) {
     Menu menu;
-    int is_rexcr = isRexcr();
+    int miakiAllowUpgrade() {
+        if(getFileSize("ux0:TOOL.PUP") > 0)
+        {
+            return 1;
+            sceClibPrintf("[MIAKI]: AllowUpgrade\n");
+        } else {
+            return 0;
+        }
+    }
+    int allow_upgrade = miakiAllowUpgrade();
     int running = 1;
     menu_create(&menu, vercr);
-    if (is_rexcr) {
+    if (allow_upgrade) {
         menu_draw(&menu);
-        sceClibPrintf("[MIAKI]: isREXCR Loaded!");
         sel_printf(&menu, "Uninstall TestKit Firmware");
         sel_printf(&menu, "Upgrade to a DevTool Firmware");
         sel_printf(&menu, "Change Installation Type");
         sel_printf(&menu, "Exit");
     } else {
-        sel_printf(&menu, "Install TOOL Firmware");
+        menu_draw(&menu);
+        sel_printf(&menu, "Uninstall TestKit Firmware");
+        sel_printf(&menu, "Change Installation Type");
         sel_printf(&menu, "Exit");
     }
     menu_draw(&menu);
@@ -57,7 +64,7 @@ void cex2rexmain(void) {
             sceKernelDelayThread(150000);
         }
         if (key == SCE_CTRL_CROSS) {
-            if (is_rexcr) {
+            if (allow_upgrade) {
                 switch (menu.selected) {
                     case 0:
                         uninstall();
@@ -79,11 +86,16 @@ void cex2rexmain(void) {
             } else {
                 switch (menu.selected) {
                     case 0:
-                        install();
+                        uninstall();
                         needs_refresh = 1;
                         break;
                     case 1:
-                        running = 0;
+                        cex2rexconfig();
+                        needs_refresh = 1;
+                        break;
+                    case 2:
+                        sceKernelExitProcess(0);
+                        needs_refresh = 1;
                         break;
                 }
             }
