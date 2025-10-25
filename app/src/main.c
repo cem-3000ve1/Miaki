@@ -9,6 +9,7 @@
 #include <vitasdk.h>
 #include <stdio.h>
 #include <string.h>
+#include <stdbool.h>
 
 #define printf psvDebugScreenPrintf
 #include "include/debugScreen.h"
@@ -26,83 +27,49 @@ int vshSblAimgrIsDEX(void);
 int vshSblAimgrIsTool(void);
 int vshSblAimgrIsTest(void);
 
-
-
-int isCexRex() {
+bool isCexRex() {
     sceClibPrintf("[MIAKI]: Starting Checker phase 1\n");
     int dex = vshSblAimgrIsDEX();
     int spoof = getFileSize("ur0:tai/testkit.skprx") > 0;
     int c2r = getFileSize("ux0:/app/CEX2REX20/eboot.bin") > 0;
 
-    if (dex == 1 && spoof && c2r)
-        return 1;
-    else
-        return 0;
+    return dex && spoof && c2r;
 }
 
-int isRex() {
+bool isRex() {
     sceClibPrintf("[MIAKI]: Starting Checker phase 2\n");
-    int is_cex2rex = isCexRex();
+
+    bool is_cex2rex = isCexRex();
 	int cex = vshSblAimgrIsCEX();
     int dex = vshSblAimgrIsDEX();
 	int test = vshSblAimgrIsTest();
 	int tool = vshSblAimgrIsTool();
-	if(cex == 1)
+
+	if(cex)
 	{
-		return 0;
+		return false;
 	}
 
-	if(dex == 1)
+	if(dex)
 	{
-		if(getFileSize("ur0:tai/testkit.skprx") > 0)
-		{
-			return 1;
-            sceClibPrintf("[MIAKI]: ur0:tai/testkit.skprx isDEX\n");
-		}
-		else
-		{
-			return 0;
-		} 
-
-        if (isCexRex)
-        {
+        if (isCexRex) {
             cex2rexmain();
-        }
-	}
-
-	if(tool == 1)
-	{
-		if(getFileSize("ur0:tai/testkit.skprx") > 0)
-		{
-			return 1;
-            sceClibPrintf("[MIAKI]: ur0:tai/testkit.skprx isTOOL\n");
-		}
-		else
-		{
-			return 0;
+			return false;
 		}
 	}
 
-	if(test == 1)
+	if (dex || test || tool)
 	{
-		if(getFileSize("ur0:tai/testkit.skprx") > 0)
-		{
-			return 1;
-            sceClibPrintf("[MIAKI]: ur0:tai/testkit.skprx isTEST\n");
-		}
-		else
-		{
-			return 0;
-		}
+		return getFileSize("ur0:tai/testkit.skprx") > 0;
 	}
-	
-	return 0; // Hmm probably diag?
+
+	return false;
 }
 
 int main() {
     Menu menu;
-    int is_rex = isRex();
-    int is_cexrex = isCexRex();
+    bool is_rex = isRex();
+    bool is_cexrex = isCexRex();
     if (is_cexrex)
     {
         sceClibPrintf("[MIAKI]: isCEX2REX\n");

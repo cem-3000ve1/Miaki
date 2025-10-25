@@ -8,6 +8,7 @@
 
 #include <vitasdk.h>
 #include <stdio.h>
+#include <stdbool.h>
 #include <string.h>
 
 #define printf psvDebugScreenPrintf
@@ -18,8 +19,8 @@
 #include "../../include/crconfig.h"
 
 char vercr[] = "Miaki cex2rex-mode";
-int isRexcr() {
-    return 1;
+bool isRexcr() {
+    return true;
 }
 
 void cex2rexmain(void) {
