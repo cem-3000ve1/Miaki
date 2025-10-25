@@ -10,6 +10,7 @@
 #include <string.h>
 #include <stdio.h>
 #include <vitasdk.h>
+#include <stdbool.h>
 #include <taihen.h>
 #include "../../include/ui.h"
 
@@ -29,27 +30,8 @@ int vshSblAimgrIsDEX(void);
 int vshSblAimgrIsTool(void);
 int vshSblAimgrIsTest(void);
 
-int ActUI() {
-
-    if(getFileSize("ur0:tai/kmspico.skprx") > 0)
-    {
-        return 1;
-    }
-    else
-    {
-        return 0;
-    }
-}
-
-int ReleaseCheck() {
-    if(getFileSize("ur0:tai/devmode.skprx") > 0)
-		{
-			return 1;
-		}
-		else
-		{
-			return 0;
-		}
+bool isKmsInstalled() {
+    return getFileSize("ur0:tai/kmspico.skprx") > 0;
 }
 
 static void initScreen() {
@@ -90,9 +72,9 @@ void menu_printf(Menu *menu, const char *text) {
 }
 
 void menu_draw(Menu *menu) {
-    int release_check = ReleaseCheck();
-    int is_cex2rex = isCexRex();
-    int act_ui = ActUI();
+    int release_check = isKmsInstalled();
+    bool is_cex2rex = isCexRex();
+    bool act_ui = isKmsInstalled();
     int cex = vshSblAimgrIsCEX();
     int dex = vshSblAimgrIsDEX();
     int test = vshSblAimgrIsTest();

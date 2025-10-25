@@ -8,6 +8,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stdio.h>
+#include <stdbool.h>
 #include <vitasdk.h>
 #include <taihen.h>
 #include <psp2/kernel/clib.h>
@@ -108,10 +109,10 @@ static int CheckerListIDU()
 
 static int CheckerListCid()
 {
-	int cex = vshSblAimgrIsCEX();
-	int dex = vshSblAimgrIsDEX();
-	int test = vshSblAimgrIsTest();
-	int tool = vshSblAimgrIsTool();
+	bool cex = vshSblAimgrIsCEX();
+	bool dex = vshSblAimgrIsDEX();
+	bool test = vshSblAimgrIsTest();
+	bool tool = vshSblAimgrIsTool();
 
 	if (rtu_spoof && !test)
 	return 1;
