@@ -34,6 +34,10 @@ bool isKmsInstalled() {
     return getFileSize("ur0:tai/kmspico.skprx") > 0;
 }
 
+bool isDevmodeInstalled() {
+    return getFileSize("ur0:tai/devmode.skprx") > 0;
+}
+
 static void initScreen() {
     psvDebugScreenInit();
     psvDebugScreenClear(COLOR_BLACK);
@@ -72,7 +76,7 @@ void menu_printf(Menu *menu, const char *text) {
 }
 
 void menu_draw(Menu *menu) {
-    int release_check = isKmsInstalled();
+    int release_check = isDevmodeInstalled();
     bool is_cex2rex = isCexRex();
     bool act_ui = isKmsInstalled();
     int cex = vshSblAimgrIsCEX();
