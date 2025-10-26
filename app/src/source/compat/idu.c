@@ -27,8 +27,8 @@ void idumenu(void) {
     int running = 1;
     psvDebugScreenClear();
     menu_create(&menu, "IDU Menu");
-    iduset ? sel_printf(&menu, "[*] Enable IDU mode") : sel_printf(&menu, "[] Enable IDU mode");
-    iduclear ? sel_printf(&menu, "[*] Disable IDU mode") : sel_printf(&menu, "[] Disable IDU mode");
+    miakiEnableIDU ? sel_printf(&menu, "[*] Enable IDU mode") : sel_printf(&menu, "[] Enable IDU mode");
+    miakiClearIDU ? sel_printf(&menu, "[*] Disable IDU mode") : sel_printf(&menu, "[] Disable IDU mode");
     menu_draw(&menu);
     while (running) {
         uint32_t key = get_key(0);
@@ -51,14 +51,14 @@ void idumenu(void) {
             if (idumenu) {
                 switch (menu.selected) {
                     case 0:
-						iduset = 1;
-                        iduclear = 0;
+						miakiEnableIDU = 1;
+                        miakiClearIDU = 0;
                         idumenu();
                         needs_refresh = 1;
 						break;
                     case 1:
-						iduclear = 1;
-                        iduset = 0;
+						miakiClearIDU = 1;
+                        miakiEnableIDU = 0;
                         idumenu();
                         needs_refresh = 1;
                         break;

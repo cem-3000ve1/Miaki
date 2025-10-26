@@ -27,7 +27,7 @@ void boot_parameters(void) {
     Menu menu;
     psvDebugScreenClear();
     menu_create(&menu, "Release Check Mode");
-    if (devmodeii)
+    if (miakiEnableDevMode)
     {
         sel_printf(&menu, "[*] Development Mode");
     }
@@ -36,7 +36,7 @@ void boot_parameters(void) {
         sel_printf(&menu, "[] Development Mode");
     }
 
-    if (ReleaseMode)
+    if (miakiDisableDevMode)
     {
         sel_printf(&menu, "[*] Release Mode");
     }
@@ -66,14 +66,14 @@ void boot_parameters(void) {
             if (boot_parameters) {
                 switch (menu.selected) {
                     case 0:
-						devmodeii = 1;
-                        ReleaseMode = 0;
+						miakiEnableDevMode = 1;
+                        miakiDisableDevMode = 0;
                         boot_parameters();
                         needs_refresh = 1;
                         break;
                     case 1:
-						ReleaseMode = 1;
-                        devmodeii = 0;
+						miakiDisableDevMode = 1;
+                        miakiEnableDevMode = 0;
                         boot_parameters();
                         needs_refresh = 1;
                         break;

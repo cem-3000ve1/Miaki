@@ -31,20 +31,25 @@ bool isCexRex() {
     sceClibPrintf("[MIAKI]: Starting Checker phase 1\n");
     int dex = vshSblAimgrIsDEX();
     int spoof = getFileSize("ur0:tai/testkit.skprx") > 0;
-    int c2r = getFileSize("ux0:/app/CEX2REX20/eboot.bin") > 0;
-
-    return dex && spoof && c2r;
+    int c2r = getFileSize("ux0:app/CEX2REX20/eboot.bin") > 0;
+    int apphome = getFileSize("vs0:app/NPXS10098/sce_sys/param.sfo") > 0;
+    if (dex == 1 && spoof && c2r && !apphome)
+    {
+        return 1;
+    } else {
+        return 0;
+    }
 }
 
 bool isRex() {
     sceClibPrintf("[MIAKI]: Starting Checker phase 2\n");
 
     bool is_cex2rex = isCexRex();
+    int apphome = getFileSize("vs0:/app/NPXS10098/sce_sys/param.sfo") > 0;
 	int cex = vshSblAimgrIsCEX();
     int dex = vshSblAimgrIsDEX();
 	int test = vshSblAimgrIsTest();
 	int tool = vshSblAimgrIsTool();
-
 	if(cex)
 	{
 		return false;
@@ -52,13 +57,23 @@ bool isRex() {
 
 	if(dex)
 	{
-        if (isCexRex) {
-            cex2rexmain();
-			return false;
+		if(getFileSize("ur0:tai/testkit.skprx") > 0)
+		{
+			return 1;
+            sceClibPrintf("[MIAKI]: ur0:tai/testkit.skprx isDEX\n");
 		}
+		else
+		{
+			return 0;
+		} 
+
+        if (isCexRex)
+        {
+            cex2rexmain();
+        }
 	}
 
-	if (dex || test || tool)
+	if (test || tool)
 	{
 		return getFileSize("ur0:tai/testkit.skprx") > 0;
 	}

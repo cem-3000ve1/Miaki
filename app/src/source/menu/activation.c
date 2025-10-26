@@ -37,9 +37,9 @@ void activator(void) {
 
     */
     menu_create(&menu, "Miaki Activation Spoofer");
-    ActivatedNoDate ? sel_printf(&menu, "[*] No expiration Date") : sel_printf(&menu, "[] No expiration Date");
-    ActivatedWithDate ? sel_printf(&menu, "[*] Expiration Date!") : sel_printf(&menu, "[] Expiration Date!");
-    Expired ? sel_printf(&menu, "[*] Expired") : sel_printf(&menu, "[] Expired");
+    miakiActivated ? sel_printf(&menu, "[*] No expiration Date") : sel_printf(&menu, "[] No expiration Date");
+    miakiActivation ? sel_printf(&menu, "[*] Expiration Date!") : sel_printf(&menu, "[] Expiration Date!");
+    miakiExpired ? sel_printf(&menu, "[*] Expired") : sel_printf(&menu, "[] Expired");
     menu_draw(&menu);
     while (running) {
         uint32_t key = get_key(0);
@@ -62,23 +62,23 @@ void activator(void) {
             if (activator) {
                 switch (menu.selected) {
                     case 0:
-						ActivatedNoDate = 1;
-                        ActivatedWithDate = 0;
-                        Expired = 0;
+						miakiActivated = 1;
+                        miakiActivation = 0;
+                        miakiExpired = 0;
                         activator();
                         needs_refresh = 1;
                         break;
                     case 1:
-						ActivatedWithDate = 1;
-                        Expired = 0;
-                        ActivatedNoDate = 0;
+						miakiActivation = 1;
+                        miakiExpired = 0;
+                        miakiActivated = 0;
                         activator();
                         needs_refresh = 1;
 						break;
                     case 2:
-						Expired = 1;
-                        ActivatedWithDate = 0;
-                        ActivatedNoDate = 0;
+						miakiExpired = 1;
+                        miakiActivation = 0;
+                        miakiActivated = 0;
                         activator();
                         needs_refresh = 1;
                         break;

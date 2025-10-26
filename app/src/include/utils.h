@@ -20,14 +20,16 @@ int CopyFile(char *src, char *dst);
 
 void apply(void);
 void checker(void);
-extern int rool_spoof;
-extern int rtu_spoof;
-extern int rex_spoof;
-extern int devmodeii;
-extern int ReleaseMode;
-extern int ActivatedNoDate;
-extern int ActivatedWithDate;
-extern int Expired;
+extern int miakiToolSpoof;
+extern int miakiTestSpoof;
+extern int miakiDexSpoof;
+extern int miakiEnableDevMode;
+extern int miakiDisableDevMode;
+extern int miakiActivated;
+extern int miakiActivation;
+extern int miakiExpired;
+extern int miakiEnableIDU;
+extern int miakiClearIDU;
 
 
 #endif

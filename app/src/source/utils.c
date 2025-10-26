@@ -25,20 +25,20 @@ int ret;
 int left = -1;
 
 // Spoofer variables
-int rool_spoof = 0;
-int rtu_spoof = 0;
-int rex_spoof = 0;
-int iduset = 0;
-int iduclear = 0;
+int miakiToolSpoof = 0;
+int miakiTestSpoof = 0;
+int miakiDexSpoof = 0;
+int miakiEnableIDU = 0;
+int miakiClearIDU = 0;
 
 // Boot Parameters
-int devmodeii = 0;
-int ReleaseMode = 0;
+int miakiEnableDevMode = 0;
+int miakiDisableDevMode = 0;
 
 // Activator 
-int ActivatedNoDate = 0;
-int ActivatedWithDate = 0;
-int Expired = 0;
+int miakiActivated = 0;
+int miakiActivation = 0;
+int miakiExpired = 0;
 
 // Checker
 int CheckerCID = 0;
@@ -68,10 +68,10 @@ void DebugLog(const char *fmt, ...)
 
 static int CheckerListBoot()
 {
-	if (ReleaseMode)
+	if (miakiDisableDevMode)
 	return getFileSize("ur0:tai/devmode.skprx") > 0 ? 1 : 0;
 
-	if (devmodeii)
+	if (miakiEnableDevMode)
 	return getFileSize("ur0:tai/devmode.skprx") <= 0 ? 1 : 0;
 
 	return 0;
@@ -79,12 +79,12 @@ static int CheckerListBoot()
 
 static int CheckerListIDU()
 {
-	int iduenabled = vshSysconIduModeSet();
-	int idudisabled = vshSysconIduModeClear();
+	int miakiActivatedIDU = vshSysconIduModeSet();
+	int miakiDisabledIDU = vshSysconIduModeClear();
 
-	if (iduset)
+	if (miakiEnableIDU)
 	{
-		if (iduenabled == 1)
+		if (miakiActivatedIDU == 1)
 		{
 			return 0;
 		}
@@ -94,9 +94,9 @@ static int CheckerListIDU()
 		}
    	}
 
-	if (iduclear)
+	if (miakiClearIDU)
 	{
-		if (idudisabled == 1)
+		if (miakiDisabledIDU == 1)
 		{
 			return 0;
 		}
@@ -114,13 +114,13 @@ static int CheckerListCid()
 	bool test = vshSblAimgrIsTest();
 	bool tool = vshSblAimgrIsTool();
 
-	if (rtu_spoof && !test)
+	if (miakiTestSpoof && !test)
 	return 1;
 
-	if (rex_spoof && !dex)
+	if (miakiDexSpoof && !dex)
 	return 1;
 
-	if (rool_spoof && !tool)
+	if (miakiToolSpoof && !tool)
 	return 1;
 
 	return 0;
@@ -138,27 +138,27 @@ void apply()
 	// Base
 	checker();
 	DebugLog("\n[MIAKI]: Starting ProcessList...\n");
-	int activity = 0;
-	int iduactivity = 0;
+	int miakiCheckActivity = 0;
+	int miakiCheckIduActivity = 0;
 	// ProcessList 
 	if (CheckerCID)
 		{
 			// Spoofer
-			if (rool_spoof)
+			if (miakiToolSpoof)
 			{
-				activity = 1;
+				miakiCheckActivity = 1;
 				DebugLog("[MIAKI]: Loaded TOOL spoof\n");
 				CopyFile("app0:/dev_vita.skprx", "ur0:tai/testkit.skprx");
 			}
-			else if (rtu_spoof)
+			else if (miakiTestSpoof)
 			{
-				activity = 1;
+				miakiCheckActivity = 1;
 				DebugLog("[MIAKI]: Loaded TEST spoof\n");
 				CopyFile("app0:/pro_vita.skprx", "ur0:tai/testkit.skprx");
 			}
-			else if (rex_spoof)
+			else if (miakiDexSpoof)
 			{
-				activity = 1;
+				miakiCheckActivity = 1;
 				DebugLog("[MIAKI]: Loaded DEX spoof\n");
 				CopyFile("app0:/testkit_vita.skprx", "ur0:tai/testkit.skprx");
 			}
@@ -166,15 +166,15 @@ void apply()
 
 		if (CheckerIDU)
 		{
-			if (iduset)
+			if (miakiEnableIDU)
 			{
-				iduactivity = 1;
+				miakiCheckIduActivity = 1;
 				ret = vshSysconIduModeSet();
 			}
 
-			if (iduclear)
+			if (miakiClearIDU)
 			{
-				iduactivity = 1;
+				miakiCheckIduActivity = 1;
 				ret = vshSysconIduModeClear();
 			}
 		}
@@ -182,40 +182,40 @@ void apply()
 		if (CheckerBoot)
 		{
 			// ReleaseCheckMode
-			if (ReleaseMode)
+			if (miakiDisableDevMode)
 			{
-				activity = 1;
+				miakiCheckActivity = 1;
 				DebugLog("[MIAKI]: Change to Release Mode\n");
 				sceIoRemove("ur0:tai/devmode.skprx");
 			}
-			else if (devmodeii)
+			else if (miakiEnableDevMode)
 			{
-				activity = 1;
+				miakiCheckActivity = 1;
 				DebugLog("[MIAKI]: Change to Development Mode\n");
 				CopyFile("app0:/devmode.skprx", "ur0:tai/devmode.skprx");
 			}
 		}
 		// Activator
-		if (ActivatedNoDate)
+		if (miakiActivated)
 		{
-			activity = 1;
+			miakiCheckActivity = 1;
 			DebugLog("[MIAKI]: Activated for ever\n");
 			CopyFile("app0:/kmspico.skprx", "ur0:tai/kmspico.skprx");
 		}
-		else if (ActivatedWithDate)
+		else if (miakiActivation)
 		{
-			activity = 1;
+			miakiCheckActivity = 1;
 			DebugLog("[MIAKI]: Activated with date\n");
 			CopyFile("app0:/dkmspico.skprx", "ur0:tai/kmspico.skprx");
 		}
-		else if (Expired)
+		else if (miakiExpired)
 		{
-			activity = 1;
+			miakiCheckActivity = 1;
 			DebugLog("[MIAKI]: Expired\n");
 			sceIoRemove("ur0:tai/kmspico.skprx");
 		}
 
-		if (iduactivity)
+		if (miakiCheckIduActivity)
 		{
 			psvDebugScreenPrintf("IDU detected. To enable/disable IDU mode, turn off your console and then turn it back on. Miaki will close in 6 seconds.\n");
 			sceClibPrintf("[MIAKI]: IDU detected. manual reboot required.\n");
@@ -223,7 +223,7 @@ void apply()
 			sceKernelExitProcess(0);
 			
 		}
-		else if (activity)
+		else if (miakiCheckActivity)
 		{
 			DebugLog("[MIAKI]: The console while reboot in 3s...\n");
 			sceKernelDelayThread(3000000);

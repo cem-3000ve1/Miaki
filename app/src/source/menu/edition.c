@@ -35,9 +35,9 @@ void menu_edition(void) {
     Menu menu;
     psvDebugScreenClear();
     menu_create(&menu, "ProductCode");
-    rool_spoof ? sel_printf(&menu, "[*] Flash TOOL spoof") : sel_printf(&menu, "[] Flash TOOL spoof");
-    rex_spoof ? sel_printf(&menu, "[*] Flash DEX spoof") : sel_printf(&menu, "[] Flash DEX spoof");
-    rtu_spoof ? sel_printf(&menu, "[*] Flash TEST spoof") : sel_printf(&menu, "[] Flash TEST spoof");
+    miakiToolSpoof ? sel_printf(&menu, "[*] Flash TOOL spoof") : sel_printf(&menu, "[] Flash TOOL spoof");
+    miakiDexSpoof ? sel_printf(&menu, "[*] Flash DEX spoof") : sel_printf(&menu, "[] Flash DEX spoof");
+    miakiTestSpoof ? sel_printf(&menu, "[*] Flash TEST spoof") : sel_printf(&menu, "[] Flash TEST spoof");
     menu_draw(&menu);
     while (running) {
         uint32_t key = get_key(0);
@@ -60,23 +60,23 @@ void menu_edition(void) {
             if (menu_edition) {
                 switch (menu.selected) {
                     case 0:
-						rool_spoof = 1;
-                        rex_spoof = 0;
-                        rtu_spoof = 0;
+						miakiToolSpoof = 1;
+                        miakiDexSpoof = 0;
+                        miakiTestSpoof = 0;
                         menu_edition();
                         needs_refresh = 1;
                         break;
                     case 1:
-						rex_spoof = 1;
-                        rool_spoof = 0;
-                        rtu_spoof = 0;
+						miakiDexSpoof = 1;
+                        miakiToolSpoof = 0;
+                        miakiTestSpoof = 0;
                         menu_edition();
                         needs_refresh = 1;
                         break;
                     case 2:
-						rtu_spoof = 1;
-                        rool_spoof = 0;
-                        rex_spoof = 0;
+						miakiTestSpoof = 1;
+                        miakiToolSpoof = 0;
+                        miakiDexSpoof = 0;
                         menu_edition();
                         needs_refresh = 1;
                         break;

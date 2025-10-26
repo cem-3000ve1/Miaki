@@ -13,7 +13,7 @@
 
 void activator(void);
 extern int activated;
-extern int expired;
+extern int miakiExpired;
 void yellowmsg(void);
 extern int lowactivation;
 
