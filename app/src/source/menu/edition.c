@@ -24,11 +24,9 @@
 #define printf psvDebugScreenPrintf
 
 /*
-
-TOOL = DevKit
-DEX = Testkit
-TEST = Prototype
-
+    TOOL = DevKit
+    DEX = Testkit
+    TEST = Prototype
 */
 
 void menu_edition(void) {

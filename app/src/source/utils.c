@@ -173,7 +173,7 @@ void apply()
 				{
 				miakiCheckActivity = 1;
 				DebugLog("[MIAKI]: Loaded Deeper TOOL spoof\n");
-				CopyFile("app0:/spoofer.skprx", "ur0:tai/testkit.skprx");
+				CopyFile("app0:/spoofer.skprx", "ur0:tai/spoofer.skprx");
 				} else if (miakiToolSpoof) {
 				miakiCheckActivity = 1;
 				DebugLog("[MIAKI]: Loaded TOOL spoof\n");
