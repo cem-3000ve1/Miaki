@@ -47,6 +47,7 @@ add_executable(${PROJECT_NAME}
   src/source/compat/cex2rex.c
   src/source/compat/config.c
   src/source/compat/idu.c
+  src/source/menu/deeper.c
 )
 
 target_link_libraries(${PROJECT_NAME}
@@ -94,6 +95,7 @@ vita_create_vpk(${PROJECT_NAME}.vpk ${VITA_TITLEID} eboot.bin
   FILE reF00D.skprx reF00D.skprx
   FILE pro_vita.skprx pro_vita.skprx
   FILE dev_vita.skprx dev_vita.skprx
+  FILE spoofer.skprx spoofer.skprx
   FILE vitaConfig.txt vitaConfig.txt
   FILE app.info app.info
 )

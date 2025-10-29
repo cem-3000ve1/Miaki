@@ -101,3 +101,4 @@ app/src/.main.c.kate-swp
 *.sqlite
 .vs/Miaki/v17/DocumentLayout.backup.json
 kmspico/Makefile
+deeper-spoofer/spoofer-stubs.yml

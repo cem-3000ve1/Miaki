@@ -28,6 +28,8 @@ int left = -1;
 int miakiToolSpoof = 0;
 int miakiTestSpoof = 0;
 int miakiDexSpoof = 0;
+int miakiSelectToolSpoof = 0;
+int miakiDeeperToolSpoof = 0;
 int miakiEnableIDU = 0;
 int miakiClearIDU = 0;
 
@@ -123,6 +125,9 @@ static int CheckerListCid()
 	if (miakiToolSpoof && !tool)
 	return 1;
 
+	if(miakiDeeperToolSpoof && !tool)
+	return 1;
+
 	return 0;
 }
 
@@ -161,6 +166,19 @@ void apply()
 				miakiCheckActivity = 1;
 				DebugLog("[MIAKI]: Loaded DEX spoof\n");
 				CopyFile("app0:/testkit_vita.skprx", "ur0:tai/testkit.skprx");
+			}
+			else if (miakiSelectToolSpoof)
+			{
+				if (miakiDeeperToolSpoof)
+				{
+				miakiCheckActivity = 1;
+				DebugLog("[MIAKI]: Loaded Deeper TOOL spoof\n");
+				CopyFile("app0:/spoofer.skprx", "ur0:tai/testkit.skprx");
+				} else if (miakiToolSpoof) {
+				miakiCheckActivity = 1;
+				DebugLog("[MIAKI]: Loaded TOOL spoof\n");
+				CopyFile("app0:/dev_vita.skprx", "ur0:tai/testkit.skprx");
+				}
 			}
 		}
 

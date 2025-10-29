@@ -22,6 +22,8 @@ void apply(void);
 void checker(void);
 extern int miakiToolSpoof;
 extern int miakiTestSpoof;
+extern int miakiDeeperToolSpoof;
+extern int miakiSelectToolSpoof;
 extern int miakiDexSpoof;
 extern int miakiEnableDevMode;
 extern int miakiDisableDevMode;

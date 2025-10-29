@@ -1,4 +1,4 @@
-/* edition.h -- CID Changer
+/* edition.h -- ProductCode Changer
  *
  * Copyright (C) 2025 LazyPreview
  *

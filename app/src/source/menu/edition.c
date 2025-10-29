@@ -19,6 +19,7 @@
 #include "../../include/pup.h"
 #include "../../include/utils.h"
 #include "../../include/edition.h"
+#include "../../include/deeper.h"
 
 #define printf psvDebugScreenPrintf
 
@@ -35,7 +36,7 @@ void menu_edition(void) {
     Menu menu;
     psvDebugScreenClear();
     menu_create(&menu, "ProductCode");
-    miakiToolSpoof ? sel_printf(&menu, "[*] Flash TOOL spoof") : sel_printf(&menu, "[] Flash TOOL spoof");
+    miakiSelectToolSpoof ? sel_printf(&menu, "[*] Flash TOOL spoof") : sel_printf(&menu, "[] Flash TOOL spoof");
     miakiDexSpoof ? sel_printf(&menu, "[*] Flash DEX spoof") : sel_printf(&menu, "[] Flash DEX spoof");
     miakiTestSpoof ? sel_printf(&menu, "[*] Flash TEST spoof") : sel_printf(&menu, "[] Flash TEST spoof");
     menu_draw(&menu);
@@ -60,9 +61,10 @@ void menu_edition(void) {
             if (menu_edition) {
                 switch (menu.selected) {
                     case 0:
-						miakiToolSpoof = 1;
+						miakiSelectToolSpoof = 1;
                         miakiDexSpoof = 0;
                         miakiTestSpoof = 0;
+                        deeper();
                         menu_edition();
                         needs_refresh = 1;
                         break;
@@ -70,12 +72,14 @@ void menu_edition(void) {
 						miakiDexSpoof = 1;
                         miakiToolSpoof = 0;
                         miakiTestSpoof = 0;
+                        miakiSelectToolSpoof = 0;
                         menu_edition();
                         needs_refresh = 1;
                         break;
                     case 2:
 						miakiTestSpoof = 1;
                         miakiToolSpoof = 0;
+                        miakiSelectToolSpoof = 0;
                         miakiDexSpoof = 0;
                         menu_edition();
                         needs_refresh = 1;
