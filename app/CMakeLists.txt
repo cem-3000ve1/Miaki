@@ -40,6 +40,7 @@ add_executable(${PROJECT_NAME}
   src/source/menu/activation.c
   src/source/menu/boot_parameters.c
   src/source/modules.c
+  src/source/menu/debugsettings.c
   src/source/flasher.c
   src/source/flasher/boot.c
   src/source/flasher/config.c

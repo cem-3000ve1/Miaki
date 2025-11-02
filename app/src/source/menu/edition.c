@@ -20,6 +20,7 @@
 #include "../../include/utils.h"
 #include "../../include/edition.h"
 #include "../../include/deeper.h"
+#include "../../include/debugsettings.h"
 
 #define printf psvDebugScreenPrintf
 
@@ -88,7 +89,7 @@ void menu_edition(void) {
 		if(key == SCE_CTRL_CIRCLE)
 		{
             menu_destroy(&menu);
-			main();
+			debugsettings();
 		}
         if (needs_refresh) {
             menu_draw(&menu);

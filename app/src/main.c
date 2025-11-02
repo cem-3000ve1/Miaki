@@ -18,6 +18,7 @@
 #include "include/activation.h"
 #include "include/boot_parameters.h"
 #include "include/flasher.h"
+#include "include/debugsettings.h"
 #include "include/boot.h"
 #include "include/cex2rex.h"
 char ver[] = "Miaki v4.0-dev";
@@ -96,10 +97,7 @@ int main() {
      if (is_rex) {
         sceClibPrintf("[MIAKI]: isRex\n");
         sel_printf(&menu, "Uninstall TOOL Firmware");
-        sel_printf(&menu, "Activation");
-        sel_printf(&menu, "Change ProductCode");
-        sel_printf(&menu, "Release Check Mode");
-        sel_printf(&menu, "Enable/Disable IDU mode");
+        sel_printf(&menu, "Debug Settings");
         sel_printf(&menu, "Fix the boot configuration");
 		sel_printf(&menu, "Apply configuration");
         sel_printf(&menu, "Exit");
@@ -135,32 +133,20 @@ int main() {
                         needs_refresh = 1;
                         break;
                     case 1:
-                        activator();
+                        debugsettings();
                         needs_refresh = 1;
                         break;
                     case 2:
-                        menu_edition();
-                        needs_refresh = 1;
-                        break;
-                    case 3:
-                        boot_parameters();
-                        needs_refresh = 1;
-                        break;
-                    case 4:
-                        idumenu();
-                        needs_refresh = 1;
-                        break;
-                    case 5:
                         fixboot();
                         needs_refresh = 1;
                         break;
-					case 6:
+                    case 3:
 						checker();
                         apply();
-						needs_refresh = 1;
-						break;
-                    case 7:
-                        running = 0;
+                        needs_refresh = 1;
+                        break;
+                    case 4:
+                        needs_refresh = 0;
                         break;
                 }
             } else {

@@ -17,6 +17,7 @@
 
 #include "../../include/ctrl.h"
 #include "../../include/pup.h"
+#include "../../include/debugsettings.h"
 #include "../../include/utils.h"
 #include "../../include/activation.h"
 
@@ -88,7 +89,7 @@ void activator(void) {
 		if(key == SCE_CTRL_CIRCLE)
 		{
             menu_destroy(&menu);
-			main();
+			debugsettings();
 		}
 
         if (needs_refresh) {

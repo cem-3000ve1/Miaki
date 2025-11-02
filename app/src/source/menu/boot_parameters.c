@@ -18,6 +18,7 @@
 #include "../../include/ctrl.h"
 #include "../../include/pup.h"
 #include "../../include/utils.h"
+#include "../../include/debugsettings.h"
 #include "../../include/boot_parameters.h"
 
 #define printf psvDebugScreenPrintf
@@ -83,7 +84,7 @@ void boot_parameters(void) {
 		if(key == SCE_CTRL_CIRCLE)
 		{
             menu_destroy(&menu);
-			main();
+			debugsettings();
 		}
 
         if (needs_refresh) {
