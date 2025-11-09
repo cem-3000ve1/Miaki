@@ -42,11 +42,17 @@ int miakiActivated = 0;
 int miakiActivation = 0;
 int miakiExpired = 0;
 
+// QAF
+int miakiAllowSceShellFlags = 0;
+int miakiAllowDebugFlags = 0;
+int miakiEnableQafQaTeamFullE = 0;
+
 // Checker
 int CheckerCID = 0;
 int CheckerBoot = 0;
 int CheckerIDU = 0;
 int CheckerAct = 0;
+int CheckerQaf = 0;
 
 int vshSblAimgrIsCEX(void);
 int vshSblAimgrIsDEX(void);
@@ -75,6 +81,22 @@ static int CheckerListBoot()
 
 	if (miakiEnableDevMode)
 	return getFileSize("ur0:tai/devmode.skprx") <= 0 ? 1 : 0;
+
+	return 0;
+}
+
+static int CheckerListQaf()
+{
+
+
+	if (miakiAllowSceShellFlags)
+	return getFileSize("ur0:tai/sceshell.skprx") <= 0 ? 1 : 0;
+
+	if (miakiEnableQafQaTeamFullE)
+	return getFileSize("ur0:tai/qafull.skprx") <= 0 ? 1 : 0;
+
+	if (miakiAllowDebugFlags)
+	return getFileSize("ur0:tai/debugflag.skprx") <= 0 ? 1 : 0;
 
 	return 0;
 }
@@ -133,9 +155,10 @@ static int CheckerListCid()
 
 void checker()
 {
-CheckerIDU = CheckerListIDU();
-CheckerCID = CheckerListCid();
-CheckerBoot = CheckerListBoot();
+	CheckerIDU = CheckerListIDU();
+	CheckerCID = CheckerListCid();
+	CheckerBoot = CheckerListBoot();
+	CheckerQaf = CheckerListQaf();
 }
 
 void apply()
@@ -197,6 +220,29 @@ void apply()
 			}
 		}
 		
+		if (CheckerQaf)
+		{
+			if (miakiAllowSceShellFlags)
+			{
+				miakiCheckActivity = 1;
+				DebugLog("[MIAKI]: Enable SceShell Flags...\n");
+				CopyFile("app0:/sceshell.skprx", "ur0:tai/sceshell.skprx");
+			}
+
+			if (miakiAllowDebugFlags)
+			{
+				miakiCheckActivity = 1;
+				DebugLog("[MIAKI]: Enable Debug Flags...\n");
+				CopyFile("app0:/debugflag.skprx", "ur0:tai/debugflag.skprx");
+			}
+
+			if (miakiEnableQafQaTeamFullE)
+			{
+				miakiCheckActivity = 1;
+				DebugLog("[MIAKI]: Enable QA Flags...\n");
+				CopyFile("app0:/qafull.skprx", "ur0:tai/qafull.skprx");
+			}
+		}
 		if (CheckerBoot)
 		{
 			// ReleaseCheckMode

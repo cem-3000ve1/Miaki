@@ -32,6 +32,9 @@ extern int miakiActivation;
 extern int miakiExpired;
 extern int miakiEnableIDU;
 extern int miakiClearIDU;
+extern int miakiAllowSceShellFlags;
+extern int miakiAllowDebugFlags;
+extern int miakiEnableQafQaTeamFullE;
 
 
 #endif

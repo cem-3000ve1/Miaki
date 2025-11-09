@@ -8,7 +8,7 @@ if(NOT DEFINED CMAKE_TOOLCHAIN_FILE)
   endif()
 endif()
 
-project(devmode)
+project(qafull)
 include("$ENV{VITASDK}/share/vita.cmake" REQUIRED)
 
 set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wl,-q -Wall -O3 -std=gnu99")
@@ -20,7 +20,7 @@ link_directories(
 )
 
 add_executable(${PROJECT_NAME}
-	devmode.c
+	qafull.c
 )
 
 target_link_libraries(${PROJECT_NAME}

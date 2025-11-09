@@ -1,4 +1,4 @@
-/* edition.h -- CID Changer
+/* boot_parameters.h -- Boot Parameters
  *
  * Copyright (C) 2025 LazyPreview
  *

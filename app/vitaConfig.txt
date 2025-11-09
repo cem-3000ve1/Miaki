@@ -11,6 +11,7 @@
 # This configuration is only for kernel_boot_loader_release.self.
 #
 
+- load	ur0:tai/yamt.skprx
 - load  ur0:tai/testkit.skprx
 load    os0:kd/clockgen.skprx
 #load	os0:kd/syscon.skprx
@@ -122,12 +123,16 @@ endif
 end
 endif
 
+# Miaki STUFF
 - load	ur0:tai/taihen.skprx
 - load	ur0:tai/henkaku.skprx
 - load  ur0:tai/spoofer.skprx
 - load	ur0:tai/kmspico.skprx
 - load  ur0:tai/devmode.skprx
 - load 	ur0:tai/reF00D.skprx
+- load  ur0:tai/sceshell.skprx
+- load  ur0:tai/qafull.skprx
+- load  ur0:tai/debugflag.skprx
 
 - appspawn vs0:vsh/shell/shell.self SHELL_BUDGET_ID
 

@@ -29,6 +29,7 @@ target_link_libraries(${PROJECT_NAME}
         SceThreadmgrForDriver_stub
         SceIofilemgrForDriver_stub
         SceCpuForDriver_stub
+        SceDebugForDriver_stub
         taihenForKernel_stub
         gcc
         -nostdlib

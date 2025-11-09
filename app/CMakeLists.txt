@@ -49,6 +49,7 @@ add_executable(${PROJECT_NAME}
   src/source/compat/config.c
   src/source/compat/idu.c
   src/source/menu/deeper.c
+  src/source/menu/qaf.c
 )
 
 target_link_libraries(${PROJECT_NAME}
@@ -93,6 +94,8 @@ vita_create_vpk(${PROJECT_NAME}.vpk ${VITA_TITLEID} eboot.bin
   FILE lowkmspico.skprx lowkmspico.skprx
   FILE testkit_vita.skprx testkit_vita.skprx
   FILE devmode.skprx devmode.skprx
+  FILE sceshell.skprx sceshell.skprx
+  FILE qafull.skprx qafull.skprx
   FILE reF00D.skprx reF00D.skprx
   FILE pro_vita.skprx pro_vita.skprx
   FILE dev_vita.skprx dev_vita.skprx

@@ -1,12 +1,19 @@
+/* spoofer.c -- LazyLoader
+ *
+ * Copyright (C) 2025 LazyPreview
+ *
+ * This software may be modified and distributed under the terms
+ * of the MIT license.  See the LICENSE file for details.
+ */
 #include <stdio.h>
 #include <stdarg.h>
 #include <vitasdkkern.h>
 #include <taihen.h>
 #include <string.h>
+#include <psp2kern/kernel/debug.h> 
 
 static int hook = -1;
 static tai_hook_ref_t ref_hook;
-
 
 static const unsigned char cid_patched[16] = {
     0x00, 0x00, 0x00, 0x01,
@@ -17,6 +24,7 @@ static const unsigned char cid_patched[16] = {
 
 static int ksceSblAimgrGetConsoleId_patched(char CID[16])
 {
+    ksceKernelPrintf("[LazyLoader]:DevTool Spoof!\n");
     int ret = TAI_CONTINUE(int, ref_hook, CID);
     memcpy(CID, cid_patched, sizeof(cid_patched));
     return ret;

@@ -1,4 +1,4 @@
-/* boot_parameters.c -- Boot Parameters
+/* qaf.c -- QAF Flasher
  *
  * Copyright (C) 2025 LazyPreview
  *
@@ -18,20 +18,22 @@
 #include "../../include/ctrl.h"
 #include "../../include/pup.h"
 #include "../../include/utils.h"
-#include "../../include/boot_parameters.h"
+#include "../../include/edition.h"
+#include "../../include/deeper.h"
+#include "../../include/qaf.h"
+#include "../../include/debugsettings.h"
 
 #define printf psvDebugScreenPrintf
 
-void debugsettings(void) {
+
+void qafmenu(void) {
     int running = 1;
     Menu menu;
     psvDebugScreenClear();
-    menu_create(&menu, "Debug Settings");
-    sel_printf(&menu, "Boot Parameters");
-    sel_printf(&menu, "Activation");
-    sel_printf(&menu, "ProductCode switcher");
-    sel_printf(&menu, "IDU Mode Activator");
-    sel_printf(&menu, "QAF Flasher");
+    menu_create(&menu, "QA Flags");
+    miakiAllowSceShellFlags ? sel_printf(&menu, "[*] Flash SceShell Flags") : sel_printf(&menu, "[] Flash SceShell Flags");
+    miakiAllowDebugFlags ? sel_printf(&menu, "[*] Flash Debug Flags") : sel_printf(&menu, "[] Flash Debug Flags");
+    miakiEnableQafQaTeamFullE ? sel_printf(&menu, "[*] Flash QA Flags") : sel_printf(&menu, "[] Flash QA Flags");
     menu_draw(&menu);
     while (running) {
         uint32_t key = get_key(0);
@@ -51,37 +53,37 @@ void debugsettings(void) {
             sceKernelDelayThread(150000);
         }
         if (key == SCE_CTRL_CROSS) {
-            if (debugsettings) {
+            if (menu_edition) {
                 switch (menu.selected) {
                     case 0:
-                        boot_parameters();
+						miakiAllowSceShellFlags = 1;
+                        miakiAllowDebugFlags = 0;
+                        miakiEnableQafQaTeamFullE = 0;
+                        qafmenu();
                         needs_refresh = 1;
                         break;
                     case 1:
-                        activator();
+						miakiAllowDebugFlags = 1;
+                        miakiAllowSceShellFlags = 0;
+                        miakiEnableQafQaTeamFullE = 0;
+                        qafmenu();
                         needs_refresh = 1;
                         break;
                     case 2:
-                        menu_edition();
-                        needs_refresh = 1;
-                        break;
-                    case 3:
-                        idumenu();
-                        needs_refresh = 1;
-                        break;
-                    case 4:
+						miakiEnableQafQaTeamFullE = 1;
+                        miakiAllowSceShellFlags = 0;
+                        miakiAllowDebugFlags = 0;
                         qafmenu();
                         needs_refresh = 1;
                         break;
                 }
-            }
+            } 
         }
 		if(key == SCE_CTRL_CIRCLE)
 		{
             menu_destroy(&menu);
-			main();
+			debugsettings();
 		}
-
         if (needs_refresh) {
             menu_draw(&menu);
         }
