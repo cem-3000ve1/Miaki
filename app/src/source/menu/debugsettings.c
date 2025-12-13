@@ -26,7 +26,7 @@ void debugsettings(void) {
     int running = 1;
     Menu menu;
     psvDebugScreenClear();
-    menu_create(&menu, "Debug Settings");
+    menu_create(&menu, "Advanced Settings");
     sel_printf(&menu, "Boot Parameters");
     sel_printf(&menu, "Activation");
     sel_printf(&menu, "ProductCode switcher");

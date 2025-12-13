@@ -34,7 +34,6 @@ target_link_libraries(${PROJECT_NAME}
         SceLibKernel_stub
         SceDipswForDriver_stub
         SceSblACMgrForDriver_stub
-        taihen_stub
         gcc
         -nostdlib
 )

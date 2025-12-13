@@ -16,7 +16,7 @@
 #include <psp2kern/kernel/acmgr.h> 
 #include <psp2kern/kernel/dipsw.h> 
 
-#define LOG(fmt, ...) ksceDebugPrintf("[LazyLoader/QAF         ]:" fmt "\n", ##__VA_ARGS__)
+#define LOG(fmt, ...) ksceKernelPrintf("[LazyLoader/QAF         ]:" fmt "\n", ##__VA_ARGS__)
 
 static int hooks[19];
 static tai_hook_ref_t refs[19];

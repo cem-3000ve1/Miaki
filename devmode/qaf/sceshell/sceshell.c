@@ -10,13 +10,12 @@
 #include <stdarg.h>
 
 #include <vitasdk.h>
-#include <taihen.h>
 #include <psp2kern/kernel/debug.h> 
 #include <psp2/kernel/threadmgr.h>
 #include <psp2kern/kernel/acmgr.h> 
 #include <psp2kern/kernel/dipsw.h> 
 
-#define LOG(fmt, ...) ksceDebugPrintf("[LazyLoader/ShellFlag         ]:" fmt "\n", ##__VA_ARGS__)
+#define LOG(fmt, ...) ksceKernelPrintf("[LazyLoader/ShellFlag         ]:" fmt "\n", ##__VA_ARGS__)
 
 
 static int returntrue(void) {

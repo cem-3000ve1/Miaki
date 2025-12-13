@@ -97,7 +97,7 @@ int main() {
      if (is_rex) {
         sceClibPrintf("[MIAKI]: isRex\n");
         sel_printf(&menu, "Uninstall TOOL Firmware");
-        sel_printf(&menu, "Debug Settings");
+        sel_printf(&menu, "Advanced Settings");
         sel_printf(&menu, "Fix the boot configuration");
 		sel_printf(&menu, "Apply configuration");
         sel_printf(&menu, "Exit");

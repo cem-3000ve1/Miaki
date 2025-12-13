@@ -114,3 +114,7 @@ devmode/qaf/qafull/qafull-stubs.yml
 devmode/qaf/sceshell/install_manifest.txt
 devmode/qaf/sceshell/sceshell-stubs.yml
 devmode/devmode-stubs.yml
+.vs/slnx.sqlite
+.vs/Miaki/v17/.wsuo
+.vs/Miaki/v17/DocumentLayout.json
+.vs/Miaki/v17/DocumentLayout.backup.json

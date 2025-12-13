@@ -310,7 +310,7 @@ void upgrade(void)
 void install(void)
 {
     extract();
-    vercheck();
+    //vercheck();
     config();
     load_modules();
     lock();

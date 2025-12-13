@@ -2,9 +2,9 @@
 #include <vitasdk.h>
 #include "miaki_user.h"
 
-int dd(char *inf, char *of, int size)
-{
-	return kdd(inf, of, size);
+int dd(char *inf, char *of, int size) {
+    extern int kdd(char*, char*, int);
+    return kdd(inf, of, size);
 }
 
 
