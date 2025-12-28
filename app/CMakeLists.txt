@@ -96,6 +96,7 @@ vita_create_vpk(${PROJECT_NAME}.vpk ${VITA_TITLEID} eboot.bin
   FILE devmode.skprx devmode.skprx
   FILE sceshell.skprx sceshell.skprx
   FILE qafull.skprx qafull.skprx
+  FILE debugflag.skprx debugflag.skprx
   FILE reF00D.skprx reF00D.skprx
   FILE pro_vita.skprx pro_vita.skprx
   FILE dev_vita.skprx dev_vita.skprx

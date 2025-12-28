@@ -13,6 +13,7 @@ build_all:
 	cd devmode && cmake . && make install
 	cd devmode/qaf/qafull && cmake . && make install
 	cd devmode/qaf/sceshell && cmake . && make install
+	cd devmode/qaf/debugflag && cmake . && make install
 	cd kmspico/src/yellowmsg && cmake . && make install
 	cd kmspico/src/lowact && cmake . && make install
 	cd kmspico/src/kms && cmake . && make install
@@ -31,6 +32,7 @@ move_plugins:
 	mv ../devmode/devmode.skprx devmode.skprx && \
 	mv ../devmode/qaf/sceshell/sceshell.skprx sceshell.skprx && \
 	mv ../devmode/qaf/qafull/qafull.skprx qafull.skprx && \
+	mv ../devmode/qaf/debugflag/deblugflag.skprx debugflag.skprx && \
 	mv ../kernel/kernel.skprx kernel.skprx && \
 	mv ../user/user.suprx user.suprx
 
