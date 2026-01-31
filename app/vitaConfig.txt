@@ -7,11 +7,10 @@
 # PSP2 System Configuration for Release
 #
 # [NOTICE]
-# 
+#
 # This configuration is only for kernel_boot_loader_release.self.
 #
 
-- load	ur0:tai/yamt.skprx
 - load  ur0:tai/testkit.skprx
 load    os0:kd/clockgen.skprx
 #load	os0:kd/syscon.skprx
@@ -28,7 +27,7 @@ if AU_CODEC_IC_CONEXANT
 load os0:kd/codec_cx.skprx
 else
 load os0:kd/codec.skprx
-endif 
+endif
 load	os0:kd/audio.skprx
 load	os0:kd/hpremote.skprx
 load	os0:kd/power.skprx
@@ -123,16 +122,17 @@ endif
 end
 endif
 
-# Miaki STUFF
 - load	ur0:tai/taihen.skprx
 - load	ur0:tai/henkaku.skprx
-- load  ur0:tai/spoofer.skprx
+
+# Miaki
+
 - load	ur0:tai/kmspico.skprx
-- load  ur0:tai/devmode.skprx
-- load 	ur0:tai/reF00D.skprx
 - load  ur0:tai/sceshell.skprx
 - load  ur0:tai/qafull.skprx
 - load  ur0:tai/debugflag.skprx
+- load  ur0:tai/spoofer.skprx
+- load  ur0:tai/devmode.skprx
 
 - appspawn vs0:vsh/shell/shell.self SHELL_BUDGET_ID
 
