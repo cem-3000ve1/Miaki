@@ -1,0 +1,2 @@
+/usr/local/vitasdk/arm-vita-eabi/lib/libdevmode_stub.a
+/usr/local/vitasdk/arm-vita-eabi/lib/libdevmode_stub_weak.a

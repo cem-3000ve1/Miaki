@@ -79,7 +79,7 @@ unsigned char testkit_pscode[0x8] = {
 	0x00, 0x01, //CompanyCode
     0x01, 0x02, //ProductCode
     0x00, 0x10,	//ProductSubCode 
-    0x00, 0x03	//FactoryCode
+    0x04, 0x00	//FactoryCode
 };
 
 static int mmu_dump_pages(unsigned int vaddr, unsigned int entry)

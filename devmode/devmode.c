@@ -24,7 +24,7 @@ static int returntrue(void) {
 
 void _start() __attribute__((weak, alias("module_start")));
 int module_start(SceSize argc, const void *args) {
-    int dipsw_id[] = {159, 128};
+    int dipsw_id[] = {152};
     int count = sizeof(dipsw_id)/sizeof(dipsw_id[0]);
     ksceKernelDelayThread(100000);
 	LOG("Starting LazyLoader...");

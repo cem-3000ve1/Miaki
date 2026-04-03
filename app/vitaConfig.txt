@@ -123,13 +123,13 @@ endif
 end
 endif
 
-# Miaki STUFF
 - load	ur0:tai/taihen.skprx
 - load	ur0:tai/henkaku.skprx
+
+# Miaki STUFF
 - load  ur0:tai/spoofer.skprx
 - load	ur0:tai/kmspico.skprx
 - load  ur0:tai/devmode.skprx
-- load 	ur0:tai/reF00D.skprx
 - load  ur0:tai/sceshell.skprx
 - load  ur0:tai/qafull.skprx
 - load  ur0:tai/debugflag.skprx

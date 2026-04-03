@@ -48,6 +48,7 @@ add_executable(${PROJECT_NAME}
   src/source/compat/cex2rex.c
   src/source/compat/config.c
   src/source/compat/idu.c
+  src/source/flasher/check.c
   src/source/menu/deeper.c
   src/source/menu/qaf.c
 )
@@ -64,6 +65,7 @@ target_link_libraries(${PROJECT_NAME}
   ScePower_stub
   SceRegistryMgr_stub
   Miaki_User_stub_weak
+  SceIofilemgrForDriver_stub
   taihen_stub
   vita2d
   SceGxm_stub

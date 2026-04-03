@@ -53,26 +53,11 @@ void debugsettings(void) {
         if (key == SCE_CTRL_CROSS) {
             if (debugsettings) {
                 switch (menu.selected) {
-                    case 0:
-                        boot_parameters();
-                        needs_refresh = 1;
-                        break;
-                    case 1:
-                        activator();
-                        needs_refresh = 1;
-                        break;
-                    case 2:
-                        menu_edition();
-                        needs_refresh = 1;
-                        break;
-                    case 3:
-                        idumenu();
-                        needs_refresh = 1;
-                        break;
-                    case 4:
-                        qafmenu();
-                        needs_refresh = 1;
-                        break;
+                    case 0: boot_parameters(); needs_refresh = 1; break;
+                    case 1: activator(); needs_refresh = 1; break;
+                    case 2: menu_edition(); needs_refresh = 1; break;
+                    case 3: idumenu(); needs_refresh = 1; break;
+                    case 4: qafmenu(); needs_refresh = 1; break;
                 }
             }
         }

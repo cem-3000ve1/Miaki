@@ -78,7 +78,7 @@ unsigned char magic[0x8] = {
 unsigned char testkit_pscode[0x8] = {
 	0x00, 0x01, //CompanyCode
     0x01, 0x01, //ProductCode
-    0x00, 0x10, //ProductSubCode
+    0x00, 0x04, //ProductSubCode
     0x00, 0x03	//FactoryCode
 };
 

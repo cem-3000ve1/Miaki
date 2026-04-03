@@ -36,6 +36,8 @@ int miakiClearIDU = 0;
 // Boot Parameters
 int miakiEnableDevMode = 0;
 int miakiDisableDevMode = 0;
+int miakiEnablePSTVmode = 0;
+int miakiDisablePSTVmode = 0;
 
 // Activator 
 int miakiActivated = 0;

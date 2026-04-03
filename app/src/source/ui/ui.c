@@ -81,7 +81,6 @@ void menu_draw(Menu *menu) {
     psvDebugScreenSetFgColor(COLOR_WHITE);
 }
 
-
 void menu_destroy(Menu *menu) {
     if (menu->options) {
         free(menu->options);

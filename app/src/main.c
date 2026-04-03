@@ -18,6 +18,7 @@
 #include "include/activation.h"
 #include "include/boot_parameters.h"
 #include "include/flasher.h"
+#include "include/check.h"
 #include "include/debugsettings.h"
 #include "include/boot.h"
 #include "include/cex2rex.h"
@@ -83,6 +84,7 @@ bool isRex() {
 }
 
 int main() {
+   // check_install();
     Menu menu;
     bool is_rex = isRex();
     bool is_cexrex = isCexRex();

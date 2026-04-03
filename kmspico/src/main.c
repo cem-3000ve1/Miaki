@@ -6,21 +6,19 @@
 static int hook = -1;
 static tai_hook_ref_t ref_hook;
 
-int ksceSblPostSsMgrGetExpireDate_patched(int *arg1, int arg2)
-{
-    
-    *arg1 = 0xFFFFFFFFFFFFFFFF;
-    return 0;
+static int IsAllowKernelDebugForDriver_patched(void) {
+    return 1;
 }
+
 
 void _start() __attribute__ ((weak, alias("module_start")));
 int module_start(SceSize args, void *argp) {
     hook = taiHookFunctionExportForKernel(KERNEL_PID,
                                         &ref_hook, 
-                                        "SceSblPostSsMgr",
-                                        0x2254E1B2,
-                                        0x4FF2682F, 
-                                        ksceSblPostSsMgrGetExpireDate_patched);
+                                        "SceSblQafMgr",
+                                        TAI_ANY_LIBRARY,
+                                        0x382C71E8, 
+                                        IsAllowKernelDebugForDriver_patched);
     return SCE_KERNEL_START_SUCCESS;
 }
 
