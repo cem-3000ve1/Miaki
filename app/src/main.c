@@ -85,9 +85,35 @@ bool isRex() {
 
 int main() {
    // check_install();
+    sceClibPrintf("Starting Miaki...\n");
     Menu menu;
-    bool is_rex = isRex();
-    bool is_cexrex = isCexRex();
+
+  sceCtrlSetSamplingMode(SCE_CTRL_MODE_ANALOG);
+    
+    bool fakeisrex = false;
+    bool fakecexrex = false;
+    SceCtrlData ctrl;
+
+    for (int i = 0; i < 120; i++) { 
+        sceCtrlPeekBufferPositive(0, &ctrl, 1);
+        if (ctrl.buttons & SCE_CTRL_LTRIGGER) {
+            fakeisrex = true;
+            sceClibPrintf("[MIAKI]: fakeisrex\n");
+            break;
+        } else {
+            if (ctrl.buttons & SCE_CTRL_RTRIGGER) {
+                fakecexrex = true;
+                sceClibPrintf("[MIAKI]: fakecexrex\n");
+                break;
+            }
+        }
+        sceKernelDelayThread(16000);
+    }
+
+
+    bool is_rex = isRex() || fakeisrex;
+    bool is_cexrex = isCexRex() || fakecexrex;
+
     if (is_cexrex)
     {
         sceClibPrintf("[MIAKI]: isCEX2REX\n");

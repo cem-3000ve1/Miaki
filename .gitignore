@@ -118,3 +118,6 @@ devmode/devmode-stubs.yml
 .vs/Miaki/v17/.wsuo
 .vs/Miaki/v17/DocumentLayout.json
 .vs/Miaki/v17/DocumentLayout.backup.json
+/app/devkit
+devmode/devmode-stubs.yml
+devmode/qaf/debugflag/deblugflag-stubs.yml
