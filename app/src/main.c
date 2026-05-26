@@ -196,7 +196,7 @@ int main() {
         sceKernelDelayThread(10000);
     }
     menu_destroy(&menu);
-    psvDebugScreenClear(COLOR_BLACK);
+    psvDebugScreenClear();
     DebugLog("Exiting...\n");
     sceKernelDelayThread(1000000);
     sceKernelExitProcess(0);

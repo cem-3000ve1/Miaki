@@ -117,5 +117,5 @@ void cex2rexmain(void) {
     DebugLog("Exiting...\n");
     sceKernelDelayThread(1000000);
     sceKernelExitProcess(0);
-    return 0;
+    return;
 }

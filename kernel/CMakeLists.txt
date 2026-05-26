@@ -13,6 +13,7 @@ include("${VITASDK}/share/vita.cmake" REQUIRED)
 
 set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wl,-q -Wall -O3 -nostdlib")
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fno-rtti -fno-exceptions")
+add_compile_options(-Wno-incompatible-pointer-types -Wno-int-conversion)
 
 add_executable(${PROJECT_NAME}
   src/main.c

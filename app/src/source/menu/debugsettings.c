@@ -31,7 +31,7 @@ void debugsettings(void) {
     sel_printf(&menu, "Activation");
     sel_printf(&menu, "ProductCode switcher");
     sel_printf(&menu, "IDU Mode Activator");
-    sel_printf(&menu, "QAF Flasher");
+    sel_printf(&menu, "DIPSW/QAF Enabler");
     menu_draw(&menu);
     while (running) {
         uint32_t key = get_key(0);
