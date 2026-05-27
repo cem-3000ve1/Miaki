@@ -342,7 +342,7 @@ int CopyFile(char *src, char *dst)
 {
 	int size = getFileSize(src);
 	char *data = malloc(size);
-	memset(data,0,size);
+	//memset(data,0,size);
 	ret = ReadFile(src,data,size);
 	if(ret < 0){
 			psvDebugScreenPrintf("ReadFile() failed. ret = 0x%x\n", ret);
@@ -352,5 +352,6 @@ int CopyFile(char *src, char *dst)
 	if(ret < 0){
 			psvDebugScreenPrintf("WriteFile() failed. ret = 0x%x\n", ret);
 	}
+	free(data);
 	return 0;
 }

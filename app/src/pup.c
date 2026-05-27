@@ -163,7 +163,7 @@ void sceGetPlayStartionUpdatePackageFileEntryId(void *buff, int entry_id){
 }
 
 
-char pup_buffer[0x20000];
+char pup_buffer[0x80000];
 
 int scePlayStartionUpdatePackageExtractFiles(char *pup_dec_dir, SceUID file_check, int i, SceUInt32 file_count, void *header){
 

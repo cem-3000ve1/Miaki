@@ -99,10 +99,8 @@ void decrypt(void)
 
     for(int i = 0; i <= 26; i++)
     {
-        memset(path,0x00,0x1028);
-        memset(pathout,0x00,0x1028);
-        sprintf(path,"ur0:/pup_out/package_data%02i.pkg",i);
-        sprintf(pathout,"ur0:/pup_out/pkg-%i.dec",i);
+        snprintf(path,    0x1028, "ur0:/pup_out/package_data%02i.pkg", i);
+        snprintf(pathout, 0x1028, "ur0:/pup_out/pkg-%i.dec", i);
         int sz = getFileSize(path);
         if(sz > 0)
         {
@@ -128,8 +126,7 @@ void decrypt(void)
             if(type == 0x0A)
             {
                 char newName[0x1028];
-                memset(newName,0x00,0x1028);
-                sprintf(newName,"ur0:/pup_out/vs0-%i.dec",vs0Count);
+                snprintf(newName, 0x1028, "ur0:/pup_out/vs0-%i.dec", vs0Count);
                 sceIoRename(pathout, newName);
                 vs0Count += 1;
             }
@@ -143,47 +140,34 @@ void decrypt(void)
 
 void join(void)
 {
-
-    //psvDebugScreenPrintf("Concatenating package data...\n");
     char path[0x1028];
     int fd = 0;
     int sz = 0;
-    char buffer[0x8000];
+    static char buffer[0x300000];
     int vs0Img = sceIoOpen("ur0:/vs0.img", SCE_O_RDWR | SCE_O_CREAT, 0777);
-      int ret;
-    ret = sceIoWrite(vs0Img, buffer, sz);
+    int ret;
 
     for(int i = 0; i <= 26; i++)
     {
-        memset(path,0x00,0x1028);
-        sprintf(path,"ur0:/pup_out/vs0-%i.dec",i);
-        psvDebugScreenSetXY(0, 7);
-        psvDebugScreenPrintf("[+] Adding %s to vs0.img\n",path);
-
+        snprintf(path, 0x1028, "ur0:/pup_out/vs0-%i.dec", i);
         sz = getFileSize(path) - 0x480;
+        if (sz <= 0) continue;
 
-        fd = sceIoOpen(path,SCE_O_RDONLY, 0777);
+        psvDebugScreenSetXY(0, 7);
+        psvDebugScreenPrintf("[+] Adding %s to vs0.img\n", path);
+
+        fd = sceIoOpen(path, SCE_O_RDONLY, 0777);
         sceIoLseek(fd, 0x480, SCE_SEEK_SET);
 
-        while(!(sz <= 0))
+        while(sz > 0)
         {
-            memset(buffer,0x00,0x8000);
-            if(sz < 0x8000)
-            {
-                sceIoRead(fd, buffer, sz);
-                ret = sceIoWrite(vs0Img, buffer, sz);
-                sz -= sz;
-            }
-            else
-            {
-                sceIoRead(fd, buffer, 0x8000);
-                ret = sceIoWrite(vs0Img, buffer, 0x8000);
-                sz -= 0x8000;
-            }
+            int chunk = (sz < 0x300000) ? sz : 0x300000;
+            sceIoRead(fd, buffer, chunk);
+            ret = sceIoWrite(vs0Img, buffer, chunk);
+            sz -= chunk;
         }
         sceIoClose(fd);
         sceIoRemove(path);
-
     }
     sceIoClose(vs0Img);
 }
@@ -247,7 +231,7 @@ void backup(void)
         float percent = (float)total / 268435456 * 100.0;
         psvDebugScreenSetXY(0, 9);
 
-        psvDebugScreenPrintf("[+] Creating ur0:/vs0-oroig.img [%i/268435456]   \n", total);
+       psvDebugScreenPrintf("[+] Creating ur0:/vs0-orig.img [%i/268435456]\n", total);
 
         sceKernelPowerTick(SCE_KERNEL_POWER_TICK_DISABLE_AUTO_SUSPEND);
         sceKernelPowerTick(SCE_KERNEL_POWER_TICK_DISABLE_OLED_OFF);
@@ -275,6 +259,7 @@ void flash(void)
 
         sceKernelPowerTick(SCE_KERNEL_POWER_TICK_DISABLE_AUTO_SUSPEND);
         sceKernelPowerTick(SCE_KERNEL_POWER_TICK_DISABLE_OLED_OFF);
+        sceKernelDelayThread(16000);
     }
 
     cleanup();
