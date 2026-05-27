@@ -30,7 +30,7 @@ jobs:
 
     - name: Build Miaki
       run: |
-        make
+        cmake .
 
     - name: Upload VPK as artifact
       uses: actions/upload-artifact@v4
