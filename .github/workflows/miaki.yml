@@ -40,7 +40,7 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: Miaki
-        path: app/MIAKI.vpk
+        path: build/release.vpk
       if: github.event_name == 'push' && github.ref == 'refs/heads/dev'
     
     - name: Create Draft Release
@@ -51,9 +51,9 @@ jobs:
         tag_name: v${{ github.run_number }} 
         name: Miaki Draft Release v${{ github.run_number }}
         body: |
-          This is a draft release for Miaki.
+         VPK from CI/CD build.
           Built from commit: ${{ github.sha }}
         files: |
-          app/MIAKI.vpk
+          build/release.vpk
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
