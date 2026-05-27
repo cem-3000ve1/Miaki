@@ -28,10 +28,14 @@ jobs:
         echo "VITASDK=/usr/local/vitasdk" >> $GITHUB_ENV
         echo "PATH=/usr/local/vitasdk/bin:$PATH" >> $GITHUB_ENV
 
-    - name: Build Miaki
+    - name: Running cmake
       run: |
         cmake .
 
+    - name: Running make
+      run: |
+        make
+        
     - name: Upload VPK as artifact
       uses: actions/upload-artifact@v4
       with:
