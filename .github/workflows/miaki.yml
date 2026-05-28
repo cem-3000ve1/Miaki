@@ -34,7 +34,7 @@ jobs:
 
     - name: Running make
       run: |
-        make
+        make -j4
         
     - name: Upload VPK as artifact
       uses: actions/upload-artifact@v4
