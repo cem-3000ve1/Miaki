@@ -52,7 +52,7 @@ int run_on_thread(void *func) {
 	int res = 0;
 	int uid = 0;
 
-	ret = uid = ksceKernelCreateThread("run_on_thread", func, 64, 0x20000, 0, 0, 0);
+	ret = uid = ksceKernelCreateThread("run_on_thread", func, 64, 0x10000, 0, 0, 0);
 	
 	if (ret < 0) {
 		ret = -1;
@@ -67,7 +67,6 @@ int run_on_thread(void *func) {
 
 cleanup:
 	if (uid > 0)
-		ksceKernelWaitThreadEnd(uid, NULL, NULL);
 		ksceKernelDeleteThread(uid);
 
 	return ret;
@@ -81,15 +80,23 @@ int run_dd(void)
 	
 	SceUID fd = ksceIoOpen(infile, SCE_O_RDONLY, 0777);
 	SceUID wfd = ksceIoOpen(outfile, SCE_O_WRONLY, 6);
-	static char buffer[0x200000];
+	static char buffer[0x100000];
 	
 	while(!(sz <= 0))
 	{
-		//memset(buffer,0x00,0x100000);
-		int chunk = (sz < 0x200000) ? sz : 0x200000;
-		ksceIoRead(fd, buffer, chunk);
-		ret = ksceIoWrite(wfd, buffer, chunk);
-		sz -= chunk;
+		memset(buffer,0x00,0x100000);
+		if(sz < 0x100000)
+		{
+			ksceIoRead(fd, buffer, sz);
+			ret = ksceIoWrite(wfd, buffer, sz);
+			sz -= sz;
+		}
+		else
+		{
+			ksceIoRead(fd, buffer, 0x100000);
+			ret = ksceIoWrite(wfd, buffer, 0x100000);
+			sz -= 0x100000;
+		}
 	}
 
 	if (fd > 0)

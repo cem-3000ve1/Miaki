@@ -86,7 +86,7 @@ typedef struct {
 
 static char pup_type_buf[0x20];
 static char pup_dec_dir[0x100];
-static char temp_buff[0x10000];
+static char temp_buff[0x2000];
 
 
 int get_key(int type);

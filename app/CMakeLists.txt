@@ -23,7 +23,7 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
 set(VITA_MKSFOEX_FLAGS "${VITA_MKSFOEX_FLAGS}")
 set(VITA_MAKE_FSELF_FLAGS "${VITA_MAKE_FSELF_FLAGS} -a 0x2808000000000000")
-add_compile_options(-Wno-implicit-function-declaration -Wdeclaration-missing-parameter-type -Wimplicit-int)
+add_compile_options(-Wno-implicit-function-declaration)
 
 include_directories(
 )
